@@ -16,7 +16,12 @@ namespace VeloceCRM.Repository
         public Entity.User? Get(long Id)
         {
             if (ApiContext == null) return null;
-            return ApiContext.Users.FirstOrDefault(x => x.Id == Id && !x.IsDeleted);
+            return ApiContext.Users.FirstOrDefault(x => x.Id == Id && !x.IsDeleted && x.LicenseKey == LicenseKey);
+        }
+        public Entity.User? GetByAccount(string Account)
+        {
+            if (ApiContext == null) return null;
+            return ApiContext.Users.FirstOrDefault(x => x.WindowsAccount != null && x.WindowsAccount.ToLower().Contains(Account.ToLower()) && !x.IsDeleted);
         }
         public Entity.User? Authenticate(string login, string password  )
         {
@@ -80,6 +85,7 @@ namespace VeloceCRM.Repository
             record.Password = Source.Password;
             record.Phone = Source.Phone;
             record.Surname = Source.Surname;
+            record.WindowsAccount = Source.WindowsAccount;
             ApiContext.SaveChanges();
             return record;
         }

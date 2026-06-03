@@ -217,5 +217,10 @@ namespace VeloceCRM.Client.Dialogs
         {
             FillCountries();
         }
+
+        private void cmdClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

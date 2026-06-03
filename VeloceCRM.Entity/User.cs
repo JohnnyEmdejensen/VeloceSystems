@@ -57,6 +57,8 @@ namespace VeloceCRM.Entity
         public string Password { get; set; } = string.Empty;
         public bool IsActive { get; set; }
         public bool ForceNewPassword { get; set; }
+        [MaxLength(1024)]
+        public string? WindowsAccount { get; set; }
 
         [NotMapped]
         public string? Fullname { get; set; }

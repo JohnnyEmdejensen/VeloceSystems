@@ -40,16 +40,29 @@ namespace VeloceCRM.Client
 
         private void Authenticate()
         {
-            _dialogAuthenticate = new Dialogs.AuthenticateDialog();
-            _dialogAuthenticate.Topmost = true;
-            _dialogAuthenticate.ShowDialog();
-            if (App.Globals.AppShare.ActiveUser == null)
+            Repository.Repositories repositories = new Repository.Repositories(Guid.Empty.ToString());
+            var wa = Environment.UserDomainName + "/" + Environment.UserName;
+            var user = repositories.UserRepository.GetByAccount(wa);
+            if (user == null)
             {
-                Close();
+                _dialogAuthenticate = new Dialogs.AuthenticateDialog();
+                _dialogAuthenticate.Topmost = true;
+                _dialogAuthenticate.ShowDialog();
+                if (App.Globals.AppShare.ActiveUser == null)
+                {
+                    Close();
+                }
+                else
+                {
+
+                }
             }
             else
             {
-
+                user.SetFullName();
+                App.Globals.AppShare.ActiveUser = user;
+                App.Globals.AppShare.Repositories = new Repository.Repositories(user.LicenseKey);
+                App.Globals.EventHelper.RaiseAuthenticatedEvent();
             }
         }
         private void ModelLocations()
