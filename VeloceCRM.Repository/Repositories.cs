@@ -16,8 +16,10 @@ namespace VeloceCRM.Repository
             UserRepository = new UserRepository(Key, context);
             CountryRepository = new CountryRepository(Key, context);
             PostalzoneRepository = new PostalzoneRepository(Key, context);
+            LocationRepository = new LocationRepository(Key, context);
         }
 
+        public LocationRepository LocationRepository { get; set; }
         public PostalzoneRepository PostalzoneRepository { get; set; }
         public CountryRepository CountryRepository { get; set; }
         public UserRepository UserRepository { get; set; }
