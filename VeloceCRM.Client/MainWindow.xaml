@@ -1,0 +1,72 @@
+﻿<Window x:Class="VeloceCRM.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VeloceCRM.Client"
+        mc:Ignorable="d"
+        Title="{DynamicResource window.desktop.title}" MinHeight="800" MinWidth="1200" Tag="Desktop">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="#FFAAC9FA" Offset="0.0" />
+            <GradientStop Color="#FFEBF3FA" Offset="1.0" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Ribbon>
+            <RibbonTab Header="{DynamicResource desktop.ribbon.tab.home}">
+                <RibbonGroup Header="{DynamicResource desktop.ribbon.group.creations}">
+                    <RibbonButton Label="{DynamicResource desktop.ribbon.creations.company}" LargeImageSource="/Images/factory_32.png" SmallImageSource="/Images/factory_16.png" ></RibbonButton>
+                    <RibbonButton Label="{DynamicResource desktop.ribbon.creations.person}" LargeImageSource="/Images/businessmen_32.png" SmallImageSource="/Images/businessmen_16.png" ></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Header="{DynamicResource desktop.ribbon.group.views}">
+                    <RibbonToggleButton Label="{DynamicResource desktop.ribbon.views.dashboard}" LargeImageSource="/Images/gauge_32.png" SmallImageSource="/Images/gauge_16.png" IsChecked="True"></RibbonToggleButton>
+                    <RibbonToggleButton Label="{DynamicResource desktop.ribbon.views.companies}" LargeImageSource="/Images/factory_view_32.png" SmallImageSource="/Images/factory_16.png" IsChecked="True"></RibbonToggleButton>
+                    <RibbonToggleButton Label="{DynamicResource desktop.ribbon.views.persons}" LargeImageSource="/Images/businessmen_view_32.png" SmallImageSource="/Images/businessmen_16.png" IsChecked="True"></RibbonToggleButton>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="{DynamicResource desktop.ribbon.tab.settings}">
+                <RibbonGroup Header="{DynamicResource desktop.ribbon.group.systemdata}">
+                    
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"></ColumnDefinition>
+                <ColumnDefinition Width="4"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    
+                </Grid>
+                <Label Grid.Column="1" Style="{DynamicResource DarkLine}"></Label>
+                <Label Grid.Column="2" Style="{DynamicResource LightLine}"></Label>
+            </Grid>
+            <GridSplitter Grid.Column="1"></GridSplitter>
+            <TabControl Grid.Column="2">
+                <TabItem Header="Dashboard"></TabItem>
+                <TabItem Header="Companies"></TabItem>
+                <TabItem Header="Persons"></TabItem>
+            </TabControl>
+        </Grid>
+        <Label Grid.Row="2" Style="{DynamicResource DarkLine}"></Label>
+        <Label Grid.Row="3" Style="{DynamicResource LightLine}"></Label>
+        <StackPanel Orientation="Horizontal">
+            
+        </StackPanel>
+    </Grid>
+</Window>
