@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VeloceCRM.Data\VeloceCRM.Data.csproj" />
+    <ProjectReference Include="..\VeloceCRM.Entity\VeloceCRM.Entity.csproj" />
+    <ProjectReference Include="..\VeloceCRM\VeloceCRM.csproj" />
+    <ProjectReference Include="..\Veloce\Veloce.csproj" />
+  </ItemGroup>
+
 </Project>

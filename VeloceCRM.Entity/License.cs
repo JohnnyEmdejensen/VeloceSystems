@@ -11,6 +11,8 @@ namespace VeloceCRM.Entity
         public long Id { get; set; }
         [MaxLength(64)]
         public string Key { get; set; } = string.Empty;
+        [MaxLength(4)]
+        public string Prefix { get; set; } = string.Empty;
         [MaxLength(64)]
         public string CompanyName { get; set; } = string.Empty;
         public long LocationId { get; set; }

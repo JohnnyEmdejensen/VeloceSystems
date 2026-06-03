@@ -13,12 +13,12 @@ namespace VeloceCRM.Data
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Property("Created").CurrentValue = DateTime.Now;
+                    entry.Property("Created").CurrentValue = Veloce.Core.ConvertDateTimeToLong(DateTime.Now);
                 }
                 else if (entry.State == EntityState.Modified)
                 {
                     entry.Property("Created").IsModified = false;
-                    entry.Property("Updated").CurrentValue = DateTime.Now;
+                    entry.Property("Updated").CurrentValue = Veloce.Core.ConvertDateTimeToLong(DateTime.Now);
                 }
             }
             return base.SaveChanges();
