@@ -13,8 +13,10 @@ namespace VeloceCRM.Repository
             ApiContext context = factory.CreateDbContext(null);
 
             LicenseRepository = new LicenseRepository(Key, context);
+            UserRepository = new UserRepository(Key, context);
         }
 
+        public UserRepository UserRepository { get; set; }
         public LicenseRepository LicenseRepository { get; set; }
     }
 }
