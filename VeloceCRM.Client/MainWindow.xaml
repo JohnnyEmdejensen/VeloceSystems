@@ -34,7 +34,9 @@
             </RibbonTab>
             <RibbonTab Header="{DynamicResource desktop.ribbon.tab.settings}">
                 <RibbonGroup Header="{DynamicResource desktop.ribbon.group.systemdata}">
-                    
+                    <RibbonButton x:Name="cmdDataCountry" Label="{DynamicResource desktop.ribbon.settings.data.country}" Click="cmdDataCountry_Click" LargeImageSource="/Images/earth_32.png" SmallImageSource="/Images/earth_16.png"></RibbonButton>
+                    <RibbonButton x:Name="cmdDataPostalzone" Label="{DynamicResource desktop.ribbon.settings.data.postalzone}" Click="cmdDataPostalzone_Click" LargeImageSource="/Images/mailbox_empty_32.png" SmallImageSource="/Images/mailbox_empty_16.png"></RibbonButton>
+                    <RibbonButton x:Name="cmdDatalocation" Label="{DynamicResource desktop.ribbon.settings.data.location}" Click="cmdDatalocation_Click" LargeImageSource="/Images/earth_location_32.png" SmallImageSource="/Images/earth_location_16.png"></RibbonButton>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>

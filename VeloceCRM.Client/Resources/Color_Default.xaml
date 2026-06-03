@@ -5,5 +5,5 @@
     <SolidColorBrush x:Key="PrimaryLineLight" Color="#FFC2DFF6"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryDialogBackColor" Color="#FF60819E"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryForeground" Color="Black"></SolidColorBrush>
-
+    <SolidColorBrush x:Key="DatagridHoverColor" Color="#FFEFE5C1"></SolidColorBrush>
 </ResourceDictionary>

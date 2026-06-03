@@ -52,6 +52,8 @@ namespace VeloceCRM.Entity
         public long PostalzoneId { get; set; }
         [NotMapped]
         public string? Address { get; set; }
+        [NotMapped]
+        public Entity.Postalzone? Postalzone { get; set; }
 
     }   
 }

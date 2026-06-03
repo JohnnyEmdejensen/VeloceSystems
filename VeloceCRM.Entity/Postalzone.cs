@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace VeloceCRM.Entity
@@ -14,5 +15,8 @@ namespace VeloceCRM.Entity
         [MaxLength(128)]
         public string? State { get; set; }
         public long CountryId { get; set; }
+
+        [NotMapped]
+        public Entity.Country? Country { get; set; }
     }
 }

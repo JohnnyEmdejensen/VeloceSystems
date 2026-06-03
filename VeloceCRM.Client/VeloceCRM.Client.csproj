@@ -9,11 +9,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\add_16.png" />
+    <None Remove="Images\add_24.png" />
+    <None Remove="Images\add_32.png" />
+    <None Remove="Images\add_48.png" />
     <None Remove="Images\businessmen_16.png" />
     <None Remove="Images\businessmen_24.png" />
     <None Remove="Images\businessmen_32.png" />
     <None Remove="Images\businessmen_48.png" />
     <None Remove="Images\businessmen_view_32.png" />
+    <None Remove="Images\delete_16.png" />
+    <None Remove="Images\delete_24.png" />
+    <None Remove="Images\delete_32.png" />
+    <None Remove="Images\delete_48.png" />
+    <None Remove="Images\disk_blue_16.png" />
+    <None Remove="Images\disk_blue_24.png" />
+    <None Remove="Images\disk_blue_32.png" />
+    <None Remove="Images\disk_blue_48.png" />
+    <None Remove="Images\disk_green_16.png" />
+    <None Remove="Images\disk_green_24.png" />
+    <None Remove="Images\disk_green_32.png" />
+    <None Remove="Images\disk_green_48.png" />
+    <None Remove="Images\earth_16.png" />
+    <None Remove="Images\earth_24.png" />
+    <None Remove="Images\earth_32.png" />
+    <None Remove="Images\earth_48.png" />
+    <None Remove="Images\earth_location_16.png" />
+    <None Remove="Images\earth_location_24.png" />
+    <None Remove="Images\earth_location_32.png" />
+    <None Remove="Images\earth_location_48.png" />
     <None Remove="Images\factory_16.png" />
     <None Remove="Images\factory_24.png" />
     <None Remove="Images\factory_32.png" />
@@ -24,6 +48,10 @@
     <None Remove="Images\gauge_24.png" />
     <None Remove="Images\gauge_32.png" />
     <None Remove="Images\gauge_48.png" />
+    <None Remove="Images\mailbox_empty_16.png" />
+    <None Remove="Images\mailbox_empty_24.png" />
+    <None Remove="Images\mailbox_empty_32.png" />
+    <None Remove="Images\mailbox_empty_48.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,11 +66,35 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\add_16.png" />
+    <Resource Include="Images\add_24.png" />
+    <Resource Include="Images\add_32.png" />
+    <Resource Include="Images\add_48.png" />
     <Resource Include="Images\businessmen_16.png" />
     <Resource Include="Images\businessmen_24.png" />
     <Resource Include="Images\businessmen_32.png" />
     <Resource Include="Images\businessmen_48.png" />
     <Resource Include="Images\businessmen_view_32.png" />
+    <Resource Include="Images\delete_16.png" />
+    <Resource Include="Images\delete_24.png" />
+    <Resource Include="Images\delete_32.png" />
+    <Resource Include="Images\delete_48.png" />
+    <Resource Include="Images\disk_blue_16.png" />
+    <Resource Include="Images\disk_blue_24.png" />
+    <Resource Include="Images\disk_blue_32.png" />
+    <Resource Include="Images\disk_blue_48.png" />
+    <Resource Include="Images\disk_green_16.png" />
+    <Resource Include="Images\disk_green_24.png" />
+    <Resource Include="Images\disk_green_32.png" />
+    <Resource Include="Images\disk_green_48.png" />
+    <Resource Include="Images\earth_16.png" />
+    <Resource Include="Images\earth_24.png" />
+    <Resource Include="Images\earth_32.png" />
+    <Resource Include="Images\earth_48.png" />
+    <Resource Include="Images\earth_location_16.png" />
+    <Resource Include="Images\earth_location_24.png" />
+    <Resource Include="Images\earth_location_32.png" />
+    <Resource Include="Images\earth_location_48.png" />
     <Resource Include="Images\factory_16.png" />
     <Resource Include="Images\factory_24.png" />
     <Resource Include="Images\factory_32.png" />
@@ -53,6 +105,10 @@
     <Resource Include="Images\gauge_24.png" />
     <Resource Include="Images\gauge_32.png" />
     <Resource Include="Images\gauge_48.png" />
+    <Resource Include="Images\mailbox_empty_16.png" />
+    <Resource Include="Images\mailbox_empty_24.png" />
+    <Resource Include="Images\mailbox_empty_32.png" />
+    <Resource Include="Images\mailbox_empty_48.png" />
   </ItemGroup>
 
 </Project>

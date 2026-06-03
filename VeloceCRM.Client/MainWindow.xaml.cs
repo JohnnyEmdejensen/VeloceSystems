@@ -32,6 +32,9 @@ namespace VeloceCRM.Client
             Closing += MainWindow_Closing;
             KeyDown += MainWindow_KeyDown;
             App.Globals.EventHelper.Authenticated += EventHelper_Authenticated;
+            App.Globals.EventHelper.CountryCollectionChanged += EventHelper_CountryCollectionChanged;
+            App.Globals.EventHelper.PostalzoneCollectionChanged += EventHelper_PostalzoneCollectionChanged;
+            App.Globals.EventHelper.LocationCollectionChanged += EventHelper_LocationCollectionChanged;
             _settings.Load();
         }
 
@@ -47,6 +50,21 @@ namespace VeloceCRM.Client
             else
             {
 
+            }
+        }
+        private void ModelLocations()
+        {
+            if (App.Globals.DataShare.CountryCollection == null || App.Globals.DataShare.PostalzoneCollection == null || App.Globals.DataShare.LocationCollection == null) return;
+            using (new WorkerHandler("ModelLocations"))
+            {
+                foreach (var item in App.Globals.DataShare.LocationCollection)
+                {
+                    item.Postalzone = App.Globals.DataShare.PostalzoneCollection.FirstOrDefault(x => x.Id == item.PostalzoneId);
+                    if (item.Postalzone != null)
+                    {
+                        item.Postalzone.Country = App.Globals.DataShare.CountryCollection.FirstOrDefault(x => x.Id == item.Postalzone.CountryId);                        
+                    }
+                }
             }
         }
         private void SetGui()
@@ -130,6 +148,8 @@ namespace VeloceCRM.Client
         private void EventHelper_Authenticated(object sender, EventArgs e)
         {
             _timer.Enabled = true;
+            App.Globals.DataShare.ResumeEvents();
+            App.Globals.DataShare.GetInitialData();
             if (App.Globals.AppShare.ActiveUser != null)
             {
                 lblUser.Content = App.Globals.AppShare.ActiveUser.Fullname;
@@ -142,6 +162,35 @@ namespace VeloceCRM.Client
                 lblDatetime.Content = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
             }));
             _timer.Start();
+        }
+        private void EventHelper_LocationCollectionChanged(object sender, EventArgs e)
+        {
+            ModelLocations();
+        }
+
+        private void EventHelper_PostalzoneCollectionChanged(object sender, EventArgs e)
+        {
+            ModelLocations();
+        }
+
+        private void EventHelper_CountryCollectionChanged(object sender, EventArgs e)
+        {
+            ModelLocations();
+        }
+
+        private void cmdDataCountry_Click(object sender, RoutedEventArgs e)
+        {
+            App.Globals.DialogHelper.ShowCountryDialog(null);
+        }
+
+        private void cmdDataPostalzone_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmdDatalocation_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

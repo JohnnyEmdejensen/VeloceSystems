@@ -7,6 +7,9 @@
     <system:String x:Key="desktop.ribbon.group.creations">Creations</system:String>
     <system:String x:Key="desktop.ribbon.creations.company">Company</system:String>
     <system:String x:Key="desktop.ribbon.creations.person">Person</system:String>
+    <system:String x:Key="desktop.ribbon.settings.data.country">Country</system:String>
+    <system:String x:Key="desktop.ribbon.settings.data.postalzone">Postalzone</system:String>
+    <system:String x:Key="desktop.ribbon.settings.data.location">Location</system:String>
     
     <system:String x:Key="desktop.ribbon.group.views">Views</system:String>
     <system:String x:Key="desktop.ribbon.views.dashboard">Dashboard</system:String>
@@ -21,6 +24,17 @@
     <system:String x:Key="authenticate.header.login">LOGIN</system:String>
     <system:String x:Key="authenticate.header.password">PASSWORD</system:String>
     <system:String x:Key="authenticate.header.savelogin">SAVE LOGIN</system:String>
+
+    <system:String x:Key="country.header.name">NAME</system:String>
+    <system:String x:Key="country.header.isocode">ISOCODE</system:String>
+    <system:String x:Key="country.header.number">NUMBER</system:String>
+    <system:String x:Key="country.button.tooltip.add">Add new country.</system:String>
+    <system:String x:Key="country.button.tooltip.save">Save country.</system:String>
+    <system:String x:Key="country.button.tooltip.saveclose">Save and close after saving the country.</system:String>
+    <system:String x:Key="country.button.tooltip.delete">Delete country</system:String>
+    <system:String x:Key="country.question.deletecountry">Are you sure to delete this country?</system:String>
+    <system:String x:Key="country.question.deletecountry.title">Delete country</system:String>
+    
 
     <system:String x:Key="dialog.result.cancel">Cancel</system:String>
     <system:String x:Key="dialog.result.ok">OK</system:String>
