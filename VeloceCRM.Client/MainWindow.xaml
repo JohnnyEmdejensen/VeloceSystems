@@ -27,9 +27,9 @@
                     <RibbonButton Label="{DynamicResource desktop.ribbon.creations.person}" LargeImageSource="/Images/businessmen_32.png" SmallImageSource="/Images/businessmen_16.png" ></RibbonButton>
                 </RibbonGroup>
                 <RibbonGroup Header="{DynamicResource desktop.ribbon.group.views}">
-                    <RibbonToggleButton Label="{DynamicResource desktop.ribbon.views.dashboard}" LargeImageSource="/Images/gauge_32.png" SmallImageSource="/Images/gauge_16.png" IsChecked="True"></RibbonToggleButton>
-                    <RibbonToggleButton Label="{DynamicResource desktop.ribbon.views.companies}" LargeImageSource="/Images/factory_view_32.png" SmallImageSource="/Images/factory_16.png" IsChecked="True"></RibbonToggleButton>
-                    <RibbonToggleButton Label="{DynamicResource desktop.ribbon.views.persons}" LargeImageSource="/Images/businessmen_view_32.png" SmallImageSource="/Images/businessmen_16.png" IsChecked="True"></RibbonToggleButton>
+                    <RibbonToggleButton x:Name="cmdViewDashboard" Click="cmdViewDashboard_Click" Label="{DynamicResource desktop.ribbon.views.dashboard}" LargeImageSource="/Images/gauge_32.png" SmallImageSource="/Images/gauge_16.png" IsChecked="True"></RibbonToggleButton>
+                    <RibbonToggleButton x:Name="cmdViewCompanies" Click="cmdViewCompanies_Click" Label="{DynamicResource desktop.ribbon.views.companies}" LargeImageSource="/Images/factory_view_32.png" SmallImageSource="/Images/factory_16.png" IsChecked="True"></RibbonToggleButton>
+                    <RibbonToggleButton x:Name="cmdViewPersons" Click="cmdViewPersons_Click" Label="{DynamicResource desktop.ribbon.views.persons}" LargeImageSource="/Images/businessmen_view_32.png" SmallImageSource="/Images/businessmen_16.png" IsChecked="True"></RibbonToggleButton>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="{DynamicResource desktop.ribbon.tab.settings}">
@@ -57,16 +57,21 @@
                 <Label Grid.Column="2" Style="{DynamicResource LightLine}"></Label>
             </Grid>
             <GridSplitter Grid.Column="1"></GridSplitter>
-            <TabControl Grid.Column="2">
-                <TabItem Header="Dashboard"></TabItem>
-                <TabItem Header="Companies"></TabItem>
-                <TabItem Header="Persons"></TabItem>
+            <TabControl Grid.Column="2" x:Name="tabViews">
+                <TabItem Header="Dashboard" x:Name="pageDashboard"></TabItem>
+                <TabItem Header="Companies" x:Name="pageCompanies"></TabItem>
+                <TabItem Header="Persons" x:Name="pagePersons"></TabItem>
             </TabControl>
         </Grid>
         <Label Grid.Row="2" Style="{DynamicResource DarkLine}"></Label>
         <Label Grid.Row="3" Style="{DynamicResource LightLine}"></Label>
-        <StackPanel Orientation="Horizontal">
-            
+        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Width="8"></Label>
+            <Label Content="01-01-2000 12:00" x:Name="lblDatetime"></Label>
+            <Label Width="8"></Label>
+            <Label Content="{DynamicResource desktop.status.header.user}"></Label>
+            <Label x:Name="lblUser" FontWeight="Bold"></Label>
+
         </StackPanel>
     </Grid>
 </Window>

@@ -20,5 +20,18 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="BorderBrush" Value="Transparent"></Setter>
     </Style>
+    <Style TargetType="{x:Type Window}" x:Key="DefaultDialogStyle">
+        <Setter Property="Background" Value="{DynamicResource PrimaryDialogBackColor}"></Setter>
+        <Setter Property="WindowStyle" Value="None"></Setter>
+        <Setter Property="AllowsTransparency" Value="False"></Setter>
+    </Style>
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="Padding" Value="0"></Setter>
+    </Style>
+    <Style TargetType="{x:Type Label}" x:Key="LabelHeader">
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
+    </Style>
 
 </ResourceDictionary>

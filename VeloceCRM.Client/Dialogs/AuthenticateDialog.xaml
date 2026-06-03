@@ -1,0 +1,97 @@
+﻿<Window x:Class="VeloceCRM.Client.Dialogs.AuthenticateDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VeloceCRM.Client.Dialogs"
+        mc:Ignorable="d"
+        Tag="Authenticate" Height="300" Width="400" ResizeMode="NoResize" Style="{DynamicResource DefaultDialogStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="39"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="8"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="txtTitle" Padding="8" MouseLeftButtonDown="txtTitle_MouseLeftButtonDown" Grid.Column="0" VerticalAlignment="Center" Text="Veloce CRM - Authentiaction" FontWeight="Bold" Foreground="white"></TextBlock>
+            
+        </Grid>
+        <Label Grid.Row="1" Style="{DynamicResource DarkLine}"></Label>
+        <Label Grid.Row="2" Style="{DynamicResource LightLine}"></Label>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"></Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="8"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="8"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="8"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="8"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="8"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Content="{DynamicResource authenticate.header.license}" Style="{DynamicResource LabelHeader}"></Label>
+                    <TextBox Grid.Row="1" Text="{Binding Path=License}" x:Name="txtLicense"></TextBox>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Content="{DynamicResource authenticate.header.login}" Style="{DynamicResource LabelHeader}"></Label>
+                    <TextBox Grid.Row="1" Text="{Binding Path=Login}"></TextBox>
+                </Grid>
+                <Grid Grid.Row="5" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Content="{DynamicResource authenticate.header.password}" Style="{DynamicResource LabelHeader}"></Label>
+                    <PasswordBox Grid.Row="1" x:Name="txtPassword" PasswordChanged="txtPassword_PasswordChanged" ></PasswordBox>
+                </Grid>
+                <Grid Grid.Row="7" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Content="{DynamicResource authenticate.header.savelogin}" Style="{DynamicResource LabelHeader}"></Label>
+                    <CheckBox Grid.Row="1" IsChecked="{Binding Path=SaveLogin}"></CheckBox>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Label Grid.Row="4" Style="{DynamicResource DarkLine}"></Label>
+        <Label Grid.Row="5" Style="{DynamicResource LightLine}"></Label>
+        <StackPanel Height="23" VerticalAlignment="Center" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Width="75" x:Name="btnLogin" Click="btnLogin_Click" Content="{DynamicResource dialog.result.login}" IsDefault="True"></Button>
+            <Label Width="8"></Label>
+            <Button Width="75" Content="{DynamicResource dialog.result.cancel}" IsCancel="True"></Button>
+            <Label Width="8"></Label>
+        </StackPanel>
+    </Grid>
+</Window>

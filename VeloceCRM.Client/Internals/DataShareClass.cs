@@ -6,5 +6,6 @@ namespace VeloceCRM.Client.Internals
 {
     public class DataShareClass
     {
+        public List<Internals.WorkerItem> WorkerItems { get; set; } = new List<WorkerItem>();
     }
 }

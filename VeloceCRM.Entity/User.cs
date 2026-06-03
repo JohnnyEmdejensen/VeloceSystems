@@ -63,7 +63,7 @@ namespace VeloceCRM.Entity
         [NotMapped]
         public string? Authenticationstatus { get; set; }
 
-        private void SetFullName()
+        public void SetFullName()
         {
             if (string.IsNullOrEmpty(Middlename))
             {
