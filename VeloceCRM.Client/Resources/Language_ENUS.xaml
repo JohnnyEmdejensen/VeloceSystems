@@ -42,6 +42,15 @@
     <system:String x:Key="postalzone.question.deletepostalzone">Are you sure to delete this postalzone?</system:String>
     <system:String x:Key="postalzone.question.deletepostalzone.title">Delete postalzone</system:String>
 
+    <system:String x:Key="location.question.deletelocation">Are you sure to delete this location?</system:String>
+    <system:String x:Key="location.question.deletelocation.title">Delete location</system:String>
+
+    <system:String x:Key="location.header.street">STREET</system:String>
+    <system:String x:Key="location.header.house">HOUSE</system:String>
+    <system:String x:Key="location.header.floor">FLOOR</system:String>
+    <system:String x:Key="location.header.door">DOOT</system:String>
+    <system:String x:Key="location.header.postalzone">POSTALZONE</system:String>
+
 
     <system:String x:Key="dialog.result.cancel">Cancel</system:String>
     <system:String x:Key="dialog.result.ok">OK</system:String>

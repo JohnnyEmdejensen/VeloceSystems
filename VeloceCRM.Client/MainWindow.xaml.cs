@@ -203,7 +203,7 @@ namespace VeloceCRM.Client
 
         private void cmdDatalocation_Click(object sender, RoutedEventArgs e)
         {
-
+            App.Globals.DialogHelper.ShowLocationDialog(null);
         }
     }
 }
