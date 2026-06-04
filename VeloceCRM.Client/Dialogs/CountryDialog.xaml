@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeloceCRM.Client.Dialogs"
         mc:Ignorable="d"
-        Tag="Country" Height="300" Width="400" ResizeMode="NoResize" Style="{DynamicResource DefaultDialogStyle}">
+        Tag="Country" Height="300" Width="400" ResizeMode="NoResize" Icon="/Images/earth_48.png" Style="{DynamicResource DefaultDialogStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>

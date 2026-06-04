@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>bomb.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,10 @@
     <None Remove="Images\add_24.png" />
     <None Remove="Images\add_32.png" />
     <None Remove="Images\add_48.png" />
+    <None Remove="Images\bomb_16.png" />
+    <None Remove="Images\bomb_24.png" />
+    <None Remove="Images\bomb_32.png" />
+    <None Remove="Images\bomb_48.png" />
     <None Remove="Images\businessmen_16.png" />
     <None Remove="Images\businessmen_24.png" />
     <None Remove="Images\businessmen_32.png" />
@@ -59,6 +64,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="bomb.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
@@ -74,6 +83,10 @@
     <Resource Include="Images\add_24.png" />
     <Resource Include="Images\add_32.png" />
     <Resource Include="Images\add_48.png" />
+    <Resource Include="Images\bomb_16.png" />
+    <Resource Include="Images\bomb_24.png" />
+    <Resource Include="Images\bomb_32.png" />
+    <Resource Include="Images\bomb_48.png" />
     <Resource Include="Images\businessmen_16.png" />
     <Resource Include="Images\businessmen_24.png" />
     <Resource Include="Images\businessmen_32.png" />

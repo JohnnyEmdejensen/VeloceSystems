@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeloceCRM.Client.Dialogs"
         mc:Ignorable="d"
-        Tag="Postalzone" Height="300" Width="500" ResizeMode="NoResize" Style="{DynamicResource DefaultDialogStyle}">
+        Tag="Postalzone" Height="300" Width="500" ResizeMode="NoResize" Icon="/Images/mailbox_empty_48.png" Style="{DynamicResource DefaultDialogStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>

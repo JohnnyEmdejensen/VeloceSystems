@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeloceCRM.Client"
         mc:Ignorable="d"
-        Title="{DynamicResource window.desktop.title}" MinHeight="800" MinWidth="1200" Tag="Desktop">
+        Title="{DynamicResource window.desktop.title}" MinHeight="800" MinWidth="1200" Tag="Desktop" Icon="/Images/bomb_48.png">
     <Window.Background>
         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
             <GradientStop Color="#FFAAC9FA" Offset="0.0" />
