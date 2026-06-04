@@ -15,6 +15,8 @@ namespace VeloceCRM.Client.Internals
         {
             App.Globals.EventHelper.CountryDeleted += EventHelper_CountryDeleted;
             App.Globals.EventHelper.CountrySaved += EventHelper_CountrySaved;
+            App.Globals.EventHelper.PostalzoneDeleted += EventHelper_PostalzoneDeleted;
+            App.Globals.EventHelper.PostalzoneSaved += EventHelper_PostalzoneSaved;
         }
 
 
@@ -73,6 +75,14 @@ namespace VeloceCRM.Client.Internals
         private void EventHelper_CountrySaved(object sender, EventArgs e)
         {
             GetCountries();
+        }
+        private void EventHelper_PostalzoneDeleted(object sender, EventArgs e)
+        {
+            GetPostalzones();
+        }
+        private void EventHelper_PostalzoneSaved(object sender, EventArgs e)
+        {
+            GetPostalzones();
         }
     }
 }

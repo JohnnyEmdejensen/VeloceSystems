@@ -25,6 +25,10 @@
         <Setter Property="WindowStyle" Value="None"></Setter>
         <Setter Property="AllowsTransparency" Value="False"></Setter>
     </Style>
+    <Style TargetType="{x:Type ComboBox}">
+        <Setter Property="IsEditable" Value="True"></Setter>
+        <Setter Property="Padding" Value="4 0 0 0"></Setter>
+    </Style>
     <Style TargetType="{x:Type Label}">
         <Setter Property="Padding" Value="0"></Setter>
     </Style>

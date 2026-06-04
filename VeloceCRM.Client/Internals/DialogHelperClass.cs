@@ -6,6 +6,14 @@ namespace VeloceCRM.Client.Internals
 {
     public class DialogHelperClass
     {
+        public void ShowPostalzoneDialog(Entity.Postalzone? Postalzone)
+        {
+            Dialogs.PostalzoneDialog frm = new Dialogs.PostalzoneDialog
+            {
+                DataContext = Postalzone,
+            };
+            frm.Show();
+        }
         public void ShowCountryDialog(Entity.Country? Country)
         {
             Dialogs.CountryDialog frm = new Dialogs.CountryDialog()

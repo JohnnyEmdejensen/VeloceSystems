@@ -198,7 +198,7 @@ namespace VeloceCRM.Client
 
         private void cmdDataPostalzone_Click(object sender, RoutedEventArgs e)
         {
-
+            App.Globals.DialogHelper.ShowPostalzoneDialog(null);
         }
 
         private void cmdDatalocation_Click(object sender, RoutedEventArgs e)

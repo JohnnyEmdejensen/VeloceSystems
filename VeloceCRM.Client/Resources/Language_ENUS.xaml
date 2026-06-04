@@ -34,7 +34,14 @@
     <system:String x:Key="country.button.tooltip.delete">Delete country</system:String>
     <system:String x:Key="country.question.deletecountry">Are you sure to delete this country?</system:String>
     <system:String x:Key="country.question.deletecountry.title">Delete country</system:String>
-    
+
+    <system:String x:Key="postalzone.header.zipcode">ZIPCODE</system:String>
+    <system:String x:Key="postalzone.header.city">CITY</system:String>
+    <system:String x:Key="postalzone.header.state">STATE</system:String>
+    <system:String x:Key="postalzone.header.country">COUNTRY</system:String>
+    <system:String x:Key="postalzone.question.deletepostalzone">Are you sure to delete this postalzone?</system:String>
+    <system:String x:Key="postalzone.question.deletepostalzone.title">Delete postalzone</system:String>
+
 
     <system:String x:Key="dialog.result.cancel">Cancel</system:String>
     <system:String x:Key="dialog.result.ok">OK</system:String>

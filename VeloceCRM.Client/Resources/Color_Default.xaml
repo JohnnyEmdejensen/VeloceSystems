@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="PrimaryLineDark" Color="#FF3E7FC3"></SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryLineDark" Color="#FF2D6096"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryLineLight" Color="#FFC2DFF6"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryDialogBackColor" Color="#FF60819E"></SolidColorBrush>
     <SolidColorBrush x:Key="PrimaryForeground" Color="Black"></SolidColorBrush>
