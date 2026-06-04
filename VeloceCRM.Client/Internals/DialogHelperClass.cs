@@ -6,6 +6,14 @@ namespace VeloceCRM.Client.Internals
 {
     public class DialogHelperClass
     {
+        public void ShowCompanyDialog(Entity.Company? Company)
+        {
+            Dialogs.CompanyDialog frm = new Dialogs.CompanyDialog
+            {
+                DataContext = Company,
+            };
+            frm.Show();
+        }
         public void ShowLocationDialog(Entity.Location? Location)
         {
             Dialogs.LocationDialog frm = new Dialogs.LocationDialog

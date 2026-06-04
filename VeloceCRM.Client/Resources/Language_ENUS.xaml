@@ -63,6 +63,11 @@
     <system:String x:Key="location.header.door">DOOT</system:String>
     <system:String x:Key="location.header.postalzone">POSTALZONE</system:String>
 
+    <system:String x:Key="company.tab.header.company">Company</system:String>
+    <system:String x:Key="company.header.number">NUMBER</system:String>
+    <system:String x:Key="company.header.taxnumber">TAXNUMBER</system:String>
+    <system:String x:Key="company.header.name">NAME</system:String>
+
 
     <system:String x:Key="dialog.result.cancel">Cancel</system:String>
     <system:String x:Key="dialog.result.ok">OK</system:String>

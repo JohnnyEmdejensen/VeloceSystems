@@ -271,6 +271,23 @@ namespace VeloceCRM.Client
             FillCompanies();
         }
 
+        private void dgCompanies_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = dgCompanies.SelectedItem as CompanyView;
+            if (item != null && App.Globals.DataShare.CompanyCollection != null)
+            {
+                var company = App.Globals.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == item.Id);
+                if (company != null)
+                {
+                    App.Globals.DialogHelper.ShowCompanyDialog(company);
+                }
+            }
+        }
+
+        private void dgCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
     public class CompanyView
     {
