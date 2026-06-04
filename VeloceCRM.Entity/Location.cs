@@ -55,5 +55,17 @@ namespace VeloceCRM.Entity
         [NotMapped]
         public Entity.Postalzone? Postalzone { get; set; }
 
+        public void SetAddress()
+        {
+            Address = street + " " + house;
+            if (floor != null && door != null)
+            {
+                Address += ", " + floor + ". " + door;
+            }
+            if (floor != null && door == null)
+            {
+                Address += ", " + floor + ". sal";
+            }
+        }
     }   
 }

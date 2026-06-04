@@ -61,7 +61,45 @@
             <GridSplitter Grid.Column="1"></GridSplitter>
             <TabControl Grid.Column="2" x:Name="tabViews">
                 <TabItem Header="Dashboard" x:Name="pageDashboard"></TabItem>
-                <TabItem Header="Companies" x:Name="pageCompanies"></TabItem>
+                <TabItem Header="Companies" x:Name="pageCompanies">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="1"></RowDefinition>
+                            <RowDefinition Height="1"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="1"></RowDefinition>
+                            <RowDefinition Height="1"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            
+                        </StackPanel>
+                        <Label Grid.Row="1" Style="{DynamicResource DarkLine}"></Label>
+                        <Label Grid.Row="2" Style="{DynamicResource LightLine}"></Label>
+                        <DataGrid Grid.Row="3" x:Name="dgCompanies">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{DynamicResource desktop.customers.column.header.id}" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                <DataGridTextColumn Width="64" Header="{DynamicResource desktop.customers.column.header.number}" Binding="{Binding Number}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="64" Header="{DynamicResource desktop.customers.column.header.taxnumber}" Binding="{Binding Taxnumber}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{DynamicResource desktop.customers.column.header.name}" Binding="{Binding Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="100" Header="{DynamicResource desktop.customers.column.header.nickname}" Binding="{Binding Nickname}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="64" Header="{DynamicResource desktop.customers.column.header.phone}" Binding="{Binding Phone}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="180" Header="{DynamicResource desktop.customers.column.header.address}" Binding="{Binding Address}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="64" Header="{DynamicResource desktop.customers.column.header.zipcode}" Binding="{Binding Zipcode}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="120" Header="{DynamicResource desktop.customers.column.header.city}" Binding="{Binding City}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="100" Header="{DynamicResource desktop.customers.column.header.country}" Binding="{Binding Country}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="240" Header="{DynamicResource desktop.customers.column.header.email}" Binding="{Binding Email}"></DataGridTextColumn>
+                                <DataGridTextColumn Width="240" Header="{DynamicResource desktop.customers.column.header.website}" Binding="{Binding Website}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Grid.Row="4" Style="{DynamicResource DarkLine}"></Label>
+                        <Label Grid.Row="5" Style="{DynamicResource LightLine}"></Label>
+                        <StackPanel Grid.Row="6" Orientation="Horizontal">
+                            
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
                 <TabItem Header="Persons" x:Name="pagePersons"></TabItem>
             </TabControl>
         </Grid>

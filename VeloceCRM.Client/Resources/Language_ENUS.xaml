@@ -15,7 +15,19 @@
     <system:String x:Key="desktop.ribbon.views.dashboard">Dashboard</system:String>
     <system:String x:Key="desktop.ribbon.views.companies">Companies</system:String>
     <system:String x:Key="desktop.ribbon.views.persons">Persons</system:String>
-    <system:String x:Key="desktop.status.header.user">User: </system:String>
+    <system:String x:Key="desktop.status.header.user">User:</system:String>
+    <system:String x:Key="desktop.customers.column.header.id">Id</system:String>
+    <system:String x:Key="desktop.customers.column.header.number">Number</system:String>
+    <system:String x:Key="desktop.customers.column.header.taxnumber">Taxnumber</system:String>
+    <system:String x:Key="desktop.customers.column.header.name">Name</system:String>
+    <system:String x:Key="desktop.customers.column.header.nickname">Nickname</system:String>
+    <system:String x:Key="desktop.customers.column.header.phone">Phone</system:String>
+    <system:String x:Key="desktop.customers.column.header.email">Email</system:String>
+    <system:String x:Key="desktop.customers.column.header.address">Address</system:String>
+    <system:String x:Key="desktop.customers.column.header.zipcode">Zipcode</system:String>
+    <system:String x:Key="desktop.customers.column.header.city">City</system:String>
+    <system:String x:Key="desktop.customers.column.header.country">Country</system:String>
+    <system:String x:Key="desktop.customers.column.header.website">Website</system:String>
 
     <system:String x:Key="desktop.ribbon.tab.settings">Settings</system:String>
     <system:String x:Key="desktop.ribbon.group.systemdata">System data</system:String>

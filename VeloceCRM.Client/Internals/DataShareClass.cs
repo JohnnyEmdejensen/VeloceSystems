@@ -10,7 +10,7 @@ namespace VeloceCRM.Client.Internals
         public List<Entity.Country>? CountryCollection { get; set; }
         public List<Entity.Postalzone>? PostalzoneCollection { get; set; }
         public List<Entity.Location>? LocationCollection { get; set; }
-
+        public List<Entity.Company>? CompanyCollection { get; set; }
         public void ResumeEvents()
         {
             App.Globals.EventHelper.CountryDeleted += EventHelper_CountryDeleted;
@@ -29,6 +29,20 @@ namespace VeloceCRM.Client.Internals
                 GetCountries();
                 GetPostalzones();
                 GetLocations();
+                GetCompanies();
+            }
+        }
+        public void GetCompanies()
+        {
+            using (new WorkerHandler("GetCompanies"))
+            {
+                var data = App.Globals.AppShare.Repositories.CompanyRepository.GetAll();
+                if (data != null)
+                {
+                    data = data.OrderBy(x => x.Number).ToList();
+                    CompanyCollection = data;
+                    App.Globals.EventHelper.RaiseCompanyCollectionChangedEvent();
+                }
             }
         }
         public void GetLocations()

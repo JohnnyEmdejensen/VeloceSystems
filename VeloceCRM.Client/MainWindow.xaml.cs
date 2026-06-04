@@ -31,12 +31,16 @@ namespace VeloceCRM.Client
             ContentRendered += MainWindow_ContentRendered;
             Closing += MainWindow_Closing;
             KeyDown += MainWindow_KeyDown;
+            dgCompanies.SizeChanged += DgCompanies_SizeChanged;
             App.Globals.EventHelper.Authenticated += EventHelper_Authenticated;
             App.Globals.EventHelper.CountryCollectionChanged += EventHelper_CountryCollectionChanged;
             App.Globals.EventHelper.PostalzoneCollectionChanged += EventHelper_PostalzoneCollectionChanged;
             App.Globals.EventHelper.LocationCollectionChanged += EventHelper_LocationCollectionChanged;
+            App.Globals.EventHelper.CompanyCollectionChanged += EventHelper_CompanyCollectionChanged;
             _settings.Load();
+            FillControls();
         }
+
 
         private void Authenticate()
         {
@@ -65,6 +69,57 @@ namespace VeloceCRM.Client
                 App.Globals.EventHelper.RaiseAuthenticatedEvent();
             }
         }
+        private void FillControls()
+        {
+            using (new WorkerHandler("FillControls"))
+            {
+                FillCompanies();
+            }
+
+        }
+        private void FillCompanies()
+        {
+            using (new WorkerHandler("FillCompanies"))
+            {
+                List<CompanyView> items = new List<CompanyView>();
+                if (App.Globals.DataShare.CompanyCollection != null)
+                {
+                    foreach (var company in App.Globals.DataShare.CompanyCollection)
+                    {
+                        CompanyView view = new CompanyView();
+                        view.Email = company.Email;
+                        view.Id = company.Id;
+                        view.Name = company.Name;
+                        view.Nickname = company.Nickname;
+                        view.Number = company.Number;
+                        view.Phone = company.Phone;
+                        view.Taxnumber = company.Taxnumber;
+                        view.Website = company.Website;
+                        if (App.Globals.DataShare.LocationCollection != null)
+                        {
+                            var location = App.Globals.DataShare.LocationCollection.FirstOrDefault(x => x.Id == company.LocationId);
+                            if (location != null)
+                            {
+                                view.Address = location.Address;
+                                if (location.Postalzone != null)
+                                {
+                                    view.Zipcode = location.Postalzone.Zipcode;
+                                    view.City = location.Postalzone.City;
+                                    if (location.Postalzone.Country != null)
+                                    {
+                                        view.Country = location.Postalzone.Country.Name;
+                                    }
+                                }
+                            }
+                        }
+                        items.Add(view);
+                    }
+                }
+                dgCompanies.BeginInit();
+                dgCompanies.ItemsSource = items;
+                dgCompanies.EndInit();
+            }
+        }
         private void ModelLocations()
         {
             if (App.Globals.DataShare.CountryCollection == null || App.Globals.DataShare.PostalzoneCollection == null || App.Globals.DataShare.LocationCollection == null) return;
@@ -72,6 +127,7 @@ namespace VeloceCRM.Client
             {
                 foreach (var item in App.Globals.DataShare.LocationCollection)
                 {
+                    item.SetAddress();
                     item.Postalzone = App.Globals.DataShare.PostalzoneCollection.FirstOrDefault(x => x.Id == item.PostalzoneId);
                     if (item.Postalzone != null)
                     {
@@ -205,5 +261,31 @@ namespace VeloceCRM.Client
         {
             App.Globals.DialogHelper.ShowLocationDialog(null);
         }
+        private void DgCompanies_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var width = dgCompanies.ActualWidth;
+            dgCompanies.Columns[3].Width = width -64-64-64-64-100-100-180-120-240-240-4;
+        }
+        private void EventHelper_CompanyCollectionChanged(object sender, EventArgs e)
+        {
+            FillCompanies();
+        }
+
+    }
+    public class CompanyView
+    {
+        public long Id { get; set; }
+        public string Number { get; set; } = "";
+        public string Taxnumber { get; set; } = "";
+        public string Name { get; set; } = "";
+        public string? Nickname { get; set; }
+        public string? Phone { get; set; }
+        public string? Email { get; set; }
+        public string? Website { get; set; }
+        public string? Address { get; set; }
+        public string? Zipcode { get; set; }
+        public string? City { get; set; }
+        public string? Country { get; set; }
+
     }
 }

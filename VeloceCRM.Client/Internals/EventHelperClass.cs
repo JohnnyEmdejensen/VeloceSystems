@@ -17,7 +17,12 @@ namespace VeloceCRM.Client.Internals
         public event DefaultHandler? PostalzoneSaved;
         public event DefaultHandler? LocationSaved;
         public event DefaultHandler? LocationDeleted;
+        public event DefaultHandler? CompanyCollectionChanged;
 
+        public void RaiseCompanyCollectionChangedEvent()
+        {
+            CompanyCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseLocationDeletedEvent()
         {
             LocationDeleted?.Invoke(this, EventArgs.Empty);
