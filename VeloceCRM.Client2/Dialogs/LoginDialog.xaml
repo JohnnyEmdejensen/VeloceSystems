@@ -23,7 +23,7 @@
                     <ColumnDefinition Width="8"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="txtTitle" MouseLeftButtonDown="txtTitle_MouseLeftButtonDown" Grid.Column="1" Text="{DynamicResource window.desktop.title}" FontFamily="Bahnschrift" Foreground="{DynamicResource BorderBrush}" FontSize="18" VerticalAlignment="Center"></TextBlock>
+                <TextBlock x:Name="txtTitle" MouseLeftButtonDown="txtTitle_MouseLeftButtonDown" Grid.Column="1" Text="{DynamicResource window.login.title}" FontFamily="Bahnschrift" Foreground="{DynamicResource BorderBrush}" FontSize="18" VerticalAlignment="Center"></TextBlock>
                 <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Image x:Name="appMin" MouseLeftButtonDown="appMin_MouseLeftButtonDown" Visibility="Collapsed" Source="/Images/minimize_act.png" Width="28" Cursor="Hand"></Image>
                     <Label Width="8"></Label>

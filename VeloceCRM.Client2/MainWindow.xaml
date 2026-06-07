@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeloceCRM.Client2"
         mc:Ignorable="d"
-        Tag="Desktop" MinHeight="800" MinWidth="1200" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Tag="Desktop" MinHeight="800" MinWidth="1200" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Icon="/Images/masks_48.png">
     <Border Background="{DynamicResource Background}" CornerRadius="20" BorderThickness="3" BorderBrush="{DynamicResource BorderBrush}">
         <Grid>
             <Grid.RowDefinitions>
@@ -57,13 +57,148 @@
                         <RibbonButton LargeImageSource="/Images/factory_32.png" SmallImageSource="/Images/factory_16.png" Label="{DynamicResource window.desktop.ribbon.button.create.company}" ></RibbonButton>
                         <RibbonButton LargeImageSource="/Images/businessmen_32.png" SmallImageSource="/Images/businessmen_16.png" Label="{DynamicResource window.desktop.ribbon.button.create.person}" ></RibbonButton>
                     </RibbonGroup>
+                    <RibbonGroup Header="{DynamicResource window.desktop.ribbon.group.views}">
+                        <RibbonToggleButton x:Name="cmdViewDashboard" Click="cmdViewDashboard_Click" IsChecked="True" Label="{DynamicResource window.desktop.ribbon.view.button.dashboard}" LargeImageSource="/Images/gauge_32.png" SmallImageSource="/Images/gauge_16.png"></RibbonToggleButton>
+                        <RibbonToggleButton x:Name="cmdViewCompanies" Click="cmdViewCompanies_Click" IsChecked="True" Label="{DynamicResource window.desktop.ribbon.view.button.companies}" LargeImageSource="/Images/factory_view_32.png" SmallImageSource="/Images/factory_16.png"></RibbonToggleButton>
+                        <RibbonToggleButton x:Name="cmdViewPersons" Click="cmdViewPersons_Click" IsChecked="True" Label="{DynamicResource window.desktop.ribbon.view.button.persons}" LargeImageSource="/Images/businessmen_view_32.png" SmallImageSource="/Images/businessmen_view_16.png"></RibbonToggleButton>
+                    </RibbonGroup>
                 </RibbonTab>
                 <RibbonTab Header="{DynamicResource window.desktop.ribbon.tab.settings}">
 
                 </RibbonTab>
             </Ribbon>
             <Grid Grid.Row="3">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240"></ColumnDefinition>
+                    <ColumnDefinition Width="4"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="1"></ColumnDefinition>
+                        <ColumnDefinition Width="1"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" x:Name="grdLeft">
+                        
+                    </Grid>
+                    <Label Grid.Column="1" Style="{DynamicResource LineDark}"></Label>
+                    <Label Grid.Column="2" Style="{DynamicResource LineLight}"></Label>
+                </Grid>
+                <GridSplitter Grid.Column="1"></GridSplitter>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="4"></RowDefinition>
+                        <RowDefinition Height="240"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="1"></RowDefinition>
+                            <RowDefinition Height="1"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="4"></ColumnDefinition>
+                                <ColumnDefinition Width="240"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="1"></ColumnDefinition>
+                                    <ColumnDefinition Width="1"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" x:Name="grdCenter">
+                                    <TabControl>
+                                        <TabItem Header="Dashboard" x:Name="pageDashboard">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="1"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Label Style="{DynamicResource LineLight}"></Label>
+                                                <Grid Grid.Row="1">
+
+                                                </Grid>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem Header="Companies" x:Name="pageCompanies">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="1"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Label Style="{DynamicResource LineLight}"></Label>
+                                                <Grid Grid.Row="1">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="32"></RowDefinition>
+                                                        <RowDefinition Height="1"></RowDefinition>
+                                                        <RowDefinition Height="1"></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition Height="1"></RowDefinition>
+                                                        <RowDefinition Height="1"></RowDefinition>
+                                                        <RowDefinition Height="25"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+
+                                                    </StackPanel>
+                                                    <Label Grid.Row="1" Style="{DynamicResource LineDark}"></Label>
+                                                    <Label Grid.Row="2" Style="{DynamicResource LineLight}"></Label>
+                                                    <DataGrid x:Name="dgCompanies" Grid.Row="3">
+                                                        <DataGrid.Columns>
+                                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.number}" Binding="{Binding Number}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.name}" Binding="{Binding Name}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.address}" Binding="{Binding Address}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.zipcode}" Binding="{Binding Zipcode}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.city}" Binding="{Binding City}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.country}" Binding="{Binding Country}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.phone}" Binding="{Binding Phone}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.email}" Binding="{Binding Email}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.website}" Binding="{Binding Website}"></DataGridTextColumn>
+                                                            <DataGridTextColumn Header="{DynamicResource window.desktop.companies.header.taxnumber}" Binding="{Binding Taxnumber}"></DataGridTextColumn>
+                                                        </DataGrid.Columns>
+                                                    </DataGrid>
+                                                    <Label Grid.Row="4" Style="{DynamicResource LineDark}"></Label>
+                                                    <Label Grid.Row="5" Style="{DynamicResource LineLight}"></Label>
+                                                    <StackPanel Grid.Row="6" Orientation="Horizontal">
+                                                        
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Grid>
+                                        </TabItem>
+                                        <TabItem Header="Persons" x:Name="pagePersons">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="1"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Label Style="{DynamicResource LineLight}"></Label>
+                                                <Grid Grid.Row="1">
+                                                    
+                                                </Grid>
+                                            </Grid>
+                                        </TabItem>
+                                    </TabControl>
+                                </Grid>
+                                <Label Grid.Column="1" Style="{DynamicResource LineDark}"></Label>
+                                <Label Grid.Column="2" Style="{DynamicResource LineLight}"></Label>
+                            </Grid>
+                            <GridSplitter Grid.Column="1"></GridSplitter>
+                            <Grid Grid.Column="2" x:Name="grdRight">
+                                
+                            </Grid>
+                        </Grid>
+                        <Label Grid.Row="1" Style="{DynamicResource LineDark}"></Label>
+                        <Label Grid.Row="2" Style="{DynamicResource LineLight}"></Label>
+                    </Grid>
+                    <GridSplitter Grid.Row="1"></GridSplitter>
+                    <Grid Grid.Row="2" x:Name="grdButtom">
+                        
+                    </Grid>
+                </Grid>
             </Grid>
             <Label Grid.Row="4" Style="{DynamicResource LineDark}"></Label>
             <Label Grid.Row="5" Style="{DynamicResource LineLight}"></Label>

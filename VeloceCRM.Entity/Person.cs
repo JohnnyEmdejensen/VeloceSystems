@@ -25,5 +25,18 @@ namespace VeloceCRM.Entity
 
         [NotMapped]
         public string? Fullname {  get; set; }
+        [NotMapped]
+        public Entity.Location? Location { get; set; }
+        public void SetFullName()
+        {
+            if (string.IsNullOrEmpty(Middlename))
+            {
+                Fullname = $"{Firstname} {Surname}";
+            }
+            else
+            {
+                Fullname = $"{Firstname} {Middlename} {Surname}";
+            }
+        }
     }
 }

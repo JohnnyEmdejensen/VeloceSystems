@@ -11,6 +11,22 @@ namespace VeloceCRM.Client2.Internals
         public event DefaultHandler? CountryCollectionChanged;
         public event DefaultHandler? PostalzoneCollectionChanged;
         public event DefaultHandler? LocationCollectionChanged;
+        public event DefaultHandler? UserCollectionChanged;
+        public event DefaultHandler? CompanyCollectionChanged;
+        public event DefaultHandler? PersonCollectionChanged;
+
+        public void RaisePersonCollectionChangedEvent()
+        {
+            PersonCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+        public void RaiseCompanyCollectionChangedEvent()
+        {
+            CompanyCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+        public void RaiseUserCollectionChangedEvent()
+        {
+            UserCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseLocationCollectionChangedEvent()
         {
             LocationCollectionChanged?.Invoke(this, EventArgs.Empty);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -64,6 +65,8 @@ namespace VeloceCRM.Entity
         public string? Fullname { get; set; }
         [NotMapped]
         public string? Authenticationstatus { get; set; }
+        [NotMapped]
+        public Entity.Location? Location { get; set; }
 
         public void SetFullName()
         {

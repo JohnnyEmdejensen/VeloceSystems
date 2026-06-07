@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace VeloceCRM.Entity
@@ -24,6 +25,9 @@ namespace VeloceCRM.Entity
         public string? Email { get; set; }
         [MaxLength(512)]
         public string? Website { get; set; }
+
+        [NotMapped]
+        public Entity.Location? Location { get; set; }
 
     }
 }

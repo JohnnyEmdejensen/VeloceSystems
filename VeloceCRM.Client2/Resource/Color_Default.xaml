@@ -14,7 +14,7 @@
     <SolidColorBrush x:Key="BackgroundLayer" Color="#FFF5ECEB" Opacity="0.2"></SolidColorBrush>
     <SolidColorBrush x:Key="BorderBrush" Color="#FF97CEDA"></SolidColorBrush>
     <SolidColorBrush x:Key="StatusBrush" Color="#FF10658C"></SolidColorBrush>
-    <SolidColorBrush x:Key="StatusBrushHighlite" Color="#FFE18620"></SolidColorBrush>
+    <SolidColorBrush x:Key="StatusBrushHighlite" Color="#FFAA4118"></SolidColorBrush>
     <SolidColorBrush x:Key="HeaderBrush" Color="#FF093346"></SolidColorBrush>
     <SolidColorBrush x:Key="InputBorderBrush" Color="#FF0C455F"></SolidColorBrush>
     <SolidColorBrush x:Key="LineDarkBrush" Color="#FF1E3D4B"></SolidColorBrush>
@@ -23,5 +23,6 @@
     <SolidColorBrush x:Key="DialogButtonBorderDefault" Color="#FF115260"></SolidColorBrush>
     <SolidColorBrush x:Key="DialogButtonTextDefault" Color="#FF97CEDA"></SolidColorBrush>
     <SolidColorBrush x:Key="DialogButtonCancel" Color="#FF97CEDA"></SolidColorBrush>
+    <SolidColorBrush x:Key="DatagridHoverColor" Color="#FFEFE5C1"></SolidColorBrush>
 
 </ResourceDictionary>
