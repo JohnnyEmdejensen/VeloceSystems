@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Veloce/Veloce.csproj" />
-  <Project Path="VeloceCRM.Client/VeloceCRM.Client.csproj" Id="3d076ced-48bc-4cf4-837a-ae029a7cf650" />
+  <Project Path="VeloceCRM.Client2/VeloceCRM.Client2.csproj" Id="54c76297-e519-4b00-bee9-4d54b2a82cf3" />
   <Project Path="VeloceCRM.Data/VeloceCRM.Data.csproj" Id="c31d07ab-19ad-4b31-b92b-5ddbd1ed3b1e" />
   <Project Path="VeloceCRM.Entity/VeloceCRM.Entity.csproj" Id="3b764806-18e7-4b4b-8320-859d8618d7bf" />
   <Project Path="VeloceCRM.Repository/VeloceCRM.Repository.csproj" Id="97d32650-7ab0-4364-b4e2-3f07eaf4868b" />

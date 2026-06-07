@@ -11,6 +11,7 @@ namespace VeloceCRM.Data
         public ApiContext CreateDbContext(string[]? args)
         {
             string connectionstring = "server=localhost;database=veloce_dev;user=SA;password=Fantaer=h2o&brus";
+            //string connectionstring = "server=www.emdesoft.dk;database=veloce_dev;user=i7566;password=u1RSjxg9";
             var optionsBuilder = new DbContextOptionsBuilder<ApiContext>();
             optionsBuilder.UseMySql(connectionstring, ServerVersion.AutoDetect(connectionstring));
 

@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush x:Key="Background" StartPoint="0,0" EndPoint="0,5">
+        <GradientStop Color="#FF10658C" Offset="0.0"></GradientStop>
+        <GradientStop Color="#FFF5ECEB" Offset="0.5"></GradientStop>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="PopupBackground" StartPoint="0,0" EndPoint="0,5">
+        <GradientStop Color="#FF2F84AC" Offset="0.0"></GradientStop>
+        <GradientStop Color="#FF97D5F2" Offset="0.2"></GradientStop>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="BackgroundLayer" Color="#FFF5ECEB" Opacity="0.2"></SolidColorBrush>
+    <SolidColorBrush x:Key="BorderBrush" Color="#FF97CEDA"></SolidColorBrush>
+    <SolidColorBrush x:Key="StatusBrush" Color="#FF10658C"></SolidColorBrush>
+    <SolidColorBrush x:Key="StatusBrushHighlite" Color="#FFE18620"></SolidColorBrush>
+    <SolidColorBrush x:Key="HeaderBrush" Color="#FF093346"></SolidColorBrush>
+    <SolidColorBrush x:Key="InputBorderBrush" Color="#FF0C455F"></SolidColorBrush>
+    <SolidColorBrush x:Key="LineDarkBrush" Color="#FF1E3D4B"></SolidColorBrush>
+    <SolidColorBrush x:Key="LineLightBrush" Color="#FF97CEDA"></SolidColorBrush>
+    <SolidColorBrush x:Key="DialogButtonDefault" Color="#FF328DA0"></SolidColorBrush>
+    <SolidColorBrush x:Key="DialogButtonBorderDefault" Color="#FF115260"></SolidColorBrush>
+    <SolidColorBrush x:Key="DialogButtonTextDefault" Color="#FF97CEDA"></SolidColorBrush>
+    <SolidColorBrush x:Key="DialogButtonCancel" Color="#FF97CEDA"></SolidColorBrush>
+
+</ResourceDictionary>

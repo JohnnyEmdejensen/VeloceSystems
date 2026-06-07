@@ -4,12 +4,6 @@
              xmlns:local="clr-namespace:VeloceCRM.Client"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resources/Language_ENUS.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/Resources/Color_Default.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/Resources/Style_Default.xaml"></ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>
