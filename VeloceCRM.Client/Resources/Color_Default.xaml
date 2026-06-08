@@ -1,9 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <SolidColorBrush x:Key="PrimaryLineDark" Color="#FF2D6096"></SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryLineLight" Color="#FFC2DFF6"></SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryDialogBackColor" Color="#FF60819E"></SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryForeground" Color="Black"></SolidColorBrush>
-    <SolidColorBrush x:Key="DatagridHoverColor" Color="#FFEFE5C1"></SolidColorBrush>
-</ResourceDictionary>
