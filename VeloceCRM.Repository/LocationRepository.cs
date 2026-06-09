@@ -55,6 +55,8 @@ namespace VeloceCRM.Repository
             record.House = Source.House;
             record.PostalzoneId = Source.PostalzoneId;
             record.Street = Source.Street;
+            record.Latitude = Source.Latitude;
+            record.Longitude = Source.Longitude;
             ApiContext.SaveChanges();
             return record;
         }
