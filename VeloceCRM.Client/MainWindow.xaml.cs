@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xaml;
 
 namespace VeloceCRM.Client
 {
@@ -32,10 +33,11 @@ namespace VeloceCRM.Client
             KeyDown += MainWindow_KeyDown;
             dgCompanies.SizeChanged += DgCompanies_SizeChanged;
             dgRelationPersons.SizeChanged += DgRelationPersons_SizeChanged;
+            App.EventHelper.CompanyCollectionChanged += EventHelper_CompanyCollectionChanged;
+            App.EventHelper.ActiveCompanyChanged += EventHelper_ActiveCompanyChanged;
             _settings.Load();
             lblDate.Content = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
         }
-
 
         private void ShowView()
         {
@@ -105,6 +107,8 @@ namespace VeloceCRM.Client
                 {
                     App.AppShare.ActiveUser.SetFullName();
                     lblUser.Content = App.AppShare.ActiveUser.Fullname;
+                    App.DataShare.ResumeEvents();
+                    App.DataShare.GetData();
                 }
             }
             else
@@ -182,6 +186,88 @@ namespace VeloceCRM.Client
         {
             var width = dgRelationPersons.ActualWidth;
             dgRelationPersons.Columns[1].Width = width - 140 - 64 - 120 - 120 - 80 - 80 - 140 - 140 - 2;
+        }
+        private void EventHelper_CompanyCollectionChanged(object sender, EventArgs e)
+        {
+            List<Models.CompanyView> list = new List<Models.CompanyView>();
+            if (App.DataShare.CompanyCollection != null)
+            {
+                foreach (var company in App.DataShare.CompanyCollection)
+                {
+                    Models.CompanyView view = new Models.CompanyView
+                    {
+                        Id = company.Id,
+                        Number = company.Number,
+                        Taxnumber = company.Taxnumber,
+                        Name = company.Name,
+                        Nickname = company.Nickname,
+                        Phone = company.Phone,
+                        Email = company.Email,
+                        Website = company.Website,
+                    };
+                    if (App.DataShare.LocationCollection != null)
+                    {
+                        company.Location = App.DataShare.LocationCollection.FirstOrDefault(x => x.Id == company.LocationId);
+                        if (company.Location != null)
+                        {
+                            view.Address = company.Location.Address ?? "";
+                            if (App.DataShare.PostalzoneCollection != null)
+                            {
+                                company.Location.Postalzone = App.DataShare.PostalzoneCollection.FirstOrDefault(x => x.Id == company.Location.PostalzoneId);
+                                if (company.Location.Postalzone != null)
+                                {
+                                    view.Zipcode = company.Location.Postalzone.Zipcode;
+                                    view.City = company.Location.Postalzone.City;
+                                    if (App.DataShare.CountryCollection != null)
+                                    {
+                                        company.Location.Postalzone.Country = App.DataShare.CountryCollection.FirstOrDefault(x => x.Id == company.Location.Postalzone.CountryId);
+                                        if (company.Location.Postalzone.Country != null)
+                                        {
+                                            view.Country = company.Location.Postalzone.Country.Name;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    list.Add(view);
+                }
+            }
+            dgCompanies.BeginInit();
+            dgCompanies.ItemsSource = list;
+            dgCompanies.EndInit();
+        }
+
+        private void dgCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = dgCompanies.SelectedItem as Models.CompanyView;
+            if (item != null && App.DataShare.CompanyCollection != null)
+            {
+                App.AppShare.ActiveCompany =App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == item.Id);
+                App.EventHelper.RaiseActiveCompanyChangedEvent();
+            }
+        }
+
+        private void dgCompanies_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = dgCompanies.SelectedItem as Models.CompanyView;
+            if (item != null && App.DataShare.CompanyCollection != null)
+            {
+                App.DialogHelper.ShowCompanyDialog(App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == item.Id));
+            }
+
+        }
+        private void EventHelper_ActiveCompanyChanged(object sender, EventArgs e)
+        {
+            if (App.AppShare.ActiveCompany != null)
+            {
+                lblCompany.Content = App.AppShare.ActiveCompany.Name;
+            }
+        }
+
+        private void cmdNewCompany_Click(object sender, RoutedEventArgs e)
+        {
+            App.DialogHelper.ShowCompanyDialog(new Entity.Company());
         }
     }
 }

@@ -50,6 +50,7 @@ namespace VeloceCRM.Client.Internals
                 var license = Repositories.LicenseRepository.GetByKey(user.LicenseKey);
                 if (license != null)
                 {
+                    Repositories = new Repository.Repositories(license.Key);
                     ActiveLicense = license;
                     ActiveUser = user;
                     result = true;

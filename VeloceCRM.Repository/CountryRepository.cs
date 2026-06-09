@@ -18,6 +18,11 @@ namespace VeloceCRM.Repository
             if (ApiContext == null) return null;
             return ApiContext.Countries.FirstOrDefault(x => x.Id == Id && !x.IsDeleted && x.LicenseKey == LicenseKey);
         }
+        public Entity.Country? GetByName(string Name)
+        {
+            if (ApiContext == null) return null;
+            return ApiContext.Countries.FirstOrDefault(x => x.Name == Name && !x.IsDeleted && x.LicenseKey == LicenseKey);
+        }
         public List<Entity.Country>? GetAll()
         {
             if (ApiContext == null) return null;

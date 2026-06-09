@@ -13,6 +13,7 @@ namespace VeloceCRM.Client
         public static Internals.AppShare AppShare = new Internals.AppShare();
         public static Internals.DataShare DataShare = new Internals.DataShare();
         public static Internals.DialogHelper DialogHelper = new Internals.DialogHelper();
+        public static Internals.ToolHelper ToolHelper = new Internals.ToolHelper();
     }
 
 }

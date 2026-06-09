@@ -18,6 +18,11 @@ namespace VeloceCRM.Repository
             if (ApiContext == null) return null;
             return ApiContext.Postalzones.FirstOrDefault(x => x.Id == Id && !x.IsDeleted && x.LicenseKey == LicenseKey);
         }
+        public Entity.Postalzone? GetByZipCountry(string Zipcode, long CountryId)
+        {
+            if (ApiContext == null) return null;
+            return ApiContext.Postalzones.FirstOrDefault(x => x.CountryId == CountryId && x.Zipcode == Zipcode && !x.IsDeleted && x.LicenseKey == LicenseKey);
+        }
         public List<Entity.Postalzone>? GetAll()
         {
             if (ApiContext == null) return null;

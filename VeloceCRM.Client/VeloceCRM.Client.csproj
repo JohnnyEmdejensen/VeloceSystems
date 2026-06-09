@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\add_16.png" />
+    <None Remove="Images\add_24.png" />
+    <None Remove="Images\add_32.png" />
+    <None Remove="Images\add_48.png" />
     <None Remove="Images\businessmen_16.png" />
     <None Remove="Images\businessmen_24.png" />
     <None Remove="Images\businessmen_32.png" />
@@ -20,6 +24,18 @@
     <None Remove="Images\businessmen_view_48.png" />
     <None Remove="Images\close.png" />
     <None Remove="Images\close_pas.png" />
+    <None Remove="Images\delete_16.png" />
+    <None Remove="Images\delete_24.png" />
+    <None Remove="Images\delete_32.png" />
+    <None Remove="Images\delete_48.png" />
+    <None Remove="Images\disk_blue_16.png" />
+    <None Remove="Images\disk_blue_24.png" />
+    <None Remove="Images\disk_blue_32.png" />
+    <None Remove="Images\disk_blue_48.png" />
+    <None Remove="Images\disk_green_16.png" />
+    <None Remove="Images\disk_green_24.png" />
+    <None Remove="Images\disk_green_32.png" />
+    <None Remove="Images\disk_green_48.png" />
     <None Remove="Images\document_new_16.png" />
     <None Remove="Images\document_new_24.png" />
     <None Remove="Images\document_new_32.png" />
@@ -69,6 +85,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\add_16.png" />
+    <Resource Include="Images\add_24.png" />
+    <Resource Include="Images\add_32.png" />
+    <Resource Include="Images\add_48.png" />
     <Resource Include="Images\businessmen_16.png" />
     <Resource Include="Images\businessmen_24.png" />
     <Resource Include="Images\businessmen_32.png" />
@@ -79,6 +99,18 @@
     <Resource Include="Images\businessmen_view_48.png" />
     <Resource Include="Images\close.png" />
     <Resource Include="Images\close_pas.png" />
+    <Resource Include="Images\delete_16.png" />
+    <Resource Include="Images\delete_24.png" />
+    <Resource Include="Images\delete_32.png" />
+    <Resource Include="Images\delete_48.png" />
+    <Resource Include="Images\disk_blue_16.png" />
+    <Resource Include="Images\disk_blue_24.png" />
+    <Resource Include="Images\disk_blue_32.png" />
+    <Resource Include="Images\disk_blue_48.png" />
+    <Resource Include="Images\disk_green_16.png" />
+    <Resource Include="Images\disk_green_24.png" />
+    <Resource Include="Images\disk_green_32.png" />
+    <Resource Include="Images\disk_green_48.png" />
     <Resource Include="Images\document_new_16.png" />
     <Resource Include="Images\document_new_24.png" />
     <Resource Include="Images\document_new_32.png" />

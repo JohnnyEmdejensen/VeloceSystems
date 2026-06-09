@@ -46,4 +46,24 @@
 
     <system:String x:Key="login.header.titel">Authenticate</system:String>
 
+    <system:String x:Key="company.header.titel">Company</system:String>
+    <system:String x:Key="company.header.number">NUMBER</system:String>
+    <system:String x:Key="company.header.taxnumber">TAXNUMBER</system:String>
+    <system:String x:Key="company.header.name">NAME</system:String>
+    <system:String x:Key="company.header.nickname">NICKNAME</system:String>
+    <system:String x:Key="company.header.address">ADDRESS</system:String>
+    <system:String x:Key="company.header.street">STREET</system:String>
+    <system:String x:Key="company.header.house">HOUSE</system:String>
+    <system:String x:Key="company.header.floor">FLOOR</system:String>
+    <system:String x:Key="company.header.door">DOOR</system:String>
+    <system:String x:Key="company.header.zipcode">ZIPCODE</system:String>
+    <system:String x:Key="company.header.city">CITY</system:String>
+    <system:String x:Key="company.header.country">COUNTRY</system:String>
+    <system:String x:Key="company.header.phone">PHONE</system:String>
+    <system:String x:Key="company.header.email">EMAIL</system:String>
+    <system:String x:Key="company.header.website">WEBSITE</system:String>
+    <system:String x:Key="company.page.header.company">Company</system:String>
+    <system:String x:Key="company.question.delete">Are you sure to delete this company?</system:String>
+    <system:String x:Key="company.question.delete.title">Delete company</system:String>
+
 </ResourceDictionary>

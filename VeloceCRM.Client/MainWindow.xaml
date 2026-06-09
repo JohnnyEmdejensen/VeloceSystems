@@ -40,7 +40,7 @@
                         <RibbonMenuButton x:Name="cmdCreateNew" Label="{DynamicResource desktop.home.creations.header.createnew}" LargeImageSource="/Images/document_new_32.png" SmallImageSource="/Images/document_new_16.png">
                             <RibbonMenuItem Header="{DynamicResource desktop.home.creations.header.createnew.company}" ImageSource="/Images/factory_new_16.png" ></RibbonMenuItem>
                         </RibbonMenuButton>
-                        <RibbonButton Label="{DynamicResource desktop.home.creations.header.company}" LargeImageSource="/Images/factory_new_32.png" SmallImageSource="/Images/factory_new_16.png"></RibbonButton>
+                        <RibbonButton x:Name="cmdNewCompany" Click="cmdNewCompany_Click" Label="{DynamicResource desktop.home.creations.header.company}" LargeImageSource="/Images/factory_new_32.png" SmallImageSource="/Images/factory_new_16.png"></RibbonButton>
                     </RibbonGroup>
                     <RibbonGroup Header="{DynamicResource desktop.home.header.views}">
                         <RibbonToggleButton x:Name="cmdViewDashboard" Click="cmdViewDashboard_Click" IsChecked="True" Label="{DynamicResource desktop.home.views.header.dashboard}" LargeImageSource="/Images/gauge_32.png" SmallImageSource="/Images/gauge_16.png" ></RibbonToggleButton>
@@ -128,7 +128,7 @@
                                             <Label Width="8"></Label>
                                         </StackPanel>
                                         <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}"></Label>
-                                        <DataGrid Grid.Row="3" x:Name="dgCompanies">
+                                        <DataGrid Grid.Row="3" x:Name="dgCompanies" SelectionChanged="dgCompanies_SelectionChanged" MouseDoubleClick="dgCompanies_MouseDoubleClick">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.number}" Width="80" Binding="{Binding Number}"></DataGridTextColumn>
@@ -248,6 +248,10 @@
                 <Label x:Name="lblUserHeader" Content="User:"></Label>
                 <Label Width="4"></Label>
                 <Label x:Name="lblUser" FontWeight="Black"></Label>
+                <Label Width="8"></Label>
+                <Label x:Name="lblCompanyHeader" Content="Company:"></Label>
+                <Label Width="4"></Label>
+                <Label x:Name="lblCompany" FontWeight="Black"></Label>
                 <Label Width="8"></Label>
             </StackPanel>
         </Grid>
