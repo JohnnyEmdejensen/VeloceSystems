@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeloceCRM.Client"
         mc:Ignorable="d"
-        Tag="Desktop" ResizeMode="CanResizeWithGrip" MinHeight="1000" Height="1000" MinWidth="1600" Width="1600" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Tag="Desktop" ResizeMode="CanResizeWithGrip" MinHeight="1000" Height="1000" MinWidth="1600" Width="1600" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Icon="/Images/magician_48.png">
     <Border BorderThickness="3" CornerRadius="16" BorderBrush="{DynamicResource dialog.bordercolor}" Background="{DynamicResource dialog.background}">
         <Grid>
             <Grid.RowDefinitions>

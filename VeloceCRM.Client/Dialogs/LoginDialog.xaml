@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeloceCRM.Client.Dialogs"
         mc:Ignorable="d"
-        Tag="Login" Height="300" Width="500" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Tag="Login" Height="300" Width="500" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Icon="/Images/keys_48.png">
     <Border BorderBrush="{DynamicResource dialog.bordercolor}" BorderThickness="3" CornerRadius="16" Background="{DynamicResource dialog.background}">
         <Grid>
             <Grid.RowDefinitions>

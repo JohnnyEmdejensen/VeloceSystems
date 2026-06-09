@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>holmes.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,13 +36,25 @@
     <None Remove="Images\gauge_24.png" />
     <None Remove="Images\gauge_32.png" />
     <None Remove="Images\gauge_48.png" />
+    <None Remove="Images\keys_16.png" />
+    <None Remove="Images\keys_24.png" />
+    <None Remove="Images\keys_32.png" />
+    <None Remove="Images\keys_48.png" />
     <None Remove="Images\login.png" />
+    <None Remove="Images\magician_16.png" />
+    <None Remove="Images\magician_24.png" />
+    <None Remove="Images\magician_32.png" />
+    <None Remove="Images\magician_48.png" />
     <None Remove="Images\maximize.png" />
     <None Remove="Images\maximize_pas.png" />
     <None Remove="Images\minimize.png" />
     <None Remove="Images\minimize_pas.png" />
     <None Remove="Images\restore.png" />
     <None Remove="Images\restore_pas.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="holmes.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -82,7 +95,15 @@
     <Resource Include="Images\gauge_24.png" />
     <Resource Include="Images\gauge_32.png" />
     <Resource Include="Images\gauge_48.png" />
+    <Resource Include="Images\keys_16.png" />
+    <Resource Include="Images\keys_24.png" />
+    <Resource Include="Images\keys_32.png" />
+    <Resource Include="Images\keys_48.png" />
     <Resource Include="Images\login.png" />
+    <Resource Include="Images\magician_16.png" />
+    <Resource Include="Images\magician_24.png" />
+    <Resource Include="Images\magician_32.png" />
+    <Resource Include="Images\magician_48.png" />
     <Resource Include="Images\maximize.png" />
     <Resource Include="Images\maximize_pas.png" />
     <Resource Include="Images\minimize.png" />
