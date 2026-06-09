@@ -30,6 +30,8 @@
     <system:String x:Key="desktop.display.companies.header.email">Email</system:String>
     <system:String x:Key="desktop.display.companies.header.website">Website</system:String>
     <system:String x:Key="desktop.display.companies.header.taxnumber">Taxnumber</system:String>
+    <system:String x:Key="desktop.display.companies.header.employees">Empl.</system:String>
+    <system:String x:Key="desktop.display.companies.header.founded">Founded</system:String>
 
     <system:String x:Key="desktop.relations.persons.header.persons">Persons</system:String>
     <system:String x:Key="desktop.relations.persons.header.name">Name</system:String>
@@ -63,6 +65,9 @@
     <system:String x:Key="company.header.email">EMAIL</system:String>
     <system:String x:Key="company.header.website">WEBSITE</system:String>
     <system:String x:Key="company.page.header.company">Company</system:String>
+    <system:String x:Key="company.tab.company.header.employees">EMPLOYEES</system:String>
+    <system:String x:Key="company.tab.company.header.founded">FOUNDED YEAR</system:String>
+    
     <system:String x:Key="company.question.delete">Are you sure to delete this company?</system:String>
     <system:String x:Key="company.question.delete.title">Delete company</system:String>
 

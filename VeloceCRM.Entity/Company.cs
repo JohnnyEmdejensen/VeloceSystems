@@ -25,6 +25,8 @@ namespace VeloceCRM.Entity
         public string? Email { get; set; }
         [MaxLength(512)]
         public string? Website { get; set; }
+        public int Employees { get; set; }
+        public int FoundedYear { get; set; }
 
         [NotMapped]
         public Entity.Location? Location { get; set; }

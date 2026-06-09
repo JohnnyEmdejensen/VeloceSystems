@@ -45,6 +45,8 @@ namespace VeloceCRM.Repository
             record.Phone2 = Source.Phone2;
             record.Taxnumber = Source.Taxnumber;
             record.Website = Source.Website;
+            record.FoundedYear = Source.FoundedYear;
+            record.Employees = Source.Employees;
             ApiContext.SaveChanges();
             return record;
         }

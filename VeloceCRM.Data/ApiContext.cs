@@ -23,6 +23,10 @@ namespace VeloceCRM.Data
             }
             return base.SaveChanges();
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 
         public DbSet<Entity.Person> Persons { get; set; }
         public DbSet<Entity.Company> Companies { get; set; }

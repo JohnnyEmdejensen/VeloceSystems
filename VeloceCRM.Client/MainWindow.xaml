@@ -141,6 +141,8 @@
                                                 <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.email}" Width="140" Binding="{Binding Email}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.website}" Width="180" Binding="{Binding Website}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.taxnumber}" Width="80" Binding="{Binding Taxnumber}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.employees}" Width="48" Binding="{Binding Employees}" CellStyle="{StaticResource Body_Content_DataGrid_AlignRight}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.founded}" Width="48" Binding="{Binding FoundedYear}" CellStyle="{StaticResource Body_Content_DataGrid_AlignRight}"></DataGridTextColumn>
                                             </DataGrid.Columns>
                                         </DataGrid>
                                         <Label Grid.Row="4" Background="{DynamicResource dialog.bordercolor}"></Label>

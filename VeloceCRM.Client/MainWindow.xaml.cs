@@ -180,7 +180,7 @@ namespace VeloceCRM.Client
         private void DgCompanies_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             var width = dgCompanies.ActualWidth;
-            dgCompanies.Columns[2].Width = width - 80 - 140 - 64 - 120 - 120 - 80 - 140 - 180 - 80 - 2;
+            dgCompanies.Columns[2].Width = width - 80 - 140 - 64 - 120 - 120 - 80 - 140 - 180 - 80 - 48 - 48 - 2;
         }
         private void DgRelationPersons_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -204,6 +204,8 @@ namespace VeloceCRM.Client
                         Phone = company.Phone,
                         Email = company.Email,
                         Website = company.Website,
+                        Employees = company.Employees,
+                        FoundedYear = company.FoundedYear,
                     };
                     if (App.DataShare.LocationCollection != null)
                     {

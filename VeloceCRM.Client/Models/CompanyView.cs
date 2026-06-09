@@ -19,5 +19,7 @@ namespace VeloceCRM.Client.Models
         public string? Phone { get; set; } 
         public string? Email { get; set; } 
         public string? Website { get; set; }
+        public int FoundedYear { get; set; }
+        public int Employees { get; set; }
     }
 }
