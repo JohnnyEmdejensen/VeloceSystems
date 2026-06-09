@@ -30,9 +30,12 @@ namespace VeloceCRM.Client
             ContentRendered += MainWindow_ContentRendered;
             Closing += MainWindow_Closing;
             KeyDown += MainWindow_KeyDown;
+            dgCompanies.SizeChanged += DgCompanies_SizeChanged;
+            dgRelationPersons.SizeChanged += DgRelationPersons_SizeChanged;
             _settings.Load();
             lblDate.Content = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
         }
+
 
         private void ShowView()
         {
@@ -96,7 +99,18 @@ namespace VeloceCRM.Client
 
         private void MainWindow_ContentRendered(object? sender, EventArgs e)
         {
+            if (App.AppShare.Authenticated())
+            {
+                if (App.AppShare.ActiveUser != null)
+                {
+                    App.AppShare.ActiveUser.SetFullName();
+                    lblUser.Content = App.AppShare.ActiveUser.Fullname;
+                }
+            }
+            else
+            {
 
+            }
         }
 
         private void imgMin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -158,6 +172,16 @@ namespace VeloceCRM.Client
         private void cmdViewPersons_Click(object sender, RoutedEventArgs e)
         {
             ShowView();
+        }
+        private void DgCompanies_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var width = dgCompanies.ActualWidth;
+            dgCompanies.Columns[2].Width = width - 80 - 140 - 64 - 120 - 120 - 80 - 140 - 180 - 80 - 2;
+        }
+        private void DgRelationPersons_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var width = dgRelationPersons.ActualWidth;
+            dgRelationPersons.Columns[1].Width = width - 140 - 64 - 120 - 120 - 80 - 80 - 140 - 140 - 2;
         }
     }
 }

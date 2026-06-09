@@ -10,6 +10,12 @@
     <Style TargetType="{x:Type Label}">
         <Setter Property="Padding" Value="0"></Setter>
     </Style>
+    <Style TargetType="{x:Type Label}" x:Key="HeaderLabel">
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="FontWeight" Value="Black"></Setter>
+        <Setter Property="Padding" Value="8 0"></Setter>
+    </Style>
     <Style TargetType="{x:Type GridSplitter}">
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
@@ -19,6 +25,7 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="BorderBrush" Value="Transparent"></Setter>
     </Style>
+    
     <Style x:Key="Body_Content_DataGrid_Centering" TargetType="{x:Type DataGridCell}">
         <Setter Property="Template">
             <Setter.Value>

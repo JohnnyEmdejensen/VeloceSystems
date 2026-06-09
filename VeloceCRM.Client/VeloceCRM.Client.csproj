@@ -35,6 +35,7 @@
     <None Remove="Images\gauge_24.png" />
     <None Remove="Images\gauge_32.png" />
     <None Remove="Images\gauge_48.png" />
+    <None Remove="Images\login.png" />
     <None Remove="Images\maximize.png" />
     <None Remove="Images\maximize_pas.png" />
     <None Remove="Images\minimize.png" />
@@ -44,11 +45,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dialogs\" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <ProjectReference Include="..\VeloceCRM.Entity\VeloceCRM.Entity.csproj" />
+    <ProjectReference Include="..\VeloceCRM.Repository\VeloceCRM.Repository.csproj" />
+    <ProjectReference Include="..\VeloceCRM\VeloceCRM.csproj" />
+    <ProjectReference Include="..\Veloce\Veloce.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,6 +82,7 @@
     <Resource Include="Images\gauge_24.png" />
     <Resource Include="Images\gauge_32.png" />
     <Resource Include="Images\gauge_48.png" />
+    <Resource Include="Images\login.png" />
     <Resource Include="Images\maximize.png" />
     <Resource Include="Images\maximize_pas.png" />
     <Resource Include="Images\minimize.png" />

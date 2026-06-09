@@ -17,9 +17,33 @@
     <system:String x:Key="desktop.display.header.dashboard">Dashboard</system:String>
     <system:String x:Key="desktop.display.header.companies">Companies</system:String>
     <system:String x:Key="desktop.display.header.persons">Persons</system:String>
-    <system:String x:Key="desktop.display.companies.header.quickfilter">Quickfilter: </system:String>
-    <system:String x:Key="desktop.display.persons.header.quickfilter">Quickfilter: </system:String>
-    
+    <system:String x:Key="desktop.display.companies.header.quickfilter">Quickfilter:</system:String>
+    <system:String x:Key="desktop.display.persons.header.quickfilter">Quickfilter:</system:String>
+
+    <system:String x:Key="desktop.display.companies.header.number">Number</system:String>
+    <system:String x:Key="desktop.display.companies.header.name">Name</system:String>
+    <system:String x:Key="desktop.display.companies.header.address">Address</system:String>
+    <system:String x:Key="desktop.display.companies.header.zipcode">Zipcode</system:String>
+    <system:String x:Key="desktop.display.companies.header.city">City</system:String>
+    <system:String x:Key="desktop.display.companies.header.country">Country</system:String>
+    <system:String x:Key="desktop.display.companies.header.phone">Phone</system:String>
+    <system:String x:Key="desktop.display.companies.header.email">Email</system:String>
+    <system:String x:Key="desktop.display.companies.header.website">Website</system:String>
+    <system:String x:Key="desktop.display.companies.header.taxnumber">Taxnumber</system:String>
+
+    <system:String x:Key="desktop.relations.persons.header.persons">Persons</system:String>
+    <system:String x:Key="desktop.relations.persons.header.name">Name</system:String>
+    <system:String x:Key="desktop.relations.persons.header.address">Address</system:String>
+    <system:String x:Key="desktop.relations.persons.header.zipcode">Zipcode</system:String>
+    <system:String x:Key="desktop.relations.persons.header.city">City</system:String>
+    <system:String x:Key="desktop.relations.persons.header.country">Country</system:String>
+    <system:String x:Key="desktop.relations.persons.header.phone">Phone</system:String>
+    <system:String x:Key="desktop.relations.persons.header.mobile">Mobile</system:String>
+    <system:String x:Key="desktop.relations.persons.header.email">Email</system:String>
+    <system:String x:Key="desktop.relations.persons.header.company">Company</system:String>
+
     <system:String x:Key="desktop.header.settings">Settings</system:String>
+
+    <system:String x:Key="login.header.titel">Authenticate</system:String>
 
 </ResourceDictionary>

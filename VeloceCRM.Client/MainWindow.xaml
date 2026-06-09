@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VeloceCRM.Client"
         mc:Ignorable="d"
-        Tag="Desktop" MinHeight="800" Height="800" MinWidth="1200" Width="1200" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Tag="Desktop" ResizeMode="CanResizeWithGrip" MinHeight="1000" Height="1000" MinWidth="1600" Width="1600" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Border BorderThickness="3" CornerRadius="16" BorderBrush="{DynamicResource dialog.bordercolor}" Background="{DynamicResource dialog.background}">
         <Grid>
             <Grid.RowDefinitions>
@@ -128,19 +128,19 @@
                                             <Label Width="8"></Label>
                                         </StackPanel>
                                         <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}"></Label>
-                                        <DataGrid Grid.Row="3">
+                                        <DataGrid Grid.Row="3" x:Name="dgCompanies">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Number" Width="80" Binding="{Binding Number}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Address" Binding="{Binding Address}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Zipcode" Binding="{Binding Zipcode}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="City" Binding="{Binding City}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Country" Binding="{Binding Country}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Email" Binding="{Binding Email}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Website" Binding="{Binding Website}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="Taxnumber" Binding="{Binding Taxnumber}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.number}" Width="80" Binding="{Binding Number}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.name}" Binding="{Binding Name}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.address}" Width="140" Binding="{Binding Address}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.zipcode}" Width="64" Binding="{Binding Zipcode}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.city}" Width="120" Binding="{Binding City}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.country}" Width="120" Binding="{Binding Country}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.phone}" Width="80" Binding="{Binding Phone}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.email}" Width="140" Binding="{Binding Email}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.website}" Width="180" Binding="{Binding Website}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="{DynamicResource desktop.display.companies.header.taxnumber}" Width="80" Binding="{Binding Taxnumber}"></DataGridTextColumn>
                                             </DataGrid.Columns>
                                         </DataGrid>
                                         <Label Grid.Row="4" Background="{DynamicResource dialog.bordercolor}"></Label>
@@ -201,8 +201,40 @@
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Background="{DynamicResource dialog.bordercolor}"></Label>
                         <TabControl Grid.Row="1">
-                            <TabItem Header="Persons">
-                                
+                            <TabItem Header="{DynamicResource desktop.relations.persons.header.persons}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        
+                                    </StackPanel>
+                                    <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <DataGrid Grid.Row="3" x:Name="dgRelationPersons">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.name}" Binding="{Binding Fullname}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.address}" Width="140" Binding="{Binding Address}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.zipcode}" Width="64" Binding="{Binding Zipcode}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.city}" Width="120" Binding="{Binding City}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.country}" Width="120" Binding="{Binding Country}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.phone}" Width="80" Binding="{Binding Phone}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.mobile}" Width="80" Binding="{Binding Mobile}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.email}" Width="140" Binding="{Binding Email}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.company}" Width="140" Binding="{Binding Company}"></DataGridTextColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <Label Grid.Row="4" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <StackPanel Grid.Row="5" Orientation="Horizontal">
+                                        
+                                    </StackPanel>
+                                </Grid>
                             </TabItem>
                         </TabControl>
                     </Grid>
@@ -215,7 +247,7 @@
                 <Label Width="8"></Label>
                 <Label x:Name="lblUserHeader" Content="User:"></Label>
                 <Label Width="4"></Label>
-                <Label x:Name="lblUser"></Label>
+                <Label x:Name="lblUser" FontWeight="Black"></Label>
                 <Label Width="8"></Label>
             </StackPanel>
         </Grid>

@@ -9,6 +9,10 @@ namespace VeloceCRM.Client
     /// </summary>
     public partial class App : Application
     {
+        public static Internals.EventHelper EventHelper = new Internals.EventHelper();
+        public static Internals.AppShare AppShare = new Internals.AppShare();
+        public static Internals.DataShare DataShare = new Internals.DataShare();
+        public static Internals.DialogHelper DialogHelper = new Internals.DialogHelper();
     }
 
 }
