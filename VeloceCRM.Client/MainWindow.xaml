@@ -49,7 +49,9 @@
                     </RibbonGroup>
                 </RibbonTab>
                 <RibbonTab Header="{DynamicResource desktop.header.settings}">
-                    
+                    <RibbonGroup Header="{DynamicResource desktop.settings.header.systemdata}">
+                        <RibbonButton x:Name="cmdDataLocations" Click="cmdDataLocations_Click" Label="{DynamicResource desktop.settings.data.header.locations}" LargeImageSource="/Images/earth_location_32.png" SmallImageSource="/Images/earth_location_16.png"></RibbonButton>
+                    </RibbonGroup>
                 </RibbonTab>
             </Ribbon>
             <Grid Grid.Row="3">

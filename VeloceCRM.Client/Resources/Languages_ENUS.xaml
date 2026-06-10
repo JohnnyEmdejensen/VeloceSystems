@@ -14,6 +14,9 @@
     <system:String x:Key="desktop.home.views.header.companies">View Companies</system:String>
     <system:String x:Key="desktop.home.views.header.persons">View Persons</system:String>
 
+    <system:String x:Key="desktop.settings.header.systemdata">System data</system:String>
+
+
     <system:String x:Key="desktop.display.header.dashboard">Dashboard</system:String>
     <system:String x:Key="desktop.display.header.companies">Companies</system:String>
     <system:String x:Key="desktop.display.header.persons">Persons</system:String>
@@ -45,6 +48,7 @@
     <system:String x:Key="desktop.relations.persons.header.company">Company</system:String>
 
     <system:String x:Key="desktop.header.settings">Settings</system:String>
+    <system:String x:Key="desktop.settings.data.header.locations">Locations</system:String>
 
     <system:String x:Key="login.header.titel">Authenticate</system:String>
 
@@ -67,8 +71,28 @@
     <system:String x:Key="company.page.header.company">Company</system:String>
     <system:String x:Key="company.tab.company.header.employees">EMPLOYEES</system:String>
     <system:String x:Key="company.tab.company.header.founded">FOUNDED YEAR</system:String>
-    
     <system:String x:Key="company.question.delete">Are you sure to delete this company?</system:String>
     <system:String x:Key="company.question.delete.title">Delete company</system:String>
+
+    <system:String x:Key="locations.header.titel">Locations</system:String>
+    <system:String x:Key="locations.header.street">STREET</system:String>
+    <system:String x:Key="locations.header.house">HOUSE</system:String>
+    <system:String x:Key="locations.header.floor">FLOOR</system:String>
+    <system:String x:Key="locations.header.door">DOOR</system:String>
+    <system:String x:Key="locations.header.zipcode">ZIPCODE</system:String>
+    <system:String x:Key="locations.header.city">CITY</system:String>
+    <system:String x:Key="locations.header.country">COUNTRY</system:String>
+    <system:String x:Key="locations.header.latitude">LATITUDE</system:String>
+    <system:String x:Key="locations.header.longitude">LONGITUDE</system:String>
+    <system:String x:Key="locations.header.verified">VERIFIED</system:String>
+
+    <system:String x:Key="locations.column.header.street">Street</system:String>
+    <system:String x:Key="locations.column.header.house">House</system:String>
+    <system:String x:Key="locations.column.header.floor">Floor</system:String>
+    <system:String x:Key="locations.column.header.door">Door</system:String>
+    <system:String x:Key="locations.column.header.country">Country</system:String>
+    <system:String x:Key="locations.column.header.zipcode">Zipcode</system:String>
+    <system:String x:Key="locations.column.header.city">City</system:String>
+    <system:String x:Key="locations.column.header.verified">V</system:String>
 
 </ResourceDictionary>

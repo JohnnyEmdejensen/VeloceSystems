@@ -57,6 +57,7 @@ namespace VeloceCRM.Repository
             record.Street = Source.Street;
             record.Latitude = Source.Latitude;
             record.Longitude = Source.Longitude;
+            record.IsVerified = Source.IsVerified;
             ApiContext.SaveChanges();
             return record;
         }

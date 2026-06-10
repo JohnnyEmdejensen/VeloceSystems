@@ -271,5 +271,10 @@ namespace VeloceCRM.Client
         {
             App.DialogHelper.ShowCompanyDialog(new Entity.Company());
         }
+
+        private void cmdDataLocations_Click(object sender, RoutedEventArgs e)
+        {
+            App.DialogHelper.ShowLocationsDialog();
+        }
     }
 }
