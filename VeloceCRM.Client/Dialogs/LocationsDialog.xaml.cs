@@ -34,6 +34,52 @@ namespace VeloceCRM.Client.Dialogs
             FillControls();
         }
 
+        private void DoAdd()
+        {
+            _location = new Entity.Location();
+            DataContext = _location;
+            SetGui();
+            SetDetails();
+        }
+        private void DoDelete() 
+        {
+            _location = DataContext as Entity.Location;
+            if (_location != null)
+            {
+                var message = Application.Current.Resources["locations.question.delete"].ToString();
+                var title = Application.Current.Resources["locations.question.delete.title"].ToString();
+                if (MessageBox.Show("","", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    _location = App.AppShare.Repositories.LocationRepository.Delete(_location.Id);
+                    _location = null;
+                    DataContext = _location;
+                    SetDetails();
+                }
+            }
+        }
+        private void DoSave(bool CloseAfter)
+        {
+            _location = DataContext as Entity.Location;
+            if (_location != null)
+            {
+                if (_location.Id == 0)
+                {
+                    _location = App.AppShare.Repositories.LocationRepository.Create(_location);
+                }
+                else
+                {
+                    _location = App.AppShare.Repositories.LocationRepository.Update(_location);
+                }
+                DataContext = _location;
+                App.EventHelper.RaiseLocationChangedEvent();
+                SetGui();
+                SetDetails();
+            }
+            if (CloseAfter)
+            {
+                Close();
+            }
+        }
         private void SetDetails()
         {
             _location = DataContext as Entity.Location;
@@ -42,6 +88,9 @@ namespace VeloceCRM.Client.Dialogs
                 txtLatitude.Text = _location.Latitude.ToString();
                 txtLongitude.Text = _location.Longitude.ToString();
                 chkVerified.IsChecked = _location.IsVerified;
+                txtZipcode.Text = "";
+                txtCity.Text = "";
+                cboCountry.SelectedItem = null;
                 if (App.DataShare.PostalzoneCollection != null)
                 {
                     var pz = App.DataShare.PostalzoneCollection.FirstOrDefault(x => x.Id == _location.PostalzoneId);
@@ -168,22 +217,22 @@ namespace VeloceCRM.Client.Dialogs
 
         private void cmdAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            DoAdd();
         }
 
         private void cmdSave_Click(object sender, RoutedEventArgs e)
         {
-
+            DoSave(false);
         }
 
         private void cmdSaveClose_Click(object sender, RoutedEventArgs e)
         {
-
+            DoSave(true);
         }
 
         private void cmdDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            DoDelete();
         }
         private void DgLocations_SizeChanged(object sender, SizeChangedEventArgs e)
         {

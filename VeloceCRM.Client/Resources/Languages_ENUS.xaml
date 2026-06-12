@@ -85,6 +85,8 @@
     <system:String x:Key="locations.header.latitude">LATITUDE</system:String>
     <system:String x:Key="locations.header.longitude">LONGITUDE</system:String>
     <system:String x:Key="locations.header.verified">VERIFIED</system:String>
+    <system:String x:Key="locations.question.delete">Are you sure to delete this location?</system:String>
+    <system:String x:Key="locations.question.delete.title">Delete location</system:String>
 
     <system:String x:Key="locations.column.header.street">Street</system:String>
     <system:String x:Key="locations.column.header.house">House</system:String>

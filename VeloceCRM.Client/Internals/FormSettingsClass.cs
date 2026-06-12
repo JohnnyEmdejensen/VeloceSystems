@@ -13,11 +13,13 @@ namespace VeloceCRM.Client.Internals
 
         private string _folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Emdesoft Developments\Veloce\CRM\Settings";
         private Window _parent;
+        public List<FormKeyValue> KeyValues { get; set; }
         public FormSettingsClass(Window Parent) 
         {
             DirectoryInfo dir = new DirectoryInfo(_folder);
             if (!dir.Exists) dir.Create();
             _parent = Parent;
+            KeyValues = new List<FormKeyValue>();
         }
 
         public void Load()
@@ -46,6 +48,7 @@ namespace VeloceCRM.Client.Internals
                             _parent.Left = data.Left;
                             _parent.Width = data.Width;
                             _parent.Height = data.Height;
+                            this.KeyValues = data.KeyValues;
                         }
                         DialogLoaded?.Invoke(this, EventArgs.Empty);
                     }
@@ -61,6 +64,7 @@ namespace VeloceCRM.Client.Internals
                 Width = _parent.Width,
                 Height = _parent.Height,
                 IsMaxed = _parent.WindowState == WindowState.Maximized,
+                KeyValues = this.KeyValues,
             };
             var content = Newtonsoft.Json.JsonConvert.SerializeObject(data);
             using (StreamWriter sw = new StreamWriter(_folder + @"\" + _parent.Tag.ToString() + ".json"))
@@ -78,5 +82,12 @@ namespace VeloceCRM.Client.Internals
         public double Width { get; set; }
         public double Height { get; set; }
         public bool IsMaxed { get; set; }
+        public List<FormKeyValue> KeyValues { get; set; }= new List<FormKeyValue>();
+    }
+
+    public class FormKeyValue
+    {
+        public string Key { get; set; } = "";
+        public string Value { get; set; } = "";
     }
 }

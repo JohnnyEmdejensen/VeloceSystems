@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Pomelo.EntityFrameworkCore.MySql.Query.ExpressionTranslators.Internal;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -37,8 +38,80 @@ namespace VeloceCRM.Client
             App.EventHelper.ActiveCompanyChanged += EventHelper_ActiveCompanyChanged;
             _settings.Load();
             lblDate.Content = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            pageDashboard.IsSelected = true;
+            ResumeSettingValues();
         }
 
+        private void ResumeSettingValues()
+        {
+            var checkedDashboardItem = _settings.KeyValues.FirstOrDefault(x => x.Key == "CheckedDashboard");
+            var checkedCompaniesItem = _settings.KeyValues.FirstOrDefault(x => x.Key == "CheckedCompanies");
+            var checkedPersonsItem = _settings.KeyValues.FirstOrDefault(x => x.Key == "CheckedPersons");
+            if (checkedDashboardItem != null)
+            {
+                if (Convert.ToBoolean(checkedDashboardItem.Value))
+                {
+                    cmdViewDashboard.IsChecked = true;
+                    pageDashboard.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    cmdViewDashboard.IsChecked = false;
+                    pageDashboard.Visibility = Visibility.Collapsed;
+                }
+            }
+            if (checkedCompaniesItem != null)
+            {
+                if (Convert.ToBoolean(checkedCompaniesItem.Value))
+                {
+                    cmdViewCompanies.IsChecked = true;
+                    pageCompanies.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    cmdViewCompanies.IsChecked = false;
+                    pageCompanies.Visibility = Visibility.Collapsed;
+                }
+            }
+            if (checkedPersonsItem != null)
+            {
+                if (Convert.ToBoolean(checkedPersonsItem.Value))
+                {
+                    cmdViewPersons.IsChecked = true;
+                    pagePersons.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    cmdViewPersons.IsChecked = false;
+                    pagePersons.Visibility = Visibility.Collapsed;
+                }
+            }
+            pageDashboard.IsSelected = true;
+            var selectedView = _settings.KeyValues.FirstOrDefault(x => x.Key == "SelectedView");
+            if (selectedView != null)
+            {
+                if (selectedView.Value == "Companies")
+                {
+                    if (cmdViewCompanies.IsChecked.HasValue)
+                    {
+                        if (cmdViewCompanies.IsChecked.Value)
+                        {
+                            pageCompanies.IsSelected = true;
+                        }
+                    }
+                }
+                if (selectedView.Value == "Persons")
+                {
+                    if (cmdViewPersons.IsChecked.HasValue)
+                    {
+                        if (cmdViewPersons.IsChecked.Value)
+                        {
+                            pagePersons.IsSelected = true;
+                        }
+                    }
+                }
+            }
+        }
         private void ShowView()
         {
             if (cmdViewCompanies.IsChecked.HasValue)
@@ -96,6 +169,68 @@ namespace VeloceCRM.Client
 
         private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
+            var selectedViewValue = _settings.KeyValues.FirstOrDefault(x => x.Key == "SelectedView");
+            if (selectedViewValue == null)
+            {
+                selectedViewValue = new Internals.FormKeyValue();
+                selectedViewValue.Key = "SelectedView";
+                selectedViewValue.Value = "Dashboard";
+                if (pageCompanies.IsSelected)
+                    selectedViewValue.Value = "Companies";
+                if (pagePersons.IsSelected)
+                    selectedViewValue.Value = "Persons";
+                _settings.KeyValues.Add(selectedViewValue);
+            }
+            else
+            {
+                selectedViewValue.Value = "Dashboard";
+                if (pageCompanies.IsSelected)
+                    selectedViewValue.Value = "Companies";
+                if (pagePersons.IsSelected)
+                    selectedViewValue.Value = "Persons";
+            }
+            var checkedDashboardItem = _settings.KeyValues.FirstOrDefault(x => x.Key == "CheckedDashboard");
+            if (checkedDashboardItem == null)
+            {
+                checkedDashboardItem = new Internals.FormKeyValue();
+                checkedDashboardItem.Key = "CheckedDashboard";
+                if (cmdViewDashboard.IsChecked.HasValue)
+                    checkedDashboardItem.Value = cmdViewDashboard.IsChecked.Value.ToString();
+                _settings.KeyValues.Add(checkedDashboardItem);
+            }
+            else
+            {
+                if (cmdViewDashboard.IsChecked.HasValue)
+                    checkedDashboardItem.Value = cmdViewDashboard.IsChecked.Value.ToString();
+            }
+            var checkedCompaniesItem = _settings.KeyValues.FirstOrDefault(x => x.Key == "CheckedCompanies");
+            if (checkedCompaniesItem == null)
+            {
+                checkedCompaniesItem = new Internals.FormKeyValue();
+                checkedCompaniesItem.Key = "CheckedCompanies";
+                if (cmdViewCompanies.IsChecked.HasValue)
+                    checkedCompaniesItem.Value = cmdViewCompanies.IsChecked.Value.ToString();
+                _settings.KeyValues.Add(checkedCompaniesItem);
+            }
+            else
+            {
+                if (cmdViewCompanies.IsChecked.HasValue)
+                    checkedCompaniesItem.Value = cmdViewCompanies.IsChecked.Value.ToString();
+            }
+            var checkedPersonsItem = _settings.KeyValues.FirstOrDefault(x => x.Key == "CheckedPersons");
+            if (checkedPersonsItem == null)
+            {
+                checkedPersonsItem = new Internals.FormKeyValue();
+                checkedPersonsItem.Key = "CheckedPersons";
+                if (cmdViewPersons.IsChecked.HasValue)
+                    checkedPersonsItem.Value = cmdViewPersons.IsChecked.Value.ToString();
+                _settings.KeyValues.Add(checkedPersonsItem);
+            }
+            else
+            {
+                if (cmdViewPersons.IsChecked.HasValue)
+                    checkedPersonsItem.Value = cmdViewPersons.IsChecked.Value.ToString();
+            }
             _settings.Save();
         }
 
