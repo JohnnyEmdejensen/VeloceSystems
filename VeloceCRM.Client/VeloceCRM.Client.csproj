@@ -44,6 +44,10 @@
     <None Remove="Images\document_new_24.png" />
     <None Remove="Images\document_new_32.png" />
     <None Remove="Images\document_new_48.png" />
+    <None Remove="Images\earth_16.png" />
+    <None Remove="Images\earth_24.png" />
+    <None Remove="Images\earth_32.png" />
+    <None Remove="Images\earth_48.png" />
     <None Remove="Images\earth_location_16.png" />
     <None Remove="Images\earth_location_24.png" />
     <None Remove="Images\earth_location_32.png" />
@@ -73,6 +77,10 @@
     <None Remove="Images\maximize_pas.png" />
     <None Remove="Images\minimize.png" />
     <None Remove="Images\minimize_pas.png" />
+    <None Remove="Images\proff_16.png" />
+    <None Remove="Images\proff_24.png" />
+    <None Remove="Images\proff_32.png" />
+    <None Remove="Images\proff_48.png" />
     <None Remove="Images\restore.png" />
     <None Remove="Images\restore_pas.png" />
   </ItemGroup>
@@ -127,6 +135,10 @@
     <Resource Include="Images\document_new_24.png" />
     <Resource Include="Images\document_new_32.png" />
     <Resource Include="Images\document_new_48.png" />
+    <Resource Include="Images\earth_16.png" />
+    <Resource Include="Images\earth_24.png" />
+    <Resource Include="Images\earth_32.png" />
+    <Resource Include="Images\earth_48.png" />
     <Resource Include="Images\earth_location_16.png" />
     <Resource Include="Images\earth_location_24.png" />
     <Resource Include="Images\earth_location_32.png" />
@@ -156,6 +168,10 @@
     <Resource Include="Images\maximize_pas.png" />
     <Resource Include="Images\minimize.png" />
     <Resource Include="Images\minimize_pas.png" />
+    <Resource Include="Images\proff_16.png" />
+    <Resource Include="Images\proff_24.png" />
+    <Resource Include="Images\proff_32.png" />
+    <Resource Include="Images\proff_48.png" />
     <Resource Include="Images\restore.png" />
     <Resource Include="Images\restore_pas.png" />
   </ItemGroup>

@@ -4,11 +4,15 @@
 
     <system:String x:Key="desktop.header.title">Veloce CRM Systems</system:String>
     <system:String x:Key="desktop.header.home">HOME</system:String>
-    <system:String x:Key="desktop.home.header.creations">HOME</system:String>
+    <system:String x:Key="desktop.home.header.creations">Creations</system:String>
+    <system:String x:Key="desktop.home.header.actions">Actions</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew">Create new</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.company">Company</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.person">Person</system:String>
     <system:String x:Key="desktop.home.creations.header.company">Create company</system:String>
+    <system:String x:Key="desktop.home.actions.header.location">Location</system:String>
+    <system:String x:Key="desktop.home.actions.header.website">Website</system:String>
+    <system:String x:Key="desktop.home.actions.header.proff">Proff</system:String>
 
     <system:String x:Key="desktop.home.header.views">Views</system:String>
     <system:String x:Key="desktop.home.views.header.dashboard">View Dashboard</system:String>

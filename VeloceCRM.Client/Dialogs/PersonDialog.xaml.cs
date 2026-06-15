@@ -91,6 +91,7 @@ namespace VeloceCRM.Client.Dialogs
                 DataContext = _person;
                 SetGui();
                 ShowDetail();
+                App.EventHelper.RaisePersonChangedEvent();
             }
 
             if (CloseAfter)

@@ -1,4 +1,5 @@
 ﻿using Pomelo.EntityFrameworkCore.MySql.Query.ExpressionTranslators.Internal;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -64,6 +65,14 @@ namespace VeloceCRM.Client
                         Fullname = person.Fullname,
                         CompanyId = person.CompanyId,
                     };
+                    if (App.DataShare.CompanyCollection != null)
+                    {
+                        var company = App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == person.CompanyId);
+                        if (company != null)
+                        {
+                            view.Company = company.Name;
+                        }
+                    }
                     if (App.DataShare.LocationCollection != null)
                     {
                         var location = App.DataShare.LocationCollection.FirstOrDefault(x => x.Id == person.LocationId);
@@ -451,6 +460,28 @@ namespace VeloceCRM.Client
             {
                 App.AppShare.ActiveCompany =App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == item.Id);
                 App.EventHelper.RaiseActiveCompanyChangedEvent();
+                if (App.AppShare.ActiveCompany != null)
+                {
+                    cmdActionWebsite.IsEnabled = false;
+                    cmdActionLocation.IsEnabled = false;
+                    cmdActionProff.IsEnabled = false;
+                    if (!string.IsNullOrEmpty( App.AppShare.ActiveCompany.Website))
+                    {
+                        cmdActionWebsite.IsEnabled = true;
+                    }
+                    if (App.DataShare.LocationCollection != null)
+                    {
+                        var location = App.DataShare.LocationCollection.FirstOrDefault(x => x.Id == App.AppShare.ActiveCompany.LocationId);
+                        if (location != null)
+                        {
+                            cmdActionLocation.IsEnabled = true;
+                        }
+                    }
+                    if (!string.IsNullOrEmpty(App.AppShare.ActiveCompany.Taxnumber))
+                    {
+                        cmdActionProff.IsEnabled = true;
+                    }
+                }
             }
         }
 
@@ -511,6 +542,34 @@ namespace VeloceCRM.Client
             {
                 App.DialogHelper.ShowPersonDialog(App.DataShare.PersonCollection.FirstOrDefault(x => x.Id == item.Id));
             }
+        }
+
+        private void cmdActionLocation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmdActionWebsite_Click(object sender, RoutedEventArgs e)
+        {
+            //https://www.demai.tech/
+            if (App.AppShare.ActiveCompany == null) return;
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = App.AppShare.ActiveCompany.Website,
+                UseShellExecute = true
+            });
+
+        }
+
+        private void cmdActionProff_Click(object sender, RoutedEventArgs e)
+        {
+            //https://www.proff.dk/branches%C3%B8g?q=42514241
+            if (App.AppShare.ActiveCompany == null) return;
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.proff.dk/branches%C3%B8g?q=" + App.AppShare.ActiveCompany.Taxnumber,
+                UseShellExecute = true
+            });
         }
     }
 }

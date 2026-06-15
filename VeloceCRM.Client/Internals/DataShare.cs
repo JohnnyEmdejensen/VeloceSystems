@@ -26,6 +26,7 @@ namespace VeloceCRM.Client.Internals
             App.EventHelper.CountryChanged += EventHelper_CountryChanged;
             App.EventHelper.PostalzoneChanged += EventHelper_PostalzoneChanged;
             App.EventHelper.LocationChanged += EventHelper_LocationChanged;
+            App.EventHelper.PersonChanged += EventHelper_PersonChanged;
         }
 
 
@@ -125,6 +126,10 @@ namespace VeloceCRM.Client.Internals
         private void EventHelper_LocationChanged(object sender, EventArgs e)
         {
             GetLocations();
+        }
+        private void EventHelper_PersonChanged(object sender, EventArgs e)
+        {
+            GetPersons();
         }
 
         private void EventHelper_PostalzoneChanged(object sender, EventArgs e)
