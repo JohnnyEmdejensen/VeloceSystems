@@ -19,7 +19,12 @@ namespace VeloceCRM.Client.Internals
         public event DefaultHandler? CountryChanged;
         public event DefaultHandler? PostalzoneChanged;
         public event DefaultHandler? LocationChanged;
+        public event DefaultHandler? ActivePersonChanged;
 
+        public void RaiseActivePersonChangedEvent()
+        {
+            ActivePersonChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseLocationChangedEvent()
         {
             LocationChanged?.Invoke(this, EventArgs.Empty);

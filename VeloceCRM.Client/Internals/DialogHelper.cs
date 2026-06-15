@@ -6,6 +6,21 @@ namespace VeloceCRM.Client.Internals
 {
     public class DialogHelper
     {
+        public void ShowPersonDialog(Entity.Person? Person)
+        {
+            if (Person != null && Person.Id == 0)
+            {
+                if (App.AppShare.ActiveCompany != null)
+                {
+                    Person.CompanyId = App.AppShare.ActiveCompany.Id;
+                }
+            }
+            Dialogs.PersonDialog frm = new Dialogs.PersonDialog
+            {
+                DataContext = Person,
+            };
+            frm.Show();
+        }
         public void ShowLocationsDialog()
         {
             Dialogs.LocationsDialog frm = new Dialogs.LocationsDialog

@@ -7,6 +7,7 @@
     <system:String x:Key="desktop.home.header.creations">HOME</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew">Create new</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.company">Company</system:String>
+    <system:String x:Key="desktop.home.creations.header.createnew.person">Person</system:String>
     <system:String x:Key="desktop.home.creations.header.company">Create company</system:String>
 
     <system:String x:Key="desktop.home.header.views">Views</system:String>
@@ -96,5 +97,25 @@
     <system:String x:Key="locations.column.header.zipcode">Zipcode</system:String>
     <system:String x:Key="locations.column.header.city">City</system:String>
     <system:String x:Key="locations.column.header.verified">V</system:String>
+
+    <system:String x:Key="person.page.header.person">Person</system:String>
+    <system:String x:Key="person.page.header.firstname">FIRSTNAME</system:String>
+    <system:String x:Key="person.page.header.middlename">MIDDLENAME</system:String>
+    <system:String x:Key="person.page.header.surname">SURNAME</system:String>
+    <system:String x:Key="person.page.header.initials">INITIALS</system:String>
+    <system:String x:Key="person.page.header.address">ADDRESS</system:String>
+    <system:String x:Key="person.page.header.zipcode">ZIPCODE</system:String>
+    <system:String x:Key="person.page.header.city">CITY</system:String>
+    <system:String x:Key="person.page.header.country">COUNTRY</system:String>
+    <system:String x:Key="person.page.header.phone">PHONE</system:String>
+    <system:String x:Key="person.page.header.mobile">MOBILE</system:String>
+    <system:String x:Key="person.page.header.email">EMAIL</system:String>
+    <system:String x:Key="person.page.header.company">COMPANY</system:String>
+    <system:String x:Key="person.page.header.street">STREET</system:String>
+    <system:String x:Key="person.page.header.house">HOUSE</system:String>
+    <system:String x:Key="person.page.header.floor">FLOOR</system:String>
+    <system:String x:Key="person.page.header.door">DOOR</system:String>
+    <system:String x:Key="person.question.delete">Are you sure to delete this person?</system:String>
+    <system:String x:Key="person.question.delete.title">Delete person</system:String>
 
 </ResourceDictionary>

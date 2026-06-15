@@ -35,13 +35,78 @@ namespace VeloceCRM.Client
             dgCompanies.SizeChanged += DgCompanies_SizeChanged;
             dgRelationPersons.SizeChanged += DgRelationPersons_SizeChanged;
             App.EventHelper.CompanyCollectionChanged += EventHelper_CompanyCollectionChanged;
+            App.EventHelper.PersonCollectionChanged += EventHelper_PersonCollectionChanged;
             App.EventHelper.ActiveCompanyChanged += EventHelper_ActiveCompanyChanged;
+            App.EventHelper.ActivePersonChanged += EventHelper_ActivePersonChanged;
             _settings.Load();
             lblDate.Content = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
             pageDashboard.IsSelected = true;
             ResumeSettingValues();
         }
 
+        private void FillPersonControl()
+        {
+            List<Models.PersonView> list = new List<Models.PersonView>();
+            if (App.DataShare.PersonCollection != null)
+            {
+                foreach (var person in App.DataShare.PersonCollection)
+                {
+                    person.SetFullName();
+                    Models.PersonView view = new Models.PersonView
+                    {
+                        Id = person.Id,
+                        Firstname = person.Firstname,
+                        Middlename = person.Middlename,
+                        Surname = person.Surname,
+                        Phone = person.Phone,
+                        Mobile = person.Mobile,
+                        Email = person.Email,
+                        Fullname = person.Fullname,
+                        CompanyId = person.CompanyId,
+                    };
+                    if (App.DataShare.LocationCollection != null)
+                    {
+                        var location = App.DataShare.LocationCollection.FirstOrDefault(x => x.Id == person.LocationId);
+                        if (location != null)
+                        {
+                            location.SetAddress();
+                            view.Address = location.Address;
+                            if (App.DataShare.PostalzoneCollection != null)
+                            {
+                                var pz = App.DataShare.PostalzoneCollection.FirstOrDefault(x => x.Id == location.PostalzoneId);
+                                if (pz != null)
+                                {
+                                    view.Zipcode = pz.Zipcode;
+                                    view.City = pz.City;
+                                    if (App.DataShare.CountryCollection != null)
+                                    {
+                                        var ctry = App.DataShare.CountryCollection.FirstOrDefault(x => x.Id == pz.CountryId);
+                                        if (ctry != null)
+                                        {
+                                            view.Country = ctry.Name;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (App.AppShare.ActiveCompany != null)
+                    {
+                        if (App.AppShare.ActiveCompany.Id == view.CompanyId)
+                        {
+                            list.Add(view);
+                        }
+                    }
+                    else
+                    {
+                        list.Add(view);
+                    }
+                }
+            }
+            dgRelationPersons.BeginInit();
+            dgRelationPersons.ItemsSource = list;
+            dgRelationPersons.EndInit();
+        }
         private void ResumeSettingValues()
         {
             var checkedDashboardItem = _settings.KeyValues.FirstOrDefault(x => x.Key == "CheckedDashboard");
@@ -374,6 +439,10 @@ namespace VeloceCRM.Client
             dgCompanies.ItemsSource = list;
             dgCompanies.EndInit();
         }
+        private void EventHelper_PersonCollectionChanged(object sender, EventArgs e)
+        {
+            FillPersonControl();
+        }
 
         private void dgCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -399,6 +468,14 @@ namespace VeloceCRM.Client
             if (App.AppShare.ActiveCompany != null)
             {
                 lblCompany.Content = App.AppShare.ActiveCompany.Name;
+                FillPersonControl();
+            }
+        }
+        private void EventHelper_ActivePersonChanged(object sender, EventArgs e)
+        {
+            if (App.AppShare.ActivePerson != null)
+            {
+                lblPerson.Content = App.AppShare.ActivePerson.Fullname;
             }
         }
 
@@ -410,6 +487,30 @@ namespace VeloceCRM.Client
         private void cmdDataLocations_Click(object sender, RoutedEventArgs e)
         {
             App.DialogHelper.ShowLocationsDialog();
+        }
+
+        private void mnuNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+            App.DialogHelper.ShowPersonDialog(new Entity.Person());
+        }
+
+        private void dgRelationPersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = dgRelationPersons.SelectedItem as Models.PersonView;
+            if (item != null && App.DataShare.PersonCollection != null)
+            {
+                App.AppShare.ActivePerson = App.DataShare.PersonCollection.FirstOrDefault(x => x.Id == item.Id);                
+                App.EventHelper.RaiseActivePersonChangedEvent();
+            }
+        }
+
+        private void dgRelationPersons_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = dgRelationPersons.SelectedItem as Models.PersonView;
+            if (item != null && App.DataShare.PersonCollection != null)
+            {
+                App.DialogHelper.ShowPersonDialog(App.DataShare.PersonCollection.FirstOrDefault(x => x.Id == item.Id));
+            }
         }
     }
 }

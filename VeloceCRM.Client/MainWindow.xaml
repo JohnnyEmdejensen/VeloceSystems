@@ -39,6 +39,7 @@
                     <RibbonGroup Header="{DynamicResource desktop.home.header.creations}">
                         <RibbonMenuButton x:Name="cmdCreateNew" Label="{DynamicResource desktop.home.creations.header.createnew}" LargeImageSource="/Images/document_new_32.png" SmallImageSource="/Images/document_new_16.png">
                             <RibbonMenuItem Header="{DynamicResource desktop.home.creations.header.createnew.company}" ImageSource="/Images/factory_new_16.png" ></RibbonMenuItem>
+                            <RibbonMenuItem x:Name="mnuNewPerson" Click="mnuNewPerson_Click" Header="{DynamicResource desktop.home.creations.header.createnew.person}" ImageSource="/Images/businessmen_new_16.png" ></RibbonMenuItem>
                         </RibbonMenuButton>
                         <RibbonButton x:Name="cmdNewCompany" Click="cmdNewCompany_Click" Label="{DynamicResource desktop.home.creations.header.company}" LargeImageSource="/Images/factory_new_32.png" SmallImageSource="/Images/factory_new_16.png"></RibbonButton>
                     </RibbonGroup>
@@ -220,7 +221,7 @@
                                         
                                     </StackPanel>
                                     <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}"></Label>
-                                    <DataGrid Grid.Row="3" x:Name="dgRelationPersons">
+                                    <DataGrid Grid.Row="3" x:Name="dgRelationPersons" SelectionChanged="dgRelationPersons_SelectionChanged" MouseDoubleClick="dgRelationPersons_MouseDoubleClick">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
                                             <DataGridTextColumn Header="{DynamicResource desktop.relations.persons.header.name}" Binding="{Binding Fullname}"></DataGridTextColumn>
@@ -249,13 +250,17 @@
                 <Label Width="8"></Label>
                 <Label x:Name="lblDate" Content="01-01-2000 12:00"></Label>
                 <Label Width="8"></Label>
-                <Label x:Name="lblUserHeader" Content="User:"></Label>
+                <Label x:Name="lblUserHeader" Content="User: "></Label>
                 <Label Width="4"></Label>
                 <Label x:Name="lblUser" FontWeight="Black"></Label>
                 <Label Width="8"></Label>
-                <Label x:Name="lblCompanyHeader" Content="Company:"></Label>
+                <Label x:Name="lblCompanyHeader" Content="Company: "></Label>
                 <Label Width="4"></Label>
                 <Label x:Name="lblCompany" FontWeight="Black"></Label>
+                <Label Width="8"></Label>
+                <Label x:Name="lblPersonHeader" Content="Person: "></Label>
+                <Label Width="4"></Label>
+                <Label x:Name="lblPerson" FontWeight="Black"></Label>
                 <Label Width="8"></Label>
             </StackPanel>
         </Grid>
