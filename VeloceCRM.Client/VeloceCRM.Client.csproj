@@ -60,6 +60,10 @@
     <None Remove="Images\factory_new_32.png" />
     <None Remove="Images\factory_view_32.png" />
     <None Remove="Images\factory_view_48.png" />
+    <None Remove="Images\folder_16.png" />
+    <None Remove="Images\folder_24.png" />
+    <None Remove="Images\folder_32.png" />
+    <None Remove="Images\folder_48.png" />
     <None Remove="Images\gauge_16.png" />
     <None Remove="Images\gauge_24.png" />
     <None Remove="Images\gauge_32.png" />
@@ -77,6 +81,10 @@
     <None Remove="Images\maximize_pas.png" />
     <None Remove="Images\minimize.png" />
     <None Remove="Images\minimize_pas.png" />
+    <None Remove="Images\paste_16.png" />
+    <None Remove="Images\paste_24.png" />
+    <None Remove="Images\paste_32.png" />
+    <None Remove="Images\paste_48.png" />
     <None Remove="Images\proff_16.png" />
     <None Remove="Images\proff_24.png" />
     <None Remove="Images\proff_32.png" />
@@ -151,6 +159,10 @@
     <Resource Include="Images\factory_new_32.png" />
     <Resource Include="Images\factory_view_32.png" />
     <Resource Include="Images\factory_view_48.png" />
+    <Resource Include="Images\folder_16.png" />
+    <Resource Include="Images\folder_24.png" />
+    <Resource Include="Images\folder_32.png" />
+    <Resource Include="Images\folder_48.png" />
     <Resource Include="Images\gauge_16.png" />
     <Resource Include="Images\gauge_24.png" />
     <Resource Include="Images\gauge_32.png" />
@@ -168,6 +180,10 @@
     <Resource Include="Images\maximize_pas.png" />
     <Resource Include="Images\minimize.png" />
     <Resource Include="Images\minimize_pas.png" />
+    <Resource Include="Images\paste_16.png" />
+    <Resource Include="Images\paste_24.png" />
+    <Resource Include="Images\paste_32.png" />
+    <Resource Include="Images\paste_48.png" />
     <Resource Include="Images\proff_16.png" />
     <Resource Include="Images\proff_24.png" />
     <Resource Include="Images\proff_32.png" />

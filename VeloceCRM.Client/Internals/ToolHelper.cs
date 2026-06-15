@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Windows.Media.Imaging;
 
 namespace VeloceCRM.Client.Internals
 {
@@ -59,6 +61,24 @@ namespace VeloceCRM.Client.Internals
                 }
             }
             return result;
+        }
+        public byte[] ConvertImageToByteArray(BitmapImage? Image)
+        {
+            MemoryStream memoryStream = new MemoryStream();
+            PngBitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(Image));
+            encoder.Save(memoryStream);
+            return memoryStream.ToArray();
+        }
+        public BitmapImage ConvertByteArrayToBitmapImage(Byte[] bytes)
+        {
+            var stream = new MemoryStream(bytes);
+            stream.Seek(0, SeekOrigin.Begin);
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.EndInit();
+            return image;
         }
     }
 }

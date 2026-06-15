@@ -279,7 +279,56 @@
                                         <Label Style="{StaticResource HeaderLabel}" Content="{DynamicResource person.page.header.company}"></Label>
                                         <ComboBox Grid.Row="1" x:Name="cboCompany" SelectedValue="{Binding Path=CompanyId}"></ComboBox>
                                     </Grid>
+                                    <Grid Grid.Row="3">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="16"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label Style="{StaticResource HeaderLabelClickAble}" x:Name="lblTitle" MouseLeftButtonDown="lblTitle_MouseLeftButtonDown" Content="{DynamicResource person.page.header.title}"></Label>
+                                        <ComboBox Grid.Row="1" x:Name="cboTitle" SelectedValue="{Binding Path=TitleId}"></ComboBox>
+                                    </Grid>
                                 </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="{DynamicResource person.page.header.image}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="cmdPasteImage" Click="cmdPasteImage_Click" Width="24" Height="24" ToolTip="{DynamicResource person.tooltip.paste}" Style="{StaticResource ToolbarButton}">
+                                        <Image Source="/Images/paste_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="4"></Label>
+                                    <Button x:Name="cmdFolder" Click="cmdFolder_Click" Width="24" Height="24" ToolTip="{DynamicResource person.tooltip.load}" Style="{StaticResource ToolbarButton}">
+                                        <Image Source="/Images/folder_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                </StackPanel>
+                                <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}" ></Label>
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="8"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="8"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition Height="8"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image x:Name="imgPerson" Grid.Column="1" Grid.Row="1"></Image>
+                                </Grid>
+                                <Label Grid.Row="4" Background="{DynamicResource dialog.bordercolor}" ></Label>
+                                <StackPanel Grid.Row="5">
+
+                                </StackPanel>
                             </Grid>
                         </TabItem>
                     </TabControl>

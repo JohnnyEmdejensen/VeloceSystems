@@ -28,6 +28,7 @@ namespace VeloceCRM.Data
             base.OnModelCreating(modelBuilder);
         }
 
+        public DbSet<Entity.Title> Titles { get; set; } 
         public DbSet<Entity.Person> Persons { get; set; }
         public DbSet<Entity.Company> Companies { get; set; }
         public DbSet<Entity.Postalzone> Postalzones { get; set; }

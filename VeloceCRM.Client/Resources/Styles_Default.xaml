@@ -17,6 +17,19 @@
         <Setter Property="Padding" Value="8 0"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
     </Style>
+    <Style TargetType="{x:Type Label}" x:Key="HeaderLabelClickAble">
+        <Setter Property="Padding" Value="0"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="FontWeight" Value="Black"></Setter>
+        <Setter Property="Padding" Value="8 0"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"></Setter>
+                <Setter Property="Foreground" Value="#FF708090"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <Style TargetType="{x:Type GridSplitter}">
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>

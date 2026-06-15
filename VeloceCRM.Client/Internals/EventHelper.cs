@@ -21,7 +21,17 @@ namespace VeloceCRM.Client.Internals
         public event DefaultHandler? LocationChanged;
         public event DefaultHandler? ActivePersonChanged;
         public event DefaultHandler? PersonChanged;
+        public event DefaultHandler? TitleCollectionChanged;
+        public event DefaultHandler? TitleChanged;
 
+        public void RaiseTitleChangedEvent()
+        {
+            TitleChanged?.Invoke(this, EventArgs.Empty);
+        }
+        public void RaiseTitleCollectionChangedEvent()
+        {
+            TitleCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaisePersonChangedEvent()
         {
             PersonChanged?.Invoke(this, EventArgs.Empty);

@@ -14,6 +14,7 @@ namespace VeloceCRM.Client.Internals
         public List<Entity.User>? UserCollection { get; set; }
         public List<Entity.Company>? CompanyCollection { get; set; }
         public List<Entity.Person>? PersonCollection { get; set; }
+        public List<Entity.Title>? TitleCollection { get; set; }
 
         public DataShare() 
         { 
@@ -27,6 +28,7 @@ namespace VeloceCRM.Client.Internals
             App.EventHelper.PostalzoneChanged += EventHelper_PostalzoneChanged;
             App.EventHelper.LocationChanged += EventHelper_LocationChanged;
             App.EventHelper.PersonChanged += EventHelper_PersonChanged;
+            App.EventHelper.TitleChanged += EventHelper_TitleChanged;
         }
 
 
@@ -37,12 +39,25 @@ namespace VeloceCRM.Client.Internals
             GetCountries();
             GetPostalzones();
             GetLocations();
+            GetTitles();
             GetUsers();
             GetCompanies();
             GetPersons();
             Mouse.OverrideCursor = c;
         }
 
+        private void GetTitles()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            var data = App.AppShare.Repositories.TitleRepository.GetAll();
+            if (data != null)
+            {
+                TitleCollection = data.OrderBy(x => x.Text).ToList();
+                App.EventHelper.RaiseTitleCollectionChangedEvent();
+            }
+            Mouse.OverrideCursor = c;
+        }
         private void GetPersons()
         {
             var c = Mouse.OverrideCursor;
@@ -130,6 +145,10 @@ namespace VeloceCRM.Client.Internals
         private void EventHelper_PersonChanged(object sender, EventArgs e)
         {
             GetPersons();
+        }
+        private void EventHelper_TitleChanged(object sender, EventArgs e)
+        {
+            GetTitles();
         }
 
         private void EventHelper_PostalzoneChanged(object sender, EventArgs e)

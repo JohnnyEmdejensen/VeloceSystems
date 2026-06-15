@@ -103,6 +103,9 @@
     <system:String x:Key="locations.column.header.verified">V</system:String>
 
     <system:String x:Key="person.page.header.person">Person</system:String>
+    <system:String x:Key="person.page.header.image">Image</system:String>
+    <system:String x:Key="person.tooltip.paste">Paste image</system:String>
+    <system:String x:Key="person.tooltip.load">Load image</system:String>
     <system:String x:Key="person.page.header.firstname">FIRSTNAME</system:String>
     <system:String x:Key="person.page.header.middlename">MIDDLENAME</system:String>
     <system:String x:Key="person.page.header.surname">SURNAME</system:String>
@@ -115,11 +118,19 @@
     <system:String x:Key="person.page.header.mobile">MOBILE</system:String>
     <system:String x:Key="person.page.header.email">EMAIL</system:String>
     <system:String x:Key="person.page.header.company">COMPANY</system:String>
+    <system:String x:Key="person.page.header.title">TITLE</system:String>
     <system:String x:Key="person.page.header.street">STREET</system:String>
     <system:String x:Key="person.page.header.house">HOUSE</system:String>
     <system:String x:Key="person.page.header.floor">FLOOR</system:String>
     <system:String x:Key="person.page.header.door">DOOR</system:String>
     <system:String x:Key="person.question.delete">Are you sure to delete this person?</system:String>
     <system:String x:Key="person.question.delete.title">Delete person</system:String>
+
+    <system:String x:Key="title.header.title">Title</system:String>
+    <system:String x:Key="title.page.header.titles">Titles</system:String>
+    <system:String x:Key="title.header.key">KEY</system:String>
+    <system:String x:Key="title.header.text">TEXT</system:String>
+    <system:String x:Key="title.column.header.key">Key</system:String>
+    <system:String x:Key="title.column.header.text">Text</system:String>
 
 </ResourceDictionary>

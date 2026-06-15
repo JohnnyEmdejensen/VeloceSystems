@@ -22,6 +22,8 @@ namespace VeloceCRM.Entity
         public string Email { get; set; } = string.Empty;
         public long CompanyId { get; set; }
         public long LocationId { get; set; }
+        public long TitleId { get; set; }
+        public byte[]? Image { get; set; }
 
         [NotMapped]
         public string? Fullname {  get; set; }

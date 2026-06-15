@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,6 +35,15 @@ namespace VeloceCRM.Client.Dialogs
         {
             FillCountryControl();
             FillCompanyControl();
+            FillTitleControl();
+        }
+        private void FillTitleControl()
+        {
+            cboTitle.BeginInit();
+            cboTitle.ItemsSource = App.DataShare.TitleCollection;
+            cboTitle.DisplayMemberPath = "Text";
+            cboTitle.SelectedValuePath = "Id";
+            cboTitle.EndInit();
         }
         private void FillCountryControl()
         {
@@ -160,6 +170,10 @@ namespace VeloceCRM.Client.Dialogs
                         }
                     }
                 }
+                if (_person.Image != null)
+                {
+                    imgPerson.Source = App.ToolHelper.ConvertByteArrayToBitmapImage(_person.Image);
+                }
             }
         }
         private void txtTitle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -235,6 +249,55 @@ namespace VeloceCRM.Client.Dialogs
             _person = DataContext as Entity.Person;
             SetGui();
             ShowDetail();
+        }
+
+        private void lblTitle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.DialogHelper.ShowTitleDialog(new());
+        }
+
+        private void cmdPasteImage_Click(object sender, RoutedEventArgs e)
+        {
+            if (Clipboard.ContainsImage())
+            {
+                var tt = Clipboard.GetImage();
+                if (tt != null)
+                {
+                    imgPerson.Source = tt;
+                    BitmapImage bitmapImage = new BitmapImage();
+                    using (MemoryStream memoryStream = new MemoryStream())
+                    {
+                        // Use a PngBitmapEncoder (or BmpBitmapEncoder for uncompressed)
+                        PngBitmapEncoder encoder = new PngBitmapEncoder();
+                        encoder.Frames.Add(BitmapFrame.Create(tt));
+                        encoder.Save(memoryStream);
+
+                        memoryStream.Position = 0;
+
+                        bitmapImage.BeginInit();
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmapImage.StreamSource = memoryStream;
+                        bitmapImage.EndInit();
+
+                        // Prevent the stream from disposing before the image is fully loaded
+                        bitmapImage.Freeze();
+                    }
+                    var data = App.ToolHelper.ConvertImageToByteArray(bitmapImage);
+                    _person = DataContext as Entity.Person;
+                    if (_person != null)
+                    {
+                        _person.Image = data;
+                        _person = App.AppShare.Repositories.PersonRepository.Update(_person);
+                        SetGui();
+                        ShowDetail();
+                    }
+                }
+            }
+        }
+
+        private void cmdFolder_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

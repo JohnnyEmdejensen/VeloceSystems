@@ -19,8 +19,10 @@ namespace VeloceCRM.Repository
             LocationRepository = new LocationRepository(Key, context);
             CompanyRepository = new CompanyRepository(Key, context);
             PersonRepository = new PersonRepository(Key, context);
+            TitleRepository = new TitleRepository(Key, context);
         }
 
+        public TitleRepository TitleRepository { get; set; }
         public PersonRepository PersonRepository { get; set; }
         public CompanyRepository CompanyRepository { get; set; }
         public LocationRepository LocationRepository { get; set; }
