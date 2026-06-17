@@ -394,7 +394,7 @@ namespace VeloceCRM.Client
         private void DgRelationPersons_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             var width = dgRelationPersons.ActualWidth;
-            dgRelationPersons.Columns[1].Width = width - 140 - 64 - 120 - 120 - 80 - 80 - 140 - 140 - 2;
+            dgRelationPersons.Columns[1].Width = width - 140 - 64 - 120 - 120 - 80 - 80 - 140 - 140 - 20;
         }
         private void EventHelper_CompanyCollectionChanged(object sender, EventArgs e)
         {

@@ -28,6 +28,8 @@ namespace VeloceCRM.Data
             base.OnModelCreating(modelBuilder);
         }
 
+        public DbSet<Entity.Followuptype> Followuptypess { get; set; }
+        public DbSet<Entity.Actitiy> Activities { get; set; }
         public DbSet<Entity.Title> Titles { get; set; } 
         public DbSet<Entity.Person> Persons { get; set; }
         public DbSet<Entity.Company> Companies { get; set; }
