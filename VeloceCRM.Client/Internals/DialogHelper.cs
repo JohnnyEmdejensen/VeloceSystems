@@ -6,6 +6,14 @@ namespace VeloceCRM.Client.Internals
 {
     public class DialogHelper
     {
+        public void ShowActivityDialog(Entity.Actitiy? Activity)
+        {
+            Dialogs.ActivityDialog frm = new Dialogs.ActivityDialog
+            {
+                DataContext = Activity,
+            };
+            frm.Show();
+        }
         public void ShowTitleDialog(Entity.Title? Title)
         {
             Dialogs.TitleDialog frm = new Dialogs.TitleDialog

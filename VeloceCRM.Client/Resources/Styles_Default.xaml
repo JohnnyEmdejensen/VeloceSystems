@@ -88,4 +88,9 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="RowHeight" Value="24"></Setter>
     </Style>
+    <Style TargetType="{x:Type RichTextBox}">
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Background" Value="{StaticResource dialog.background.lighter}"></Setter>
+    </Style>
 </ResourceDictionary>

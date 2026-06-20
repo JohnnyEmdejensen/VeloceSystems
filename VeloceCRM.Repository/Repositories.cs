@@ -21,8 +21,10 @@ namespace VeloceCRM.Repository
             PersonRepository = new PersonRepository(Key, context);
             TitleRepository = new TitleRepository(Key, context);
             FollowuptypeRepository = new FollowuptypeRepository(Key, context);
+            ActivityRepository = new ActivityRepository(Key, context);
         }
 
+        public ActivityRepository ActivityRepository { get; set; }
         public FollowuptypeRepository FollowuptypeRepository { get; set; }
         public TitleRepository TitleRepository { get; set; }
         public PersonRepository PersonRepository { get; set; }

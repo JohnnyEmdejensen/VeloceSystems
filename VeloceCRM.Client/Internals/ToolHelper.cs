@@ -9,6 +9,24 @@ namespace VeloceCRM.Client.Internals
 {
     public class ToolHelper
     {
+        public long ConvertDateTimeToLong(DateTime date)
+        {
+            long result = 0;
+            result = Convert.ToInt64(string.Format("{0:0000}{1:00}{2:00}{3:00}{4:00}", date.Year, date.Month, date.Day, date.Hour, date.Minute));
+            return result;
+        }
+        public string ConvertLongDateToString(long date)
+        {
+            string result = "";
+            result = date.ToString().Substring(6, 2) + "-" + date.ToString().Substring(4, 2) + "-" + date.ToString().Substring(0, 4);
+            return result;
+        }
+        public string ConvertLongTimeToString(long date)
+        {
+            string result = "";
+            result = date.ToString().Substring(8, 2) + ":" + date.ToString().Substring(10, 2);
+            return result;
+        }
         public Entity.Location? ParseLocation(string Street, string House, string Floor, string Door, string Zipcode, string City, string Country)
         {
             Entity.Location? result = null;

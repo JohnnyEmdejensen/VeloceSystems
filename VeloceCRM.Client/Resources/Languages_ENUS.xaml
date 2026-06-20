@@ -9,6 +9,9 @@
     <system:String x:Key="desktop.home.creations.header.createnew">Create new</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.company">Company</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.person">Person</system:String>
+    <system:String x:Key="desktop.home.creations.header.createnew.task">Task</system:String>
+    <system:String x:Key="desktop.home.creations.header.createnew.phone">Phone</system:String>
+    <system:String x:Key="desktop.home.creations.header.createnew.meeting">Meeting</system:String>
     <system:String x:Key="desktop.home.creations.header.company">Create company</system:String>
     <system:String x:Key="desktop.home.actions.header.location">Location</system:String>
     <system:String x:Key="desktop.home.actions.header.website">Website</system:String>
@@ -132,5 +135,25 @@
     <system:String x:Key="title.header.text">TEXT</system:String>
     <system:String x:Key="title.column.header.key">Key</system:String>
     <system:String x:Key="title.column.header.text">Text</system:String>
+
+    <system:String x:Key="activity.header.titel">Activity</system:String>
+    <system:String x:Key="activity.page.header.reason">Reason</system:String>
+    <system:String x:Key="activity.page.header.conclution">Conclution</system:String>
+    <system:String x:Key="activity.header.activitytype">ACTIVITYTYPE</system:String>
+    <system:String x:Key="activity.header.task">Task</system:String>
+    <system:String x:Key="activity.header.phone">Phone</system:String>
+    <system:String x:Key="activity.header.meeting">Meeting</system:String>
+    <system:String x:Key="activity.header.starts">STARTS</system:String>
+    <system:String x:Key="activity.header.ends">ENDS</system:String>
+    <system:String x:Key="activity.header.subject">SUBJECT</system:String>
+    <system:String x:Key="activity.header.followuptype">FOLLOWUPTYPE</system:String>
+    <system:String x:Key="activity.header.company">COMPANY</system:String>
+    <system:String x:Key="activity.header.person">PERSON</system:String>
+    <system:String x:Key="activity.header.salesperson">SALESPERSON</system:String>
+    <system:String x:Key="activity.header.took">TOOK IN MINUTES</system:String>
+    <system:String x:Key="activity.header.billed">BILLED MINUTES</system:String>
+    <system:String x:Key="activity.header.completed">COMPLETED</system:String>
+    <system:String x:Key="activity.information.data.invalid">Your activity is invalid, activity can't be saved.</system:String>
+    <system:String x:Key="activity.information.data.invalid.title">Activity invalid</system:String>
 
 </ResourceDictionary>

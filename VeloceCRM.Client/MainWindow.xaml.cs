@@ -571,5 +571,50 @@ namespace VeloceCRM.Client
                 UseShellExecute = true
             });
         }
+
+        private void mnuNewTask_Click(object sender, RoutedEventArgs e)
+        {
+            Entity.Actitiy activity = new Entity.Actitiy();
+            activity.ActivityType = 0;
+            if (App.AppShare.ActiveCompany != null)
+                activity.CompanyId = App.AppShare.ActiveCompany.Id;
+            if (App.AppShare.ActivePerson != null)
+                activity.PersonId = App.AppShare.ActivePerson.Id;
+            if (App.AppShare.ActiveUser != null)
+                activity.SalespersonId = App.AppShare.ActiveUser.Id;
+            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
+            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now.AddHours(1));
+            App.DialogHelper.ShowActivityDialog(activity);
+        }
+
+        private void mnuNewPhone_Click(object sender, RoutedEventArgs e)
+        {
+            Entity.Actitiy activity = new Entity.Actitiy();
+            activity.ActivityType = 1;
+            if (App.AppShare.ActiveCompany != null)
+                activity.CompanyId = App.AppShare.ActiveCompany.Id;
+            if (App.AppShare.ActivePerson != null)
+                activity.PersonId = App.AppShare.ActivePerson.Id;
+            if (App.AppShare.ActiveUser != null)
+                activity.SalespersonId = App.AppShare.ActiveUser.Id;
+            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
+            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now.AddMinutes(15));
+            App.DialogHelper.ShowActivityDialog(activity);
+        }
+
+        private void mnuNewMeeting_Click(object sender, RoutedEventArgs e)
+        {
+            Entity.Actitiy activity = new Entity.Actitiy();
+            activity.ActivityType = 2;
+            if (App.AppShare.ActiveCompany != null)
+                activity.CompanyId = App.AppShare.ActiveCompany.Id;
+            if (App.AppShare.ActivePerson != null)
+                activity.PersonId = App.AppShare.ActivePerson.Id;
+            if (App.AppShare.ActiveUser != null)
+                activity.SalespersonId = App.AppShare.ActiveUser.Id;
+            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
+            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now.AddHours(2));
+            App.DialogHelper.ShowActivityDialog(activity);
+        }
     }
 }

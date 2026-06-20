@@ -3,5 +3,7 @@
 
     <SolidColorBrush x:Key="dialog.background" Color="#FFDFE9F5"></SolidColorBrush>
     <SolidColorBrush x:Key="dialog.bordercolor" Color="#FFB9C9DA"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="dialog.background.lighter" Color="#FFFDFD96"></SolidColorBrush>
     
 </ResourceDictionary>
