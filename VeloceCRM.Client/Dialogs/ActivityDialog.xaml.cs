@@ -45,7 +45,6 @@ namespace VeloceCRM.Client.Dialogs
 
         private void DoDelete()
         {
-
         }
         public void DoSave(bool CloseAfter)
         {
@@ -97,6 +96,7 @@ namespace VeloceCRM.Client.Dialogs
             var c = Mouse.OverrideCursor;
             Mouse.OverrideCursor = Cursors.Wait;
             cboFollowuptype.BeginInit();
+            cboFollowuptype.ItemsSource = App.DataShare.FollowuptypeCollection;
             cboFollowuptype.DisplayMemberPath = "Text";
             cboFollowuptype.SelectedValuePath = "Id";
             cboFollowuptype.EndInit();
@@ -272,6 +272,11 @@ namespace VeloceCRM.Client.Dialogs
         private void txtEndsTime_LostFocus(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void lblFollowoupType_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.DialogHelper.ShowFollowuptypeDialog(new());
         }
     }
 }

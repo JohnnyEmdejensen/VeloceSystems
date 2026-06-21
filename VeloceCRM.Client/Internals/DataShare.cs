@@ -15,6 +15,8 @@ namespace VeloceCRM.Client.Internals
         public List<Entity.Company>? CompanyCollection { get; set; }
         public List<Entity.Person>? PersonCollection { get; set; }
         public List<Entity.Title>? TitleCollection { get; set; }
+        public List<Entity.Followuptype>? FollowuptypeCollection { get; set; }
+        public List<Entity.Actitiy>? ActitiyCollection { get; set; }
 
         public DataShare() 
         { 
@@ -29,6 +31,7 @@ namespace VeloceCRM.Client.Internals
             App.EventHelper.LocationChanged += EventHelper_LocationChanged;
             App.EventHelper.PersonChanged += EventHelper_PersonChanged;
             App.EventHelper.TitleChanged += EventHelper_TitleChanged;
+            App.EventHelper.FollowuptypeChanged += EventHelper_FollowuptypeChanged;
         }
 
 
@@ -39,10 +42,24 @@ namespace VeloceCRM.Client.Internals
             GetCountries();
             GetPostalzones();
             GetLocations();
+            GetFollowuptypes();
             GetTitles();
             GetUsers();
             GetCompanies();
             GetPersons();
+            Mouse.OverrideCursor = c;
+        }
+
+        private void GetFollowuptypes()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            var data = App.AppShare.Repositories.FollowuptypeRepository.GetAll();
+            if (data != null)
+            {
+                FollowuptypeCollection = data.OrderBy(x => x.Text).ToList();
+                App.EventHelper.RaiseFollowuptypeCollectionChangedEvent();
+            }
             Mouse.OverrideCursor = c;
         }
 
@@ -149,6 +166,10 @@ namespace VeloceCRM.Client.Internals
         private void EventHelper_TitleChanged(object sender, EventArgs e)
         {
             GetTitles();
+        }
+        private void EventHelper_FollowuptypeChanged(object sender, EventArgs e)
+        {
+            GetFollowuptypes();
         }
 
         private void EventHelper_PostalzoneChanged(object sender, EventArgs e)

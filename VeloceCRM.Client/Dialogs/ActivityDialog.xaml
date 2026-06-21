@@ -163,7 +163,7 @@
                                 <RowDefinition Height="16"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Style="{StaticResource HeaderLabelClickAble}" Content="{DynamicResource activity.header.followuptype}"></Label>
+                            <Label x:Name="lblFollowoupType" MouseLeftButtonDown="lblFollowoupType_MouseLeftButtonDown" Style="{StaticResource HeaderLabelClickAble}" Content="{DynamicResource activity.header.followuptype}"></Label>
                             <ComboBox x:Name="cboFollowuptype" SelectedValue="{Binding Path=FollowuptypeId}" Grid.Row="1"></ComboBox>
                         </Grid>
                         <Grid Grid.Row="8">
