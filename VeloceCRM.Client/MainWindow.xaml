@@ -250,6 +250,43 @@
                                     </StackPanel>
                                 </Grid>
                             </TabItem>
+                            <TabItem Header="{DynamicResource desktop.relations.activities.header.activities}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <StackPanel Grid.Row="1">
+                                        
+                                    </StackPanel>
+                                    <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <DataGrid Grid.Row="3" x:Name="dgRelationActivities" SelectionChanged="dgRelationActivities_SelectionChanged">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                            <DataGridCheckBoxColumn Width="16" Header="{DynamicResource desktop.relations.activities.header.done}" Binding="{Binding IsCompleted}"></DataGridCheckBoxColumn>
+                                            <DataGridTextColumn Width="16" Header="{DynamicResource desktop.relations.activities.header.type}" Binding="{Binding TypeStr}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="60" Header="{DynamicResource desktop.relations.activities.header.startdate}" Binding="{Binding StartDate}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="48" Header="{DynamicResource desktop.relations.activities.header.starttime}" Binding="{Binding StartTime}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="60" Header="{DynamicResource desktop.relations.activities.header.enddate}" Binding="{Binding EndDate}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="48" Header="{DynamicResource desktop.relations.activities.header.endtime}" Binding="{Binding EndTime}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.activities.header.subject}" Binding="{Binding Subject}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="160" Header="{DynamicResource desktop.relations.activities.header.followup}" Binding="{Binding Followuptype}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="160" Header="{DynamicResource desktop.relations.activities.header.company}" Binding="{Binding Company}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="160" Header="{DynamicResource desktop.relations.activities.header.person}" Binding="{Binding Person}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="160" Header="{DynamicResource desktop.relations.activities.header.salesperson}" Binding="{Binding Salesperson}"></DataGridTextColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <Label Grid.Row="4" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <StackPanel Grid.Row="5">
+                                        
+                                    </StackPanel>
+                                </Grid>
+                            </TabItem>
                         </TabControl>
                     </Grid>
                 </Grid>

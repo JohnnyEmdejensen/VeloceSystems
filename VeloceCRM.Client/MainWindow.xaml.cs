@@ -37,14 +37,79 @@ namespace VeloceCRM.Client
             dgRelationPersons.SizeChanged += DgRelationPersons_SizeChanged;
             App.EventHelper.CompanyCollectionChanged += EventHelper_CompanyCollectionChanged;
             App.EventHelper.PersonCollectionChanged += EventHelper_PersonCollectionChanged;
+            App.EventHelper.ActivityCollectionChanged += EventHelper_ActivityCollectionChanged;
             App.EventHelper.ActiveCompanyChanged += EventHelper_ActiveCompanyChanged;
             App.EventHelper.ActivePersonChanged += EventHelper_ActivePersonChanged;
+            dgRelationActivities.SizeChanged += DgRelationActivities_SizeChanged;
             _settings.Load();
             lblDate.Content = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
             pageDashboard.IsSelected = true;
             ResumeSettingValues();
         }
 
+        private void FillActivityControl()
+        {
+            List<Models.ActivityView> list = new List<Models.ActivityView>();
+            if (App.DataShare.ActitiyCollection != null)
+            {
+                foreach (var activity in App.DataShare.ActitiyCollection)
+                {
+                    Models.ActivityView view = new Models.ActivityView
+                    {
+                        Id = activity.Id,
+                        StartDate = App.ToolHelper.ConvertLongDateToString(activity.Starts),
+                        StartTime = App.ToolHelper.ConvertLongTimeToString(activity.Starts),
+                        EndDate = App.ToolHelper.ConvertLongDateToString(activity.Ends),
+                        EndTime = App.ToolHelper.ConvertLongTimeToString(activity.Ends),
+                        Subject = activity.Subject,
+                        IsCompleted = activity.IsCompleted,
+                        Reason = activity.Reason,
+                        Conclution = activity.Conclution,
+                        TookMinutes = activity.TookMinutes,
+                        BilledMinutes = activity.BilledMinutes,
+                        TypeStr = "T"
+                    };
+                    if (activity.ActivityType == 1) view.TypeStr = "P";
+                    if (activity.ActivityType == 2) view.TypeStr = "M";
+                    if (App.DataShare.CompanyCollection != null)
+                    {
+                        var company = App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == activity.CompanyId);
+                        if (company != null)
+                            view.Company = company.Name;
+                    }
+                    if (App.DataShare.PersonCollection != null)
+                    {
+                        var person = App.DataShare.PersonCollection.FirstOrDefault(x => x.Id == activity.PersonId);
+                        if(person != null)
+                        {
+                            person.SetFullName();
+                            view.Person = person.Fullname;
+                        }
+                    }
+                    if (App.DataShare.UserCollection != null)
+                    {
+                        var salesperson = App.DataShare.UserCollection.FirstOrDefault(x => x.Id == activity.SalespersonId);
+                        if (salesperson != null)
+                        {
+                            salesperson.SetFullName();
+                            view.Salesperson = salesperson.Fullname ?? "";
+                        }
+                    }
+                    if (App.DataShare.FollowuptypeCollection != null)
+                    {
+                        var followup = App.DataShare.FollowuptypeCollection.FirstOrDefault(x => x.Id == activity.FollowuptypeId);
+                        if (followup != null)
+                        {
+                            view.Followuptype = followup.Text;
+                        }
+                    }
+                    list.Add(view);
+                }
+                dgRelationActivities.BeginInit();
+                dgRelationActivities.ItemsSource = list;
+                dgRelationActivities.EndInit();
+            }
+        }
         private void FillPersonControl()
         {
             List<Models.PersonView> list = new List<Models.PersonView>();
@@ -448,6 +513,12 @@ namespace VeloceCRM.Client
             dgCompanies.ItemsSource = list;
             dgCompanies.EndInit();
         }
+
+        private void EventHelper_ActivityCollectionChanged(object sender, EventArgs e)
+        {
+            FillActivityControl();
+        }
+
         private void EventHelper_PersonCollectionChanged(object sender, EventArgs e)
         {
             FillPersonControl();
@@ -615,6 +686,16 @@ namespace VeloceCRM.Client
             activity.Starts = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
             activity.Ends = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now.AddHours(2));
             App.DialogHelper.ShowActivityDialog(activity);
+        }
+
+        private void dgRelationActivities_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void DgRelationActivities_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var width = dgRelationActivities.ActualWidth;
+            dgRelationActivities.Columns[7].Width = width - 16 - 16 - 60 - 48 - 60 - 48 - 160 - 160 - 160 - 160-16;
         }
     }
 }

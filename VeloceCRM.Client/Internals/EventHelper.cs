@@ -25,7 +25,17 @@ namespace VeloceCRM.Client.Internals
         public event DefaultHandler? TitleChanged;
         public event DefaultHandler? FollowuptypeCollectionChanged;
         public event DefaultHandler? FollowuptypeChanged;
+        public event DefaultHandler? ActivityCollectionChanged;
+        public event DefaultHandler? ActivityChanged;
 
+        public void RaiseActivityChangedEvent()
+        {
+            ActivityChanged?.Invoke(this, EventArgs.Empty);
+        }
+        public void RaiseActivityCollectionChangedEvent()
+        {
+            ActivityCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseFollowuptypeChangedEvent()
         {
             FollowuptypeChanged?.Invoke(this, EventArgs.Empty);

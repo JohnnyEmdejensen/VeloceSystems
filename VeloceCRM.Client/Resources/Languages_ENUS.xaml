@@ -55,6 +55,19 @@
     <system:String x:Key="desktop.relations.persons.header.email">Email</system:String>
     <system:String x:Key="desktop.relations.persons.header.company">Company</system:String>
 
+    <system:String x:Key="desktop.relations.activities.header.activities">Activities</system:String>
+    <system:String x:Key="desktop.relations.activities.header.done">Done</system:String>
+    <system:String x:Key="desktop.relations.activities.header.startdate">Startdate</system:String>
+    <system:String x:Key="desktop.relations.activities.header.type">Type</system:String>
+    <system:String x:Key="desktop.relations.activities.header.starttime">Starttime</system:String>
+    <system:String x:Key="desktop.relations.activities.header.enddate">Enddate</system:String>
+    <system:String x:Key="desktop.relations.activities.header.endtime">Endtime</system:String>
+    <system:String x:Key="desktop.relations.activities.header.subject">Subject</system:String>
+    <system:String x:Key="desktop.relations.activities.header.followup">Followup</system:String>
+    <system:String x:Key="desktop.relations.activities.header.company">Company</system:String>
+    <system:String x:Key="desktop.relations.activities.header.person">Person</system:String>
+    <system:String x:Key="desktop.relations.activities.header.salesperson">Salesperson</system:String>
+
     <system:String x:Key="desktop.header.settings">Settings</system:String>
     <system:String x:Key="desktop.settings.data.header.locations">Locations</system:String>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Windows.Input;
 
@@ -47,9 +48,28 @@ namespace VeloceCRM.Client.Internals
             GetUsers();
             GetCompanies();
             GetPersons();
+            GetActivities();
             Mouse.OverrideCursor = c;
         }
 
+        private void GetActivities()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            var data = App.AppShare.Repositories.ActivityRepository.GetAll();
+            if (data != null)
+            {
+                App.DataShare.ActitiyCollection = new List<Entity.Actitiy>();
+                var futures = data.Where(x => x.Starts > App.ToolHelper.ConvertDateTimeToLong(DateTime.Now)).OrderBy(x => x.Starts).ToList();
+                var others = data.Where(x => x.Starts <= App.ToolHelper.ConvertDateTimeToLong(DateTime.Now)).OrderByDescending((x) => x.Starts).ToList();
+                if (futures != null)
+                    App.DataShare.ActitiyCollection.AddRange(futures);
+                if (others != null)
+                    App.DataShare.ActitiyCollection.AddRange(others);
+                App.EventHelper.RaiseActivityCollectionChangedEvent();
+            }
+            Mouse.OverrideCursor = c;
+        }
         private void GetFollowuptypes()
         {
             var c = Mouse.OverrideCursor;
