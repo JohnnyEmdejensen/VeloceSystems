@@ -45,6 +45,7 @@ namespace VeloceCRM.Repository
             record.Phone    = Source.Phone;
             record.Surname = Source.Surname;
             record.TitleId = Source.TitleId;
+            record.Initials = Source.Initials;
             record.Image = Source.Image;    
             ApiContext.SaveChanges();
             return record;

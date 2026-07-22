@@ -103,7 +103,17 @@ namespace VeloceCRM.Client
                             view.Followuptype = followup.Text;
                         }
                     }
-                    list.Add(view);
+                    if (App.AppShare.ActiveCompany != null)
+                    {
+                        if (activity.CompanyId == App.AppShare.ActiveCompany.Id)
+                        {
+                            list.Add(view);
+                        }
+                    }
+                    else
+                    {
+                        list.Add(view);
+                    }
                 }
                 dgRelationActivities.BeginInit();
                 dgRelationActivities.ItemsSource = list;
@@ -569,8 +579,12 @@ namespace VeloceCRM.Client
         {
             if (App.AppShare.ActiveCompany != null)
             {
+                var c = Mouse.OverrideCursor;
+                Mouse.OverrideCursor = Cursors.Wait;
                 lblCompany.Content = App.AppShare.ActiveCompany.Name;
                 FillPersonControl();
+                FillActivityControl();
+                Mouse.OverrideCursor = c;
             }
         }
         private void EventHelper_ActivePersonChanged(object sender, EventArgs e)
@@ -617,7 +631,23 @@ namespace VeloceCRM.Client
 
         private void cmdActionLocation_Click(object sender, RoutedEventArgs e)
         {
-
+            var item = dgCompanies.SelectedItem as Models.CompanyView;
+            if (item == null || App.DataShare.CompanyCollection == null || App.DataShare.LocationCollection == null) return;
+            var company = App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == item.Id);
+            if (company == null) return;
+            var location = App.DataShare.LocationCollection.FirstOrDefault(x => x.Id == company.LocationId);
+            if (location == null || App.DataShare.PostalzoneCollection == null) return;
+            var postzone = App.DataShare.PostalzoneCollection.FirstOrDefault(x => x.Id == location.PostalzoneId);
+            if (postzone == null || App.DataShare.CountryCollection == null) return;
+            var country = App.DataShare.CountryCollection.FirstOrDefault(x => x.Id == postzone.CountryId);
+            if (country == null) return;
+            // https://www.google.com/maps/place/Stenhusvej+53,+4300+Holb%C3%A6k/@55.7016788,11.6700185,17z/data=!3m1!4b1!4m6!3m5!1s0x46527e8e5e91e3fd:0x76935299063f229d!8m2!3d55.7016788!4d11.6725934!16s%2Fg%2F11crttdcrm?entry=ttu&g_ep=EgoyMDI2MDcxOS4wIKXMDSoASAFQAw%3D%3D
+            var url = "https://www.google.com/maps/place/"+ location.Street + "+" + location.House + "+" + postzone.Zipcode + "+" + postzone.City;
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true,
+            });
         }
 
         private void cmdActionWebsite_Click(object sender, RoutedEventArgs e)

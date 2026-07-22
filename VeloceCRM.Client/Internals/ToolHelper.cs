@@ -98,5 +98,67 @@ namespace VeloceCRM.Client.Internals
             image.EndInit();
             return image;
         }
+        public DateTime ConvertLongDateToDateTime(long Value)
+        {
+            DateTime result = DateTime.Now;
+            var tmp = Value.ToString();
+            var year = tmp.Substring(0, 4);
+            var month = tmp.Substring(4, 2);
+            var day = tmp.Substring(6, 2);
+            var hour = tmp.Substring(8, 2);
+            var minute = tmp.Substring(10, 2);
+
+            return result;
+        }
+        public void SendAppointmentRequest(long Starts, long Ends, string Subject, string Reason, Entity.Company Company, Entity.Person? Person, Entity.User Salesperson)
+        {
+            string organizerEmail = "organizer@yourdomain.com";
+            string organizerName = "Your Name";
+            string attendeeEmail = Company.Email;
+            string subject = Subject;
+            string location = "Teams/Zoom Meeting";
+            string description = "Let's review the timeline and deliverables for Q3.";
+            DateTime startTime = ConvertLongDateToDateTime(Starts);
+            DateTime endTime = ConvertLongDateToDateTime(Ends);
+            if (!string.IsNullOrEmpty(Salesperson.Email))
+            {
+                Salesperson.SetFullName();
+                organizerEmail = Salesperson.Email;
+                organizerName = Salesperson.Fullname ?? (Salesperson.Firstname + " " + Salesperson.Surname);
+            }
+            if (Person != null)
+            {
+                
+            }
+            string icsContent = GenerateIcsString(organizerEmail, organizerName, "", subject, "", Reason, startTime, endTime);
+        }
+
+        private string GenerateIcsString(string orgEmail, string orgName, string attendeeEmail, string subject, string location, string description, DateTime start, DateTime end)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("BEGIN:VCALENDAR");
+            sb.AppendLine("PRODID:-//MyCompany//AppointmentRequest//EN");
+            sb.AppendLine("VERSION:2.0");
+            sb.AppendLine("METHOD:REQUEST");
+            sb.AppendLine("BEGIN:VEVENT");
+            sb.AppendLine($"DTSTART:{start:yyyyMMddTHHmmssZ}");
+            sb.AppendLine($"DTEND:{end:yyyyMMddTHHmmssZ}");
+            sb.AppendLine($"DTSTAMP:{DateTime.UtcNow:yyyyMMddTHHmmssZ}");
+            sb.AppendLine($"ORGANIZER;CN=\"{orgName}\":MAILTO:{orgEmail}");
+            sb.AppendLine($"ATTENDEE;RSVP=TRUE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION:MAILTO:{attendeeEmail}");
+            sb.AppendLine($"UID:{Guid.NewGuid()}");
+            sb.AppendLine($"SUMMARY:{subject}");
+            sb.AppendLine($"LOCATION:{location}");
+            sb.AppendLine($"DESCRIPTION:{description}");
+            sb.AppendLine("BEGIN:VALARM");
+            sb.AppendLine("TRIGGER:-PT15M");
+            sb.AppendLine("ACTION:DISPLAY");
+            sb.AppendLine("DESCRIPTION:Reminder");
+            sb.AppendLine("END:VALARM");
+            sb.AppendLine("END:VEVENT");
+            sb.AppendLine("END:VCALENDAR");
+
+            return sb.ToString();
+        }
     }
 }

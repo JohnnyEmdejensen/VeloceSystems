@@ -15,6 +15,8 @@ namespace VeloceCRM.Entity
         [MaxLength(64)]
         public string Surname { get; set; } = string.Empty;
         [MaxLength(16)]
+        public string Initials { get; set; } = string.Empty;
+        [MaxLength(16)]
         public string? Phone { get; set; }
         [MaxLength(16)]
         public string Mobile { get; set; } = string.Empty;
