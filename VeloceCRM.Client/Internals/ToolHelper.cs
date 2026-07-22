@@ -160,5 +160,19 @@ namespace VeloceCRM.Client.Internals
 
             return sb.ToString();
         }
+        public DateTime GenerateNewActivityStartTime()
+        {
+            DateTime result = DateTime.Now;
+            if (result.Hour > 15)
+            {
+                result = DateTime.Now.AddDays(1);
+                if (result.DayOfWeek == DayOfWeek.Saturday)
+                    result = result.AddDays(1);
+                if (result.DayOfWeek == DayOfWeek.Sunday)
+                    result = result.AddDays(1);
+                result = Convert.ToDateTime(result.ToShortDateString() + " 08:00:00");
+            }
+            return result;
+        }
     }
 }

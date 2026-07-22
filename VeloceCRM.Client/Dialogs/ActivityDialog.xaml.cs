@@ -69,6 +69,7 @@ namespace VeloceCRM.Client.Dialogs
                     {
                         _actitiy = App.AppShare.Repositories.ActivityRepository.Update(_actitiy);
                     }
+                    App.EventHelper.RaiseActivityChangedEvent();
                     DataContext = _actitiy;
                     SetGui();
                     ShowDetails();
@@ -210,6 +211,20 @@ namespace VeloceCRM.Client.Dialogs
                 e.Handled = true;
                 Close();
             }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
+            {
+                if (e.Key == Key.S)
+                {
+                    DoSave(false);
+                }
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift))
+            {
+                if (e.Key == Key.S)
+                {
+                    DoSave(true);
+                }
+            }
         }
 
         private void ActivityDialog_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
@@ -222,6 +237,8 @@ namespace VeloceCRM.Client.Dialogs
             _actitiy = DataContext as Entity.Actitiy;
             SetGui();
             ShowDetails();
+            txtSubject.Focus();
+            txtSubject.SelectAll();
         }
 
         private void txtTitle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

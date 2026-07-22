@@ -33,6 +33,7 @@ namespace VeloceCRM.Client.Internals
             App.EventHelper.PersonChanged += EventHelper_PersonChanged;
             App.EventHelper.TitleChanged += EventHelper_TitleChanged;
             App.EventHelper.FollowuptypeChanged += EventHelper_FollowuptypeChanged;
+            App.EventHelper.ActivityChanged += EventHelper_ActivityChanged;
         }
 
 
@@ -190,6 +191,10 @@ namespace VeloceCRM.Client.Internals
         private void EventHelper_FollowuptypeChanged(object sender, EventArgs e)
         {
             GetFollowuptypes();
+        }
+        private void EventHelper_ActivityChanged(object sender, EventArgs e)
+        {
+            GetActivities();
         }
 
         private void EventHelper_PostalzoneChanged(object sender, EventArgs e)

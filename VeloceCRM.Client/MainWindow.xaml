@@ -265,7 +265,7 @@
                                         
                                     </StackPanel>
                                     <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}"></Label>
-                                    <DataGrid Grid.Row="3" x:Name="dgRelationActivities" SelectionChanged="dgRelationActivities_SelectionChanged">
+                                    <DataGrid Grid.Row="3" x:Name="dgRelationActivities" SelectionChanged="dgRelationActivities_SelectionChanged" MouseDoubleClick="dgRelationActivities_MouseDoubleClick">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
                                             <DataGridCheckBoxColumn Width="16" Header="{DynamicResource desktop.relations.activities.header.done}" Binding="{Binding IsCompleted}"></DataGridCheckBoxColumn>

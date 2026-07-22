@@ -683,8 +683,9 @@ namespace VeloceCRM.Client
                 activity.PersonId = App.AppShare.ActivePerson.Id;
             if (App.AppShare.ActiveUser != null)
                 activity.SalespersonId = App.AppShare.ActiveUser.Id;
-            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
-            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now.AddHours(1));
+            DateTime newDate = App.ToolHelper.GenerateNewActivityStartTime();
+            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(newDate);
+            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(newDate.AddHours(1));
             App.DialogHelper.ShowActivityDialog(activity);
         }
 
@@ -698,8 +699,9 @@ namespace VeloceCRM.Client
                 activity.PersonId = App.AppShare.ActivePerson.Id;
             if (App.AppShare.ActiveUser != null)
                 activity.SalespersonId = App.AppShare.ActiveUser.Id;
-            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
-            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now.AddMinutes(15));
+            DateTime newDate = App.ToolHelper.GenerateNewActivityStartTime();
+            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(newDate);
+            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(newDate.AddMinutes(15));
             App.DialogHelper.ShowActivityDialog(activity);
         }
 
@@ -713,8 +715,9 @@ namespace VeloceCRM.Client
                 activity.PersonId = App.AppShare.ActivePerson.Id;
             if (App.AppShare.ActiveUser != null)
                 activity.SalespersonId = App.AppShare.ActiveUser.Id;
-            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
-            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now.AddHours(2));
+            DateTime newDate = App.ToolHelper.GenerateNewActivityStartTime();
+            activity.Starts = App.ToolHelper.ConvertDateTimeToLong(newDate);
+            activity.Ends = App.ToolHelper.ConvertDateTimeToLong(newDate.AddHours(2));
             App.DialogHelper.ShowActivityDialog(activity);
         }
 
@@ -726,6 +729,15 @@ namespace VeloceCRM.Client
         {
             var width = dgRelationActivities.ActualWidth;
             dgRelationActivities.Columns[7].Width = width - 16 - 16 - 60 - 48 - 60 - 48 - 160 - 160 - 160 - 160-16;
+        }
+
+        private void dgRelationActivities_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = dgRelationActivities.SelectedItem as Models.ActivityView;
+            if (item == null || App.DataShare.ActitiyCollection == null) return;
+            var activity = App.DataShare.ActitiyCollection.FirstOrDefault(x => x.Id == item.Id);
+            if (activity == null) return;
+            App.DialogHelper.ShowActivityDialog(activity);
         }
     }
 }

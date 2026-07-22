@@ -156,7 +156,7 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Label Style="{StaticResource HeaderLabel}" Content="{DynamicResource activity.header.subject}"></Label>
-                            <TextBox Grid.Row="1" Text="{Binding Path=Subject}"></TextBox>
+                            <TextBox x:Name="txtSubject" Grid.Row="1" Text="{Binding Path=Subject}"></TextBox>
                         </Grid>
                         <Grid Grid.Row="6">
                             <Grid.RowDefinitions>
