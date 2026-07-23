@@ -6,6 +6,13 @@ namespace VeloceCRM.Client.Internals
 {
     public class DialogHelper
     {
+        public void ShowAppSettingsDialog()
+        {
+            Dialogs.AppSettingsDialog frm = new Dialogs.AppSettingsDialog
+            {
+            };
+            frm.Show();
+        }
         public void ShowFollowuptypeDialog(Entity.Followuptype? Followuptype)
         {
             Dialogs.FollowuptypeDialog frm = new Dialogs.FollowuptypeDialog

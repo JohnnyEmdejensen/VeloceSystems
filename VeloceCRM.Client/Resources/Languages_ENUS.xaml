@@ -180,5 +180,14 @@
     <system:String x:Key="followuptype.column.header.days">Days</system:String>
     <system:String x:Key="followuptype.question.delete">Are you sure to delete this followuptype?</system:String>
     <system:String x:Key="followuptype.question.delete.title">Delete followuptype</system:String>
+    <system:String x:Key="appsettings.header.title">Application settings</system:String>
+
+    <system:String x:Key="appsettings.header.private.documentfolder">PRIVATE DOCUMENTFOLDER</system:String>
+    <system:String x:Key="appsettings.header.public.documentfolder">PUBLIC DOCUMENTFOLDER</system:String>
+    <system:String x:Key="appsettings.header.send.appointrquest">SEND APPOINTMENT REQUEST</system:String>
+    <system:String x:Key="appsettings.header.task">Task</system:String>
+    <system:String x:Key="appsettings.header.phone">Phone</system:String>
+    <system:String x:Key="appsettings.header.meeting">Meeting</system:String>
+
 
 </ResourceDictionary>

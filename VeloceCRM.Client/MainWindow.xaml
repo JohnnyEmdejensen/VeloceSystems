@@ -35,6 +35,13 @@
             </Grid>
             <Label Grid.Row="1" Background="{DynamicResource dialog.bordercolor}"></Label>
             <Ribbon Grid.Row="2">
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu>
+                        <RibbonApplicationMenuItem x:Name="mnuSettings" Click="mnuSettings_Click"  Header="Settings..." ImageSource="/Images/gears_32.png"></RibbonApplicationMenuItem>
+                        <RibbonSeparator></RibbonSeparator>
+                        <RibbonApplicationMenuItem x:Name="mnuExit" Click="mnuExit_Click" Header="Exit" ImageSource="/Images/exit_32.png"></RibbonApplicationMenuItem>
+                    </RibbonApplicationMenu>
+                </Ribbon.ApplicationMenu>
                 <RibbonTab Header="{DynamicResource desktop.header.home}">
                     <RibbonGroup Header="{DynamicResource desktop.home.header.creations}">
                         <RibbonMenuButton x:Name="cmdCreateNew" Label="{DynamicResource desktop.home.creations.header.createnew}" LargeImageSource="/Images/document_new_32.png" SmallImageSource="/Images/document_new_16.png">

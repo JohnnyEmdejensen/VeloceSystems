@@ -739,5 +739,15 @@ namespace VeloceCRM.Client
             if (activity == null) return;
             App.DialogHelper.ShowActivityDialog(activity);
         }
+
+        private void mnuExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void mnuSettings_Click(object sender, RoutedEventArgs e)
+        {
+            App.DialogHelper.ShowAppSettingsDialog();
+        }
     }
 }

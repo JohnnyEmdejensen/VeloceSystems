@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
@@ -172,6 +174,16 @@ namespace VeloceCRM.Client.Internals
                     result = result.AddDays(1);
                 result = Convert.ToDateTime(result.ToShortDateString() + " 08:00:00");
             }
+            return result;
+        }
+        public string PromptFolder(string Title, string root)
+        {
+            string result = "";
+            OpenFolderDialog dialog = new OpenFolderDialog();
+            dialog.Title = Title;
+            dialog.Multiselect = false;
+            dialog.ShowDialog();
+            result = dialog.FolderName;
             return result;
         }
     }

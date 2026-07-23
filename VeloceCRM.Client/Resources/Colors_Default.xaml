@@ -5,5 +5,8 @@
     <SolidColorBrush x:Key="dialog.bordercolor" Color="#FFB9C9DA"></SolidColorBrush>
 
     <SolidColorBrush x:Key="dialog.background.lighter" Color="#FFFDFD96"></SolidColorBrush>
+    <SolidColorBrush x:Key="dialog.button.accept" Color="#FF2563EB"></SolidColorBrush>
+    <SolidColorBrush x:Key="dialog.button.accept.hover" Color="#FF1D4ED8"></SolidColorBrush>
+    <SolidColorBrush x:Key="dialog.button.decline" Color="#FFC1C3D6"></SolidColorBrush>
     
 </ResourceDictionary>
