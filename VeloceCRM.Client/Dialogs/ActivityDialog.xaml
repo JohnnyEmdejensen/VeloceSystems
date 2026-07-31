@@ -215,10 +215,10 @@
                                     </StackPanel>
                                     <Label Grid.Row="1" Background="{StaticResource dialog.bordercolor}"></Label>
                                     <Grid Grid.Row="2">
-                                        <RichTextBox Grid.Row="0">
+                                        <RichTextBox Grid.Row="0" x:Name="rtbReason">
                                             <FlowDocument>
                                                 <Paragraph>
-                                                    <Run Text="{Binding Path=Reason}" FontFamily="Comic Sans MS" FontSize="14"></Run>
+                                                    <Run Text="{Binding Path=Reason}"></Run>
                                                 </Paragraph>
                                             </FlowDocument>
                                         </RichTextBox>
@@ -255,10 +255,10 @@
                                             <RowDefinition Height="1"></RowDefinition>
                                             <RowDefinition Height="100"></RowDefinition>
                                         </Grid.RowDefinitions>
-                                        <RichTextBox Grid.Row="0">
+                                        <RichTextBox Grid.Row="0" x:Name="rtbConclution">
                                             <FlowDocument>
                                                 <Paragraph>
-                                                    <Run Text="{Binding Path=Reason}"></Run>
+                                                    <Run Text="{Binding Path=Conclution}"></Run>
                                                 </Paragraph>
                                             </FlowDocument>
                                         </RichTextBox>
@@ -308,7 +308,7 @@
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <Label Style="{StaticResource HeaderLabel}" Content="{DynamicResource activity.header.completed}"></Label>
-                                                    <CheckBox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                                                    <CheckBox Grid.Row="1" IsChecked="{Binding Path=IsCompleted}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
                                                 </Grid>
                                                 <Grid Grid.Column="2">
 

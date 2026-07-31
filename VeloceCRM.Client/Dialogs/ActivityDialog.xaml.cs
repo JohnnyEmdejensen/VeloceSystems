@@ -59,6 +59,22 @@ namespace VeloceCRM.Client.Dialogs
                 }
                 else
                 {
+                    bool sendRequest = false;
+                    if (_actitiy.ActivityType == 0)
+                    {
+                        if (App.AppSettings.Settings.SendAppointmentRequestOnTasks)
+                            sendRequest = true;
+                    }
+                    if (_actitiy.ActivityType == 1)
+                    {
+                        if (App.AppSettings.Settings.SendAppointmentRequestOnPhone)
+                            sendRequest = true;
+                    }
+                    if (_actitiy.ActivityType == 2)
+                    {
+                        if (App.AppSettings.Settings.SendAppointmentRequestOnMeeting)
+                            sendRequest = true;
+                    }
                     _actitiy.Starts = App.ToolHelper.ConvertDateTimeToLong(Convert.ToDateTime(txtStartsDate.Text + " " + txtStartsTime.Text + ":00"));
                     _actitiy.Ends = App.ToolHelper.ConvertDateTimeToLong(Convert.ToDateTime(txtEndsDate.Text + " " + txtEndsTime.Text + ":00"));
                     if (_actitiy.Id == 0)
@@ -70,9 +86,17 @@ namespace VeloceCRM.Client.Dialogs
                         _actitiy = App.AppShare.Repositories.ActivityRepository.Update(_actitiy);
                     }
                     App.EventHelper.RaiseActivityChangedEvent();
-                    DataContext = _actitiy;
+                    DataContext = _actitiy;                    
                     SetGui();
                     ShowDetails();
+                    if (sendRequest && _actitiy != null && App.DataShare.CompanyCollection != null && App.DataShare.PersonCollection != null && App.DataShare.UserCollection != null)
+                    {
+                        var company = App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == _actitiy.CompanyId);
+                        var person = App.DataShare.PersonCollection.FirstOrDefault(x => x.Id == _actitiy.PersonId);
+                        var salesperson = App.DataShare.UserCollection.FirstOrDefault(x => x.Id == _actitiy.SalespersonId);
+                        if (company != null && salesperson != null)
+                            App.ToolHelper.SendAppointmentRequest(_actitiy.Starts, _actitiy.Ends, _actitiy.Subject, _actitiy.Reason, company, person, salesperson);
+                    }
                 }
             }
             if (CloseAfter)
@@ -163,6 +187,25 @@ namespace VeloceCRM.Client.Dialogs
             txtEndsDate.Text = App.ToolHelper.ConvertLongDateToString(_actitiy.Ends);
             txtEndsTime.Text = App.ToolHelper.ConvertLongTimeToString(_actitiy.Ends);
         }
+        private void CheckCompleted()
+        {
+            _actitiy = DataContext as Entity.Actitiy;
+            if (_actitiy == null || _actitiy.IsCompleted == false) return;
+            txtEndsDate.IsReadOnly = true;
+            txtEndsTime.IsReadOnly = true;
+            txtStartsDate.IsReadOnly= true;
+            txtStartsTime.IsReadOnly = true;
+            txtSubject.IsReadOnly = true;
+            radMeeting.IsEnabled = false;
+            radPhone.IsEnabled = false;
+            radTask.IsEnabled = false;
+            rtbConclution.IsReadOnly = true;
+            rtbReason.IsReadOnly = true;
+            cboCompany.IsEnabled = false;
+            cboPerson.IsEnabled = false;
+            cboFollowuptype.IsEnabled = false;
+            cboSalesperson.IsEnabled = false;
+        }
         private bool DataValidated()
         {
             bool result = true;
@@ -237,6 +280,7 @@ namespace VeloceCRM.Client.Dialogs
             _actitiy = DataContext as Entity.Actitiy;
             SetGui();
             ShowDetails();
+            CheckCompleted();
             txtSubject.Focus();
             txtSubject.SelectAll();
         }

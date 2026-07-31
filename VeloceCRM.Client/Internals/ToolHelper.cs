@@ -114,6 +114,7 @@ namespace VeloceCRM.Client.Internals
         }
         public void SendAppointmentRequest(long Starts, long Ends, string Subject, string Reason, Entity.Company Company, Entity.Person? Person, Entity.User Salesperson)
         {
+            return;
             string organizerEmail = "organizer@yourdomain.com";
             string organizerName = "Your Name";
             string attendeeEmail = Company.Email;
