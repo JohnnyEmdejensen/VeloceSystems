@@ -64,6 +64,9 @@
                         <RibbonButton x:Name="cmdActionWebsite" Click="cmdActionWebsite_Click" LargeImageSource="/Images/earth_32.png" Label="{DynamicResource desktop.home.actions.header.website}" IsEnabled="False"></RibbonButton>
                         <RibbonButton x:Name="cmdActionProff" Click="cmdActionProff_Click" LargeImageSource="/Images/proff_32.png" Label="{DynamicResource desktop.home.actions.header.proff}" IsEnabled="False"></RibbonButton>
                     </RibbonGroup>
+                    <RibbonGroup Header="{DynamicResource desktop.home.header.canvas}">
+                        <RibbonButton x:Name="cmdCanvasNewCase" Click="cmdCanvasNewCase_Click" Label="{DynamicResource desktop.home.canvas.header.newcase}" LargeImageSource="/Images/briefcase_32.png" SmallImageSource="/Images/briefcase_16.png" ToolTip="Create a new canvas case."></RibbonButton>
+                    </RibbonGroup>
                 </RibbonTab>
                 <RibbonTab Header="{DynamicResource desktop.header.settings}">
                     <RibbonGroup Header="{DynamicResource desktop.settings.header.systemdata}">

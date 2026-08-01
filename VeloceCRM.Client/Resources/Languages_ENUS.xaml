@@ -6,6 +6,7 @@
     <system:String x:Key="desktop.header.home">HOME</system:String>
     <system:String x:Key="desktop.home.header.creations">Creations</system:String>
     <system:String x:Key="desktop.home.header.actions">Actions</system:String>
+    <system:String x:Key="desktop.home.header.canvas">Canvas</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew">Create new</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.company">Company</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.person">Person</system:String>
@@ -16,6 +17,7 @@
     <system:String x:Key="desktop.home.actions.header.location">Location</system:String>
     <system:String x:Key="desktop.home.actions.header.website">Website</system:String>
     <system:String x:Key="desktop.home.actions.header.proff">Proff</system:String>
+    <system:String x:Key="desktop.home.canvas.header.newcase">New case</system:String>
 
     <system:String x:Key="desktop.home.header.views">Views</system:String>
     <system:String x:Key="desktop.home.views.header.dashboard">View Dashboard</system:String>
@@ -188,6 +190,18 @@
     <system:String x:Key="appsettings.header.task">Task</system:String>
     <system:String x:Key="appsettings.header.phone">Phone</system:String>
     <system:String x:Key="appsettings.header.meeting">Meeting</system:String>
+
+    <system:String x:Key="canvas.case.header.titel">Canvas case</system:String>
+    <system:String x:Key="canvas.case.header.name">NAME</system:String>
+    <system:String x:Key="canvas.case.header.starts">STARTS</system:String>
+    <system:String x:Key="canvas.case.header.ends">ENDS</system:String>
+    <system:String x:Key="canvas.case.header.master">MASTER</system:String>
+    <system:String x:Key="canvas.case.header.activitytype">ACTIVITY TYPE</system:String>
+    <system:String x:Key="canvas.case.header.task">Task</system:String>
+    <system:String x:Key="canvas.case.header.phone">Phone</system:String>
+    <system:String x:Key="canvas.case.header.meeting">Meeting</system:String>
+    <system:String x:Key="canvas.case.header.description">DESCRIPTION</system:String>
+    <system:String x:Key="canvas.case.page.title.participants">Participants</system:String>
 
 
 </ResourceDictionary>

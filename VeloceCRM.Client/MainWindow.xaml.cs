@@ -749,5 +749,10 @@ namespace VeloceCRM.Client
         {
             App.DialogHelper.ShowAppSettingsDialog();
         }
+
+        private void cmdCanvasNewCase_Click(object sender, RoutedEventArgs e)
+        {
+            App.DialogHelper.ShowCanvasCaseDialog(new());
+        }
     }
 }
