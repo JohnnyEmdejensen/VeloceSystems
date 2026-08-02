@@ -22,8 +22,14 @@ namespace VeloceCRM.Repository
             TitleRepository = new TitleRepository(Key, context);
             FollowuptypeRepository = new FollowuptypeRepository(Key, context);
             ActivityRepository = new ActivityRepository(Key, context);
+            CanvasCaseRepository = new CanvasCaseRepository(Key, context);
+            CanvasCaseParticipantRepository = new CanvasCaseParticipantRepository(Key, context);
+            CanvasCaseParticipantRoleRepository = new CanvasCaseParticipantRoleRepository(Key, context);
         }
 
+        public CanvasCaseParticipantRoleRepository CanvasCaseParticipantRoleRepository { get; set; }
+        public CanvasCaseParticipantRepository CanvasCaseParticipantRepository { get; set; }
+        public CanvasCaseRepository CanvasCaseRepository { get; set; }
         public ActivityRepository ActivityRepository { get; set; }
         public FollowuptypeRepository FollowuptypeRepository { get; set; }
         public TitleRepository TitleRepository { get; set; }
