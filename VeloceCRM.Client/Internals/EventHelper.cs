@@ -27,7 +27,22 @@ namespace VeloceCRM.Client.Internals
         public event DefaultHandler? FollowuptypeChanged;
         public event DefaultHandler? ActivityCollectionChanged;
         public event DefaultHandler? ActivityChanged;
+        public event DefaultHandler? CanvasCaseParticipantRoleCollectionChanged;
+        public event DefaultHandler? CanvasCaseParticipantCollectionChanged;
+        public event DefaultHandler? CanvasCaseCollectionChanged;
 
+        public void RaiseCanvasCaseCollectionChangedEvent()
+        {
+            CanvasCaseCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+        public void RaiseCanvasCaseParticipantCollectionChangedEvent()
+        {
+            CanvasCaseParticipantCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+        public void RaiseCanvasCaseParticipantRoleCollectionChangedEvent()
+        {
+            CanvasCaseParticipantRoleCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
         public void RaiseActivityChangedEvent()
         {
             ActivityChanged?.Invoke(this, EventArgs.Empty);

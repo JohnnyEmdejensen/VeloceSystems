@@ -18,10 +18,10 @@ namespace VeloceCRM.Repository
             if (ApiContext == null) return null;
             return ApiContext.CanvasCaseParticipants.FirstOrDefault(x => x.Id == Id && x.LicenseKey == LicenseKey && !x.IsDeleted);
         }
-        public List<Entity.CanvasCaseParticipant>? GetAll(long Id)
+        public List<Entity.CanvasCaseParticipant>? GetAll()
         {
             if (ApiContext == null) return null;
-            return ApiContext.CanvasCaseParticipants.Where(x => x.Id == Id && x.LicenseKey == LicenseKey && !x.IsDeleted).ToList();
+            return ApiContext.CanvasCaseParticipants.Where(x => x.LicenseKey == LicenseKey && !x.IsDeleted).ToList();
         }
         public Entity.CanvasCaseParticipant? Create(Entity.CanvasCaseParticipant? Source)
         {

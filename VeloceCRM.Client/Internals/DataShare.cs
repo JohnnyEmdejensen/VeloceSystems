@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Bson;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -18,7 +19,9 @@ namespace VeloceCRM.Client.Internals
         public List<Entity.Title>? TitleCollection { get; set; }
         public List<Entity.Followuptype>? FollowuptypeCollection { get; set; }
         public List<Entity.Actitiy>? ActitiyCollection { get; set; }
-
+        public List<Entity.CanvasCase>? CanvasCaseCollection { get; set; }
+        public List<Entity.CanvasCaseParticipant>? CanvasCaseParticipantCollection { get; set; }
+        public List<Entity.CanvasCaseParticipantRole>? CanvasCaseParticipantRolesCollection { get; set; }
         public DataShare() 
         { 
 
@@ -50,9 +53,45 @@ namespace VeloceCRM.Client.Internals
             GetCompanies();
             GetPersons();
             GetActivities();
+            GetCanvasParticipantRoles();
+            GetCanvasParticipants();
+            GetCanvasCases();
+            
             Mouse.OverrideCursor = c;
         }
 
+        public void GetCanvasCases()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            CanvasCaseCollection = App.AppShare.Repositories.CanvasCaseRepository.GetAll();
+            if (CanvasCaseCollection != null)
+                CanvasCaseCollection = CanvasCaseCollection.ToList();
+            App.EventHelper.RaiseCanvasCaseCollectionChangedEvent();
+            Mouse.OverrideCursor = c;
+        }   
+
+        public void GetCanvasParticipants()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            CanvasCaseParticipantCollection = App.AppShare.Repositories.CanvasCaseParticipantRepository.GetAll();
+            if (CanvasCaseParticipantCollection != null)
+                CanvasCaseParticipantCollection = CanvasCaseParticipantCollection.ToList();
+            App.EventHelper.RaiseCanvasCaseParticipantCollectionChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
+
+        public void GetCanvasParticipantRoles()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            CanvasCaseParticipantRolesCollection = App.AppShare.Repositories.CanvasCaseParticipantRoleRepository.GetAll();
+            if (CanvasCaseParticipantRolesCollection != null)
+                CanvasCaseParticipantRolesCollection = CanvasCaseParticipantRolesCollection.OrderBy(x => x.Text).ToList();
+            App.EventHelper.RaiseCanvasCaseParticipantRoleCollectionChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
         private void GetActivities()
         {
             var c = Mouse.OverrideCursor;
