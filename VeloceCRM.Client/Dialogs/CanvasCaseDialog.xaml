@@ -164,6 +164,69 @@
                                     <RowDefinition Height="1"></RowDefinition>
                                     <RowDefinition Height="25"></RowDefinition>
                                 </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                    <Label Width="8"></Label>
+                                    <Button x:Name="cmdAddParticipant" Click="cmdAddParticipant_Click" Width="24" Height="24" Style="{StaticResource ToolbarButton}" IsEnabled="False">
+                                        <Image Source="/Images/add_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="8"></Label>
+                                    <Button x:Name="cmdSaveParticipant" Click="cmdSaveParticipant_Click" Width="24" Height="24" Style="{StaticResource ToolbarButton}" IsEnabled="False">
+                                        <Image Source="/Images/disk_blue_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="8"></Label>
+                                    <Button x:Name="cmdSaveCloseParticipant" Click="cmdSaveCloseParticipant_Click" Width="24" Height="24" Style="{StaticResource ToolbarButton}" IsEnabled="False">
+                                        <Image Source="/Images/disk_green_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+                                    <Label Width="8"></Label>
+                                    <Button x:Name="cmdDeleteParticipant" Click="cmdDeleteParticipant_Click" Width="24" Height="24" Style="{StaticResource ToolbarButton}" IsEnabled="False">
+                                        <Image Source="/Images/delete_16.png" Width="16" Height="16"></Image>
+                                    </Button>
+
+                                </StackPanel>
+                                <Label Grid.Row="1" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                <Grid Grid.Row="2">
+                                    <DataGrid x:Name="dgParticipants">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="16" Header="T" Binding="{Binding Fullname}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource canvas.case.column.header.fullname}" Binding="{Binding Fullname}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="120" Header="{DynamicResource canvas.case.column.header.role}" Binding="{Binding Role}"></DataGridTextColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                                <Label Grid.Row="3" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                    
+                                </StackPanel>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="{DynamicResource canvas.case.page.title.companies}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition Height="25"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                    
+                                </StackPanel>
+                                <Label Grid.Row="1" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                <Grid Grid.Row="2">
+                                    <DataGrid x:Name="dgCompanies">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource canvas.case.column.header.name}" Binding="{Binding Name}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="60" Header="{DynamicResource canvas.case.column.header.phone}" Binding="{Binding Phone}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="140" Header="{DynamicResource canvas.case.column.header.email}" Binding="{Binding Email}"></DataGridTextColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Grid>
+                                <Label Grid.Row="3" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                    
+                                </StackPanel>
                             </Grid>
                         </TabItem>
                     </TabControl>

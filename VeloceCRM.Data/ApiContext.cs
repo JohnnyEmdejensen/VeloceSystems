@@ -28,6 +28,7 @@ namespace VeloceCRM.Data
             base.OnModelCreating(modelBuilder);
         }
 
+        public DbSet<Entity.CanvasCaseCompanyLink> CanvasCaseCompanyLinks { get; set; }
         public DbSet<Entity.CanvasCaseParticipant> CanvasCaseParticipants { get; set; }
         public DbSet<Entity.CanvasCaseParticipantRole> CanvasCaseParticipantRoles { get; set; }
         public DbSet<Entity.CanvasCase> CanvasCases { get; set; }

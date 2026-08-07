@@ -22,6 +22,7 @@ namespace VeloceCRM.Client.Internals
         public List<Entity.CanvasCase>? CanvasCaseCollection { get; set; }
         public List<Entity.CanvasCaseParticipant>? CanvasCaseParticipantCollection { get; set; }
         public List<Entity.CanvasCaseParticipantRole>? CanvasCaseParticipantRolesCollection { get; set; }
+        public List<Entity.CanvasCaseCompanyLink>? CanvasCaseCompanyLinkCollection { get; set; }
         public DataShare() 
         { 
 
@@ -56,10 +57,18 @@ namespace VeloceCRM.Client.Internals
             GetCanvasParticipantRoles();
             GetCanvasParticipants();
             GetCanvasCases();
-            
+            GetCanvasCaseCompanyLinks();
             Mouse.OverrideCursor = c;
         }
 
+        public void GetCanvasCaseCompanyLinks()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            CanvasCaseCompanyLinkCollection = App.AppShare.Repositories.CanvasCaseCompanyLinkRepository.GetAll();
+            App.EventHelper.RaiseCanvasCaseCompanyLinkCollectionChangedEvent();
+            Mouse.OverrideCursor = c;
+        }
         public void GetCanvasCases()
         {
             var c = Mouse.OverrideCursor;

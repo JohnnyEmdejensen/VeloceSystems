@@ -752,7 +752,12 @@ namespace VeloceCRM.Client
 
         private void cmdCanvasNewCase_Click(object sender, RoutedEventArgs e)
         {
-            App.DialogHelper.ShowCanvasCaseDialog(new());
+            Entity.CanvasCase canvasCase = new Entity.CanvasCase();
+            var newDate = App.ToolHelper.GenerateNewActivityStartTime();
+            canvasCase.Starts = App.ToolHelper.ConvertDateTimeToLong(newDate);
+            canvasCase.Ends = App.ToolHelper.ConvertDateTimeToLong(newDate.AddDays(7));
+            App.DialogHelper.ShowCanvasCaseDialog(canvasCase);
+            
         }
     }
 }

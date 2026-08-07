@@ -202,6 +202,12 @@
     <system:String x:Key="canvas.case.header.meeting">Meeting</system:String>
     <system:String x:Key="canvas.case.header.description">DESCRIPTION</system:String>
     <system:String x:Key="canvas.case.page.title.participants">Participants</system:String>
+    <system:String x:Key="canvas.case.page.title.companies">Companies</system:String>
+    <system:String x:Key="canvas.case.column.header.fullname">Full Name</system:String>
+    <system:String x:Key="canvas.case.column.header.role">Role</system:String>
+    <system:String x:Key="canvas.case.column.header.name">Name</system:String>
+    <system:String x:Key="canvas.case.column.header.phone">Phone</system:String>
+    <system:String x:Key="canvas.case.column.header.email">Email</system:String>
 
 
 </ResourceDictionary>
