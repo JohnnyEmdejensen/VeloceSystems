@@ -70,6 +70,14 @@
     <system:String x:Key="desktop.relations.activities.header.person">Person</system:String>
     <system:String x:Key="desktop.relations.activities.header.salesperson">Salesperson</system:String>
 
+    <system:String x:Key="desktop.relations.documents.header.documents">Documents</system:String>
+    <system:String x:Key="desktop.relations.documents.header.created">Created</system:String>
+    <system:String x:Key="desktop.relations.documents.header.name">Name</system:String>
+    <system:String x:Key="desktop.relations.documents.header.company">Company</system:String>
+    <system:String x:Key="desktop.relations.documents.header.person">Contactperson</system:String>
+    <system:String x:Key="desktop.relations.documents.header.salesperson">Salesperson</system:String>
+    <system:String x:Key="desktop.relations.documents.header.subject">Subject</system:String>
+
     <system:String x:Key="desktop.header.settings">Settings</system:String>
     <system:String x:Key="desktop.settings.data.header.locations">Locations</system:String>
 

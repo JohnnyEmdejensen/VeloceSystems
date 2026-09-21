@@ -26,8 +26,10 @@ namespace VeloceCRM.Repository
             CanvasCaseParticipantRepository = new CanvasCaseParticipantRepository(Key, context);
             CanvasCaseParticipantRoleRepository = new CanvasCaseParticipantRoleRepository(Key, context);
             CanvasCaseCompanyLinkRepository = new CanvasCaseCompanyLinkRepository(Key, context);
+            DocumentRepository = new DocumentRepository(Key, context);
         }
 
+        public DocumentRepository DocumentRepository { get; set; }
         public CanvasCaseCompanyLinkRepository CanvasCaseCompanyLinkRepository { get; set; }
         public CanvasCaseParticipantRoleRepository CanvasCaseParticipantRoleRepository { get; set; }
         public CanvasCaseParticipantRepository CanvasCaseParticipantRepository { get; set; }

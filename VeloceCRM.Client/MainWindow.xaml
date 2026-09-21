@@ -297,6 +297,40 @@
                                     </StackPanel>
                                 </Grid>
                             </TabItem>
+                            <TabItem Header="{DynamicResource desktop.relations.documents.header.documents}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <StackPanel Grid.Row="1">
+
+                                    </StackPanel>
+                                    <Label Grid.Row="2" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <DataGrid Grid.Row="3" x:Name="dgRelationDocuments" SelectionChanged="dgRelationDocuments_SelectionChanged" MouseDoubleClick="dgRelationDocuments_MouseDoubleClick">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Collapsed"></DataGridTextColumn>
+                                            <DataGridCheckBoxColumn Width="80" Header="{DynamicResource desktop.relations.documents.header.created}" Binding="{Binding CreatedDate}"></DataGridCheckBoxColumn>
+                                            <DataGridTextColumn Width="140" Header="{DynamicResource desktop.relations.documents.header.name}" Binding="{Binding Name}"></DataGridTextColumn>
+                                            <DataGridTextColumn Header="{DynamicResource desktop.relations.documents.header.subject}" Binding="{Binding Subject}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="160" Header="{DynamicResource desktop.relations.documents.header.company}" Binding="{Binding CompanyName}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="160" Header="{DynamicResource desktop.relations.documents.header.person}" Binding="{Binding PersonName}"></DataGridTextColumn>
+                                            <DataGridTextColumn Width="160" Header="{DynamicResource desktop.relations.documents.header.salesperson}" Binding="{Binding SalespersonName}"></DataGridTextColumn>
+
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <Label Grid.Row="4" Background="{DynamicResource dialog.bordercolor}"></Label>
+                                    <StackPanel Grid.Row="5">
+
+                                    </StackPanel>
+                                </Grid>
+
+                            </TabItem>
                         </TabControl>
                     </Grid>
                 </Grid>

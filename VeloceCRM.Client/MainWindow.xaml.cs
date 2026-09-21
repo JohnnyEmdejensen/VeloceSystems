@@ -38,15 +38,75 @@ namespace VeloceCRM.Client
             App.EventHelper.CompanyCollectionChanged += EventHelper_CompanyCollectionChanged;
             App.EventHelper.PersonCollectionChanged += EventHelper_PersonCollectionChanged;
             App.EventHelper.ActivityCollectionChanged += EventHelper_ActivityCollectionChanged;
+            App.EventHelper.DocumentCollectionChanged += EventHelper_DocumentCollectionChanged;
             App.EventHelper.ActiveCompanyChanged += EventHelper_ActiveCompanyChanged;
             App.EventHelper.ActivePersonChanged += EventHelper_ActivePersonChanged;
             dgRelationActivities.SizeChanged += DgRelationActivities_SizeChanged;
+            dgRelationDocuments.SizeChanged += DgRelationDocuments_SizeChanged;
             _settings.Load();
             lblDate.Content = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
             pageDashboard.IsSelected = true;
             ResumeSettingValues();
         }
 
+
+        private void FillDocumentControl()
+        {
+            List<Models.DocumentView> list = new List<Models.DocumentView>();
+            if (App.DataShare.DocumentCollection != null)
+            {
+                foreach (var document in App.DataShare.DocumentCollection)
+                {
+                    Models.DocumentView view = new Models.DocumentView
+                    {
+                        Id = document.Id,
+                        Name = document.Name,
+                        Subject = document.Subject,
+                        Description = document.Description,
+                        FilePath = document.FilePath,
+                        FileType = document.FileType,
+                        FileSize = document.FileSize,
+                        CreatedDate = document.CreatedDate,
+                        ModifiedDate = document.ModifiedDate,
+                        SalespersonId = document.SalespersonId,
+                        CompanyId = document.CompanyId,
+                        PersonId = document.PersonId
+                    };
+
+                    if (App.DataShare.UserCollection != null)
+                    {
+                        var salesperson = App.DataShare.UserCollection.FirstOrDefault(x => x.Id == document.SalespersonId);
+                        if (salesperson != null)
+                        {
+                            salesperson.SetFullName();
+                            view.SalespersonName = salesperson.Fullname ?? "";
+                        }
+                    }
+                    if (App.DataShare.CompanyCollection != null)
+                    {
+                        var company = App.DataShare.CompanyCollection.FirstOrDefault(x => x.Id == document.CompanyId);
+                        if (company != null)
+                        {
+                            view.CompanyName = company.Name ?? "";
+                        }
+                    }
+                    if (App.DataShare.PersonCollection != null && document.PersonId.HasValue)
+                    {
+                        var person = App.DataShare.PersonCollection.FirstOrDefault(x => x.Id == document.PersonId.Value);
+                        if (person != null)
+                        {
+                            person.SetFullName();
+                            view.PersonName = person.Fullname ?? "";
+                        }
+                    }
+
+                    list.Add(view);
+                }
+            }
+            dgRelationDocuments.BeginInit();
+            dgRelationDocuments.ItemsSource = list;
+            dgRelationDocuments.EndInit();
+        }
         private void FillActivityControl()
         {
             List<Models.ActivityView> list = new List<Models.ActivityView>();
@@ -528,6 +588,10 @@ namespace VeloceCRM.Client
         {
             FillActivityControl();
         }
+        private void EventHelper_DocumentCollectionChanged(object sender, EventArgs e)
+        {
+            FillDocumentControl();
+        }
 
         private void EventHelper_PersonCollectionChanged(object sender, EventArgs e)
         {
@@ -730,6 +794,11 @@ namespace VeloceCRM.Client
             var width = dgRelationActivities.ActualWidth;
             dgRelationActivities.Columns[7].Width = width - 16 - 16 - 60 - 48 - 60 - 48 - 160 - 160 - 160 - 160-16;
         }
+        private void DgRelationDocuments_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var width = dgRelationDocuments.ActualWidth;
+            dgRelationDocuments.Columns[3].Width = width - 80 - 140 - 160 - 160 - 160 - 8;
+        }
 
         private void dgRelationActivities_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -758,6 +827,16 @@ namespace VeloceCRM.Client
             canvasCase.Ends = App.ToolHelper.ConvertDateTimeToLong(newDate.AddDays(7));
             App.DialogHelper.ShowCanvasCaseDialog(canvasCase);
             
+        }
+
+        private void dgRelationDocuments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dgRelationDocuments_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

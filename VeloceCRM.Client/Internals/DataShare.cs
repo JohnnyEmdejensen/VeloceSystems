@@ -23,6 +23,7 @@ namespace VeloceCRM.Client.Internals
         public List<Entity.CanvasCaseParticipant>? CanvasCaseParticipantCollection { get; set; }
         public List<Entity.CanvasCaseParticipantRole>? CanvasCaseParticipantRolesCollection { get; set; }
         public List<Entity.CanvasCaseCompanyLink>? CanvasCaseCompanyLinkCollection { get; set; }
+        public List<Entity.Document>? DocumentCollection { get; set; }
         public DataShare() 
         { 
 
@@ -54,6 +55,7 @@ namespace VeloceCRM.Client.Internals
             GetCompanies();
             GetPersons();
             GetActivities();
+            GetDocuments();
             GetCanvasParticipantRoles();
             GetCanvasParticipants();
             GetCanvasCases();
@@ -117,6 +119,16 @@ namespace VeloceCRM.Client.Internals
                     App.DataShare.ActitiyCollection.AddRange(others);
                 App.EventHelper.RaiseActivityCollectionChangedEvent();
             }
+            Mouse.OverrideCursor = c;
+        }
+        private void GetDocuments()
+        {
+            var c = Mouse.OverrideCursor;
+            Mouse.OverrideCursor = Cursors.Wait;
+            DocumentCollection = App.AppShare.Repositories.DocumentRepository.GetAll();
+            if (DocumentCollection != null)
+                DocumentCollection = DocumentCollection.OrderBy(x => x.Name).ToList();
+            App.EventHelper.RaiseDocumentCollectionChangedEvent();
             Mouse.OverrideCursor = c;
         }
         private void GetFollowuptypes()
