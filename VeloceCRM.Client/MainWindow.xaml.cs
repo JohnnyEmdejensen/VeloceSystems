@@ -736,6 +736,18 @@ namespace VeloceCRM.Client
                 UseShellExecute = true
             });
         }
+        private void mnuNewDocument_Click(object sender, RoutedEventArgs e)
+        {
+            Entity.Document document = new Entity.Document();
+            document.CreatedDate = DateTime.Now;
+            if (App.AppShare.ActiveCompany != null)
+                document.CompanyId = App.AppShare.ActiveCompany.Id;
+            if (App.AppShare.ActivePerson != null)
+                document.PersonId = App.AppShare.ActivePerson.Id;
+            if (App.AppShare.ActiveUser != null)
+                document.SalespersonId = App.AppShare.ActiveUser.Id;
+            App.DialogHelper.ShowDocumentDialog(document);
+        }
 
         private void mnuNewTask_Click(object sender, RoutedEventArgs e)
         {
@@ -838,5 +850,6 @@ namespace VeloceCRM.Client
         {
 
         }
+
     }
 }

@@ -51,6 +51,8 @@
                             <RibbonMenuItem x:Name="mnuNewTask" Click="mnuNewTask_Click" Header="{DynamicResource desktop.home.creations.header.createnew.task}" ImageSource="/Images/clipboard_16.png" ></RibbonMenuItem>
                             <RibbonMenuItem x:Name="mnuNewPhone" Click="mnuNewPhone_Click" Header="{DynamicResource desktop.home.creations.header.createnew.phone}" ImageSource="/Images/telephone_16.png" ></RibbonMenuItem>
                             <RibbonMenuItem x:Name="mnuNewMeeting" Click="mnuNewMeeting_Click" Header="{DynamicResource desktop.home.creations.header.createnew.meeting}" ImageSource="/Images/calendar_16.png" ></RibbonMenuItem>
+                            <RibbonSeparator></RibbonSeparator>
+                            <RibbonMenuItem x:Name="mnuNewDocument" Click="mnuNewDocument_Click" Header="{DynamicResource desktop.home.creations.header.createnew.document}" ImageSource="/Images/document_new_16.png" ></RibbonMenuItem>
                         </RibbonMenuButton>
                         <RibbonButton x:Name="cmdNewCompany" Click="cmdNewCompany_Click" Label="{DynamicResource desktop.home.creations.header.company}" LargeImageSource="/Images/factory_new_32.png" SmallImageSource="/Images/factory_new_16.png"></RibbonButton>
                     </RibbonGroup>

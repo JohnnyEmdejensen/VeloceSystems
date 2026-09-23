@@ -6,6 +6,15 @@ namespace VeloceCRM.Client.Internals
 {
     public class DialogHelper
     {
+     
+        public void ShowDocumentDialog(Entity.Document? Document)
+        {
+            Dialogs.DocumentDialog frm = new Dialogs.DocumentDialog
+            {
+                DataContext = Document,
+            };
+            frm.Show();
+        }
         public void ShowCanvasCaseDialog(Entity.CanvasCase? CanvasCase)
         {
             Dialogs.CanvasCaseDialog frm = new Dialogs.CanvasCaseDialog

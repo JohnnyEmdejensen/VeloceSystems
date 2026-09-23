@@ -13,6 +13,7 @@
     <system:String x:Key="desktop.home.creations.header.createnew.task">Task</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.phone">Phone</system:String>
     <system:String x:Key="desktop.home.creations.header.createnew.meeting">Meeting</system:String>
+    <system:String x:Key="desktop.home.creations.header.createnew.document">Document</system:String>
     <system:String x:Key="desktop.home.creations.header.company">Create company</system:String>
     <system:String x:Key="desktop.home.actions.header.location">Location</system:String>
     <system:String x:Key="desktop.home.actions.header.website">Website</system:String>
@@ -104,6 +105,9 @@
     <system:String x:Key="company.tab.company.header.founded">FOUNDED YEAR</system:String>
     <system:String x:Key="company.question.delete">Are you sure to delete this company?</system:String>
     <system:String x:Key="company.question.delete.title">Delete company</system:String>
+
+    <system:String x:Key="document.header.titel">Document</system:String>
+
 
     <system:String x:Key="locations.header.titel">Locations</system:String>
     <system:String x:Key="locations.header.street">STREET</system:String>
@@ -216,6 +220,18 @@
     <system:String x:Key="canvas.case.column.header.name">Name</system:String>
     <system:String x:Key="canvas.case.column.header.phone">Phone</system:String>
     <system:String x:Key="canvas.case.column.header.email">Email</system:String>
+
+    <system:String x:Key="document.header.created">CREATED</system:String>
+    <system:String x:Key="document.header.updated">UPDATED</system:String>
+    <system:String x:Key="document.header.name">NAME</system:String>
+    <system:String x:Key="document.header.subject">SUBJECT</system:String>
+    <system:String x:Key="document.header.filepath">FILE PATH</system:String>
+    <system:String x:Key="document.header.description">DESCRIPTION</system:String>
+    <system:String x:Key="document.header.filetype">FILE TYPE</system:String>
+    <system:String x:Key="document.header.filesize">FILE SIZE</system:String>
+    <system:String x:Key="document.header.company">COMPANY</system:String>
+    <system:String x:Key="document.header.person">PERSON</system:String>
+    <system:String x:Key="document.header.salesperson">SALESPERSON</system:String>
 
 
 </ResourceDictionary>
