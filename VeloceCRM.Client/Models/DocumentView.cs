@@ -13,8 +13,8 @@ namespace VeloceCRM.Client.Models
         public string FilePath { get; set; } = "";
         public string FileType { get; set; } = "";
         public long? FileSize { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? ModifiedDate { get; set; }
+        public long? CreatedDate { get; set; }
+        public long? ModifiedDate { get; set; }
         public long SalespersonId { get; set; }
         public long CompanyId { get; set; }
         public long? PersonId { get; set; }

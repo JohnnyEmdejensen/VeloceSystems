@@ -142,7 +142,7 @@
                                     <ColumnDefinition Width="24"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <TextBox Grid.Row="1" Text="{Binding Path=FilePath}"></TextBox>
-                                <Button Grid.Column="2">
+                                <Button x:Name="btnFilepath" Click="btnFilepath_Click" Grid.Column="2">
                                     <Image Source="/Images/folder_24.png"></Image>
                                 </Button>
                             </Grid>

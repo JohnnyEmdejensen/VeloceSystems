@@ -739,7 +739,7 @@ namespace VeloceCRM.Client
         private void mnuNewDocument_Click(object sender, RoutedEventArgs e)
         {
             Entity.Document document = new Entity.Document();
-            document.CreatedDate = DateTime.Now;
+            document.CreatedDate = App.ToolHelper.ConvertDateTimeToLong(DateTime.Now);
             if (App.AppShare.ActiveCompany != null)
                 document.CompanyId = App.AppShare.ActiveCompany.Id;
             if (App.AppShare.ActivePerson != null)

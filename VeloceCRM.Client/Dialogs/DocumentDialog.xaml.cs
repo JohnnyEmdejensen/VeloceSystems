@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -55,6 +57,7 @@ namespace VeloceCRM.Client.Dialogs
                 }
                 DataContext = _document;
                 SetGui();
+                App.EventHelper.RaiseDocumentChangedEvent();
             }
             if (CloseAfter)
             {
@@ -139,6 +142,22 @@ namespace VeloceCRM.Client.Dialogs
                 e.Handled = true;
                 Close();
             }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
+            {
+                if (e.Key == Key.S)
+                {
+                    e.Handled = true;
+                    DoSave(false);
+                }
+            }
+            if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control) && Keyboard.Modifiers.HasFlag(ModifierKeys.Shift))
+            {
+                if (e.Key == Key.S)
+                {
+                    e.Handled = true;
+                    DoSave(true);
+                }
+            }
         }
 
         private void DocumentDialog_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
@@ -179,6 +198,44 @@ namespace VeloceCRM.Client.Dialogs
         private void cmdDelete_Click(object sender, RoutedEventArgs e)
         {
             DoDelete();
+        }
+
+        private void btnFilepath_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "All files|*.*;";
+            openFileDialog.ShowDialog();
+            if (openFileDialog.FileNames != null)
+            {
+                if (openFileDialog.FileNames.Length == 1)
+                {
+                    _document = DataContext as Entity.Document;
+                    if (_document != null)
+                    {
+                        _document.FilePath = openFileDialog.FileName;
+                        FileInfo file = new FileInfo(openFileDialog.FileName);
+                        if (file.Exists)
+                        {
+                            lblFiletype.Text = file.Extension;
+                            lblFilesize.Text = file.Length.ToString();
+                            _document.CreatedDate = App.ToolHelper.ConvertDateTimeToLong(file.CreationTime);
+                            _document.ModifiedDate = App.ToolHelper.ConvertDateTimeToLong(file.LastWriteTime);
+                            var created = App.ToolHelper.ConvertDateTimeToLong(file.CreationTime);
+                            var modified = App.ToolHelper.ConvertDateTimeToLong(file.LastWriteTime);
+                            txtCreated.Text = App.ToolHelper.ConvertLongDateToString(created);
+                            txtUpdated.Text = App.ToolHelper.ConvertLongDateToString(modified);
+                            _document.Name = file.Name;
+                        }
+                        DataContext = null;
+                        DataContext = _document;
+                        SetGui();
+                    }
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

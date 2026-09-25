@@ -39,6 +39,7 @@ namespace VeloceCRM.Client.Internals
             App.EventHelper.TitleChanged += EventHelper_TitleChanged;
             App.EventHelper.FollowuptypeChanged += EventHelper_FollowuptypeChanged;
             App.EventHelper.ActivityChanged += EventHelper_ActivityChanged;
+            App.EventHelper.DocumentChanged += EventHelper_DocumentChanged;
         }
 
 
@@ -255,6 +256,10 @@ namespace VeloceCRM.Client.Internals
         private void EventHelper_ActivityChanged(object sender, EventArgs e)
         {
             GetActivities();
+        }
+        private void EventHelper_DocumentChanged(object sender, EventArgs e)
+        {
+            GetDocuments();
         }
 
         private void EventHelper_PostalzoneChanged(object sender, EventArgs e)
