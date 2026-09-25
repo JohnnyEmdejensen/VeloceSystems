@@ -68,6 +68,7 @@ namespace VeloceCRM.Client.Dialogs
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             DoSave();
+            Close();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

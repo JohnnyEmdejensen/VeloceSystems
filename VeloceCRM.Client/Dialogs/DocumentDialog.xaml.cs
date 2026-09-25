@@ -47,6 +47,16 @@ namespace VeloceCRM.Client.Dialogs
             _document = DataContext as Entity.Document;
             if (_document != null)
             {
+                var destinationPath = App.AppSettings.Settings.PublicDocumentFolder;
+                if (_document.IsPrvate)
+                {
+                    destinationPath = App.AppSettings.Settings.PrivateDocumentFolder;
+                }
+                FileInfo file = new FileInfo(_document.FilePath);
+                if (file.Exists)
+                {
+                    App.ToolHelper.CopyFileToFolder(file, destinationPath);
+                }
                 if (_document.Id == 0)
                 {
                     _document = App.AppShare.Repositories.DocumentRepository.Create(_document);

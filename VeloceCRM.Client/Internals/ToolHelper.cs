@@ -11,6 +11,17 @@ namespace VeloceCRM.Client.Internals
 {
     public class ToolHelper
     {
+        public void CopyFileToFolder(FileInfo file, string destinationFolder)
+        {
+            if (!Directory.Exists(destinationFolder))
+            {
+                Directory.CreateDirectory(destinationFolder);
+            }
+            var destinationPath = Path.Combine(destinationFolder, file.Name);
+            FileInfo newFile = new FileInfo(destinationPath);
+            if (!newFile.Exists)
+                file.CopyTo(destinationPath, true);
+        }
         public long ConvertDateTimeToLong(DateTime date)
         {
             long result = 0;

@@ -106,12 +106,19 @@
                             <TextBox x:Name="txtUpdated" Grid.Row="1" Grid.Column="2"></TextBox>
                         </Grid>
                         <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="8"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="16"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="2" Style="{StaticResource HeaderLabel}" Content="{DynamicResource document.header.name}"></Label>
-                            <TextBox Grid.Row="1" Text="{Binding Path=Name}"></TextBox>
+                            <Label Grid.Column="0" Style="{StaticResource HeaderLabel}" Content="{DynamicResource document.header.name}"></Label>
+                            <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding Path=Name}"></TextBox>
+                            <Label Grid.Column="2" Style="{StaticResource HeaderLabel}" Content="{DynamicResource document.header.private}"></Label>
+                            <CheckBox Grid.Column="2" Grid.Row="1" IsChecked="{Binding Path=IsPrivate}" VerticalAlignment="Center"></CheckBox>
                         </Grid>
                         <Grid Grid.Row="4">
                             <Grid.RowDefinitions>

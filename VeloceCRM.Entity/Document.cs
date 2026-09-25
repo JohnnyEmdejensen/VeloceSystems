@@ -23,6 +23,7 @@ namespace VeloceCRM.Entity
         public long SalespersonId { get; set; }
         public long CompanyId { get; set; }
         public long? PersonId { get; set; }
+        public bool IsPrvate { get; set; }
 
     }
 }
