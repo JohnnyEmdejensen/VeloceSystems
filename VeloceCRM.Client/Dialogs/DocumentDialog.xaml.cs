@@ -55,7 +55,9 @@ namespace VeloceCRM.Client.Dialogs
                 FileInfo file = new FileInfo(_document.FilePath);
                 if (file.Exists)
                 {
-                    App.ToolHelper.CopyFileToFolder(file, destinationPath);
+                    string destination = "";
+                    App.ToolHelper.CopyFileToFolder(file, destinationPath, out destination);
+                    _document.FilePath = destination;
                 }
                 if (_document.Id == 0)
                 {

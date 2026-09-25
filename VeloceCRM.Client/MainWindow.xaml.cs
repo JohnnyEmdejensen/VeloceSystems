@@ -848,6 +848,7 @@ namespace VeloceCRM.Client
 
         private void dgRelationDocuments_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var doc = dgRelationDocuments.SelectedItem as Models.DocumentView;
 
         }
 
