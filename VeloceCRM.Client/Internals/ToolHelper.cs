@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -11,6 +12,18 @@ namespace VeloceCRM.Client.Internals
 {
     public class ToolHelper
     {
+        public void OpenWithDefaultProgram(string path)
+        {
+            FileInfo file = new FileInfo(path);
+            FileInfo newFile = new FileInfo( App.AppSettings.Settings.PublicDocumentFolder + "\\" + file.Name);
+            ProcessStartInfo pi = new ProcessStartInfo(newFile.FullName);
+            pi.Arguments = Path.GetFileName(newFile.FullName);
+            pi.UseShellExecute = true;
+            pi.WorkingDirectory = Path.GetDirectoryName(newFile.FullName);
+            pi.FileName = newFile.FullName;
+            pi.Verb = "OPEN";
+            Process.Start(pi);
+        }
         public void CopyFileToFolder(FileInfo file, string destinationFolder, out string Destination)
         {
             Destination = "";

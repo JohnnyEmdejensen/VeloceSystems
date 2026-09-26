@@ -849,7 +849,11 @@ namespace VeloceCRM.Client
         private void dgRelationDocuments_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var doc = dgRelationDocuments.SelectedItem as Models.DocumentView;
-
+            if (doc != null && App.DataShare.DocumentCollection != null)
+            {
+                var document = App.DataShare.DocumentCollection.FirstOrDefault(x => x.Id == doc.Id);
+                App.DialogHelper.ShowDocumentDialog(document);
+            }
         }
 
     }

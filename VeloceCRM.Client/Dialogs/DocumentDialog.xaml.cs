@@ -58,6 +58,10 @@ namespace VeloceCRM.Client.Dialogs
                     string destination = "";
                     App.ToolHelper.CopyFileToFolder(file, destinationPath, out destination);
                     _document.FilePath = destination;
+                    _document.CreatedDate = App.ToolHelper.ConvertDateTimeToLong(file.CreationTime);
+                    _document.ModifiedDate = App.ToolHelper.ConvertDateTimeToLong(file.LastWriteTime);
+                    _document.FileType = file.Extension;
+                    _document.FileSize = file.Length;
                 }
                 if (_document.Id == 0)
                 {
@@ -126,8 +130,19 @@ namespace VeloceCRM.Client.Dialogs
             cmdSave.IsEnabled = false;
             cmdSaveClose.IsEnabled = false;
             cmdDelete.IsEnabled = false;
+            cmdShow.IsEnabled = false;
             if (_document != null)
             {
+                lblFilesize.Text = _document.FileSize.ToString();
+                lblFiletype.Text = _document.FileType;
+                if (_document.ModifiedDate.HasValue)
+                {
+                    txtUpdated.Text = App.ToolHelper.ConvertLongDateToString(_document.ModifiedDate.Value);
+                }
+                if (_document.CreatedDate.HasValue)
+                {
+                    txtCreated.Text = App.ToolHelper.ConvertLongDateToString(_document.CreatedDate.Value);
+                }
                 if (_document.Id == 0)
                 {
                     cmdSave.IsEnabled = true;
@@ -139,6 +154,7 @@ namespace VeloceCRM.Client.Dialogs
                     cmdSaveClose.IsEnabled = true;
                     cmdDelete.IsEnabled = true;
                     cmdAdd.IsEnabled = true;
+                    cmdShow.IsEnabled = true;
                 }
             }
             else
@@ -247,6 +263,15 @@ namespace VeloceCRM.Client.Dialogs
                 {
 
                 }
+            }
+        }
+
+        private void cmdShow_Click(object sender, RoutedEventArgs e)
+        {
+            _document = DataContext as Entity.Document;
+            if (_document != null)
+            {
+                App.ToolHelper.OpenWithDefaultProgram(_document.FilePath);
             }
         }
     }

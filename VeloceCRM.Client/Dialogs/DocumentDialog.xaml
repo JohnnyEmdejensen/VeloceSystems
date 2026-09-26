@@ -47,6 +47,10 @@
                 <Button x:Name="cmdDelete" Click="cmdDelete_Click" Width="24" Height="24" Style="{StaticResource ToolbarButton}" IsEnabled="False">
                     <Image Source="/Images/delete_16.png" Width="16" Height="16"></Image>
                 </Button>
+                <Label Width="8"></Label>
+                <Button x:Name="cmdShow" Click="cmdShow_Click" Width="24" Height="24" Style="{StaticResource ToolbarButton}" IsEnabled="False">
+                    <Image Source="/Images/view_16.png" Width="16" Height="16"></Image>
+                </Button>
             </StackPanel>
             <Label Grid.Row="3" Background="{DynamicResource dialog.bordercolor}"></Label>
             <Grid Grid.Row="4">
