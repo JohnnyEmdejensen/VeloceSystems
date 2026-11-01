@@ -81,6 +81,7 @@
 
     <system:String x:Key="desktop.header.settings">Settings</system:String>
     <system:String x:Key="desktop.settings.data.header.locations">Locations</system:String>
+    <system:String x:Key="desktop.settings.data.header.followuptypes">Followuptypes</system:String>
 
     <system:String x:Key="login.header.titel">Authenticate</system:String>
 
@@ -166,6 +167,7 @@
     <system:String x:Key="activity.header.titel">Activity</system:String>
     <system:String x:Key="activity.page.header.reason">Reason</system:String>
     <system:String x:Key="activity.page.header.conclution">Conclution</system:String>
+    <system:String x:Key="activity.page.header.documents">Documents</system:String>
     <system:String x:Key="activity.header.activitytype">ACTIVITYTYPE</system:String>
     <system:String x:Key="activity.header.task">Task</system:String>
     <system:String x:Key="activity.header.phone">Phone</system:String>

@@ -42,7 +42,7 @@
                         <RibbonApplicationMenuItem x:Name="mnuExit" Click="mnuExit_Click" Header="Exit" ImageSource="/Images/exit_32.png"></RibbonApplicationMenuItem>
                     </RibbonApplicationMenu>
                 </Ribbon.ApplicationMenu>
-                <RibbonTab Header="{DynamicResource desktop.header.home}">
+                <RibbonTab Header="{DynamicResource desktop.header.home}" IsSelected="True">
                     <RibbonGroup Header="{DynamicResource desktop.home.header.creations}">
                         <RibbonMenuButton x:Name="cmdCreateNew" Label="{DynamicResource desktop.home.creations.header.createnew}" LargeImageSource="/Images/document_new_32.png" SmallImageSource="/Images/document_new_16.png">
                             <RibbonMenuItem Header="{DynamicResource desktop.home.creations.header.createnew.company}" ImageSource="/Images/factory_new_16.png" ></RibbonMenuItem>
@@ -73,6 +73,7 @@
                 <RibbonTab Header="{DynamicResource desktop.header.settings}">
                     <RibbonGroup Header="{DynamicResource desktop.settings.header.systemdata}">
                         <RibbonButton x:Name="cmdDataLocations" Click="cmdDataLocations_Click" Label="{DynamicResource desktop.settings.data.header.locations}" LargeImageSource="/Images/earth_location_32.png" SmallImageSource="/Images/earth_location_16.png"></RibbonButton>
+                        <RibbonButton Name="cmdDataFollowuptypes" Click="cmdDataFollowuptypes_Click" LargeImageSource="/Images/briefcase_32.png" Label="{DynamicResource desktop.settings.data.header.followuptypes}"></RibbonButton>
                     </RibbonGroup>
                 </RibbonTab>
             </Ribbon>

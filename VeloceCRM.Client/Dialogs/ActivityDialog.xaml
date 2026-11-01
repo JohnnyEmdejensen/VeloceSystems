@@ -323,6 +323,31 @@
                                 </Grid>
                             </Grid>
                         </TabItem>
+                        <TabItem Header="{DynamicResource activity.page.header.documents}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Background="{StaticResource dialog.bordercolor}"></Label>
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition Height="1"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <Label Width="8"></Label>
+                                        <Button x:Name="cmdAddDocument" Click="cmdAddDocument_Click" Width="24" Height="24" Style="{StaticResource ToolbarButton}">
+                                            <Image Source="/Images/add_16.png" Width="16" Height="16"></Image>
+                                        </Button>
+
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
                     </TabControl>
                 </Grid>
             </Grid>

@@ -44,6 +44,9 @@ namespace VeloceCRM.Data.Migrations
                     b.Property<long>("Created")
                         .HasColumnType("bigint");
 
+                    b.Property<long?>("DocumentId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("Ends")
                         .HasColumnType("bigint");
 

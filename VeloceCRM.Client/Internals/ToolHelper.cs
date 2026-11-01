@@ -12,6 +12,19 @@ namespace VeloceCRM.Client.Internals
 {
     public class ToolHelper
     {
+        public FileInfo? PromptFile(string Title, string Filter, string InitialDirectory)
+        {
+            FileInfo? result = null;
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = Title;
+            dialog.Filter = Filter;
+            dialog.InitialDirectory = InitialDirectory;
+            if (dialog.ShowDialog() == true)
+            {
+                result = new FileInfo(dialog.FileName);
+            }
+            return result;
+        }
         public void OpenWithDefaultProgram(string path)
         {
             FileInfo file = new FileInfo(path);

@@ -219,7 +219,10 @@ namespace VeloceCRM.Client.Dialogs
             }
             return result;
         }
+        private void GetDocuments()
+        {
 
+        }
         private void SetGui()
         {
             _actitiy = DataContext as Entity.Actitiy;
@@ -338,6 +341,32 @@ namespace VeloceCRM.Client.Dialogs
         private void lblFollowoupType_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             App.DialogHelper.ShowFollowuptypeDialog(new());
+        }
+
+        private void cmdAddDocument_Click(object sender, RoutedEventArgs e)
+        {
+            _actitiy = DataContext as Entity.Actitiy;
+            var file = App.ToolHelper.PromptFile("Get document", "All files (*.*)|*.*", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            if (file != null && file.Exists && _actitiy != null)
+            {
+                var document = new Entity.Document();
+                document.CompanyId = _actitiy.CompanyId;
+                document.PersonId = _actitiy.PersonId;
+                document.SalespersonId = _actitiy.SalespersonId;
+                document.Name = file.Name;
+                document.FilePath = file.FullName;
+                document.FileType = file.Extension;
+                document.FileSize = file.Length;
+                document = App.AppShare.Repositories.DocumentRepository.Create(document);
+                if (document != null)
+                {
+                    _actitiy.DocumentId = document.Id;
+                    _actitiy = App.AppShare.Repositories.ActivityRepository.Update(_actitiy);
+                    DataContext = _actitiy;
+                    SetGui();
+                    GetDocuments();
+                }
+            }
         }
     }
 }

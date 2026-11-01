@@ -856,5 +856,9 @@ namespace VeloceCRM.Client
             }
         }
 
+        private void cmdDataFollowuptypes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

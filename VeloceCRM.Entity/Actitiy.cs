@@ -22,6 +22,7 @@ namespace VeloceCRM.Entity
         public long BilledMinutes { get; set; }
         public long LastBilled { get; set; }
         public long FollowuptypeId { get; set; }
+        public long? DocumentId { get; set; }
 
     }
 }
